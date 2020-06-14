@@ -1,5 +1,5 @@
 ﻿
-namespace VerifyBunit
+namespace Obsolete
 {
     [ObsoleteEx(
         Message = @"Verify.Bunit no longer requires a base class. Instead:
