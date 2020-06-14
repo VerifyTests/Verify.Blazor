@@ -5,9 +5,8 @@
     <Version>$(Version)</Version>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="EmptyFiles" Version="2.0.3" PrivateAssets="None" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="bunit" Version="1.0.0-beta-7" />
+    <PackageReference Include="bunit.core" Version="1.0.0-beta-7" />
+    <PackageReference Include="bunit.web" Version="1.0.0-beta-7" />
     <PackageReference Include="ProjectDefaults" Version="1.0.43" PrivateAssets="All" />
     <PackageReference Include="Nullable" Version="1.2.1" PrivateAssets="All" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" Condition="$(Configuration) == 'Release'" />
