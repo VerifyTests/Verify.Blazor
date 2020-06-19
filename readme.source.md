@@ -43,7 +43,7 @@ snippet: Verify.Blazor.Tests/Samples.Component.info.verified.txt
 
 ### BeforeRender
 
-The state of the componetn can optopnal be manipulated before it is rendered.
+The state of the component can optionally be manipulated before it is rendered.
 
 This test:
 
