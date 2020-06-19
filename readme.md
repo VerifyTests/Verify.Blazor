@@ -54,13 +54,11 @@ Given the following Component:
 </div>
 
 @code {
-
     [Parameter]
     public string Title { get; set; } = "My Test Component";
-
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/TestComponent.razor#L1-L11' title='File snippet `Verify.Blazor.Tests/TestComponent.razor` was extracted from'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/TestComponent.razor' title='Navigate to start of snippet `Verify.Blazor.Tests/TestComponent.razor`'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/TestComponent.razor#L1-L9' title='File snippet `Verify.Blazor.Tests/TestComponent.razor` was extracted from'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/TestComponent.razor' title='Navigate to start of snippet `Verify.Blazor.Tests/TestComponent.razor`'>anchor</a></sup>
 <!-- endsnippet -->
 
 This test:
