@@ -35,7 +35,7 @@ Enable at startup:
 ```cs
 VerifyBlazor.Initialize();
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L20-L22' title='File snippet `enable` was extracted from'>snippet source</a> | <a href='#snippet-enable' title='Navigate to start of snippet `enable`'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L18-L20' title='File snippet `enable` was extracted from'>snippet source</a> | <a href='#snippet-enable' title='Navigate to start of snippet `enable`'>anchor</a></sup>
 <a id='snippet-enable-1'/></a>
 ```cs
 VerifyBunit.Initialize();
@@ -80,7 +80,7 @@ This test:
 <a id='snippet-componenttest'/></a>
 ```cs
 [Fact]
-public Task Component()
+public async Task Component()
 {
     var services = new ServiceCollection();
     await using var provider = services.BuildServiceProvider();
@@ -89,10 +89,10 @@ public Task Component()
     var result = new RenderedComponent<TestComponent>(testRenderer);
     await result.SetParametersAndRender(ParameterView.Empty);
     var items = result.GetMarkup();
-    return Verifier.Verify(component);
+    await Verifier.Verify(items);
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L25-L39' title='File snippet `componenttest` was extracted from'>snippet source</a> | <a href='#snippet-componenttest' title='Navigate to start of snippet `componenttest`'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L23-L37' title='File snippet `componenttest` was extracted from'>snippet source</a> | <a href='#snippet-componenttest' title='Navigate to start of snippet `componenttest`'>anchor</a></sup>
 <a id='snippet-componenttest-1'/></a>
 ```cs
 [Fact]
