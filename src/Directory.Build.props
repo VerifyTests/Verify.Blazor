@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project>
   <PropertyGroup>
-    <NoWarn>CS1591;CS0649;BL0006</NoWarn>
+    <NoWarn>CS1591;CS0649;BL0006;BL0005</NoWarn>
     <Version>5.1.0</Version>
     <AssemblyVersion>1.0.0</AssemblyVersion>
     <PackageTags>BUnit, Verify</PackageTags>
