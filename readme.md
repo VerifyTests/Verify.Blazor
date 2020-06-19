@@ -33,9 +33,14 @@ Enable at startup:
 <!-- snippet: Enable -->
 <a id='snippet-enable'/></a>
 ```cs
+VerifyBlazor.Initialize();
+```
+<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L20-L22' title='File snippet `enable` was extracted from'>snippet source</a> | <a href='#snippet-enable' title='Navigate to start of snippet `enable`'>anchor</a></sup>
+<a id='snippet-enable-1'/></a>
+```cs
 VerifyBunit.Initialize();
 ```
-<sup><a href='/src/Verify.Bunit.Tests/Samples.cs#L16-L18' title='File snippet `enable` was extracted from'>snippet source</a> | <a href='#snippet-enable' title='Navigate to start of snippet `enable`'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.Tests/Samples.cs#L16-L18' title='File snippet `enable` was extracted from'>snippet source</a> | <a href='#snippet-enable-1' title='Navigate to start of snippet `enable`'>anchor</a></sup>
 <!-- endsnippet -->
 
 Given the following Component:
@@ -53,7 +58,20 @@ Given the following Component:
     public string Title { get; set; } = "My Test Component";
 }
 ```
-<sup><a href='/src/Verify.Bunit.Tests/TestComponent.razor#L1-L9' title='File snippet `TestComponent.razor` was extracted from'>snippet source</a> | <a href='#snippet-TestComponent.razor' title='Navigate to start of snippet `TestComponent.razor`'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/TestComponent.razor#L1-L9' title='File snippet `TestComponent.razor` was extracted from'>snippet source</a> | <a href='#snippet-TestComponent.razor' title='Navigate to start of snippet `TestComponent.razor`'>anchor</a></sup>
+<a id='snippet-TestComponent.razor-1'/></a>
+```razor
+<div>
+    <h1>@Title</h1>
+    <button>MyButton</button>
+</div>
+
+@code {
+    [Parameter]
+    public string Title { get; set; } = "My Test Component";
+}
+```
+<sup><a href='/src/Verify.Bunit.Tests/TestComponent.razor#L1-L9' title='File snippet `TestComponent.razor` was extracted from'>snippet source</a> | <a href='#snippet-TestComponent.razor-1' title='Navigate to start of snippet `TestComponent.razor`'>anchor</a></sup>
 <!-- endsnippet -->
 
 This test:
@@ -64,11 +82,27 @@ This test:
 [Fact]
 public Task Component()
 {
+    var services = new ServiceCollection();
+    await using var provider = services.BuildServiceProvider();
+    var testRenderer = new TestRenderer(provider, new NullLoggerFactory());
+
+    var result = new RenderedComponent<TestComponent>(testRenderer);
+    await result.SetParametersAndRender(ParameterView.Empty);
+    var items = result.GetMarkup();
+    return Verifier.Verify(component);
+}
+```
+<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L25-L39' title='File snippet `componenttest` was extracted from'>snippet source</a> | <a href='#snippet-componenttest' title='Navigate to start of snippet `componenttest`'>anchor</a></sup>
+<a id='snippet-componenttest-1'/></a>
+```cs
+[Fact]
+public Task Component()
+{
     var component = RenderComponent<TestComponent>();
     return Verifier.Verify(component);
 }
 ```
-<sup><a href='/src/Verify.Bunit.Tests/Samples.cs#L21-L29' title='File snippet `componenttest` was extracted from'>snippet source</a> | <a href='#snippet-componenttest' title='Navigate to start of snippet `componenttest`'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.Tests/Samples.cs#L21-L29' title='File snippet `componenttest` was extracted from'>snippet source</a> | <a href='#snippet-componenttest-1' title='Navigate to start of snippet `componenttest`'>anchor</a></sup>
 <!-- endsnippet -->
 
 Will produce:
@@ -83,7 +117,15 @@ The component rendered as html `...Component.verified.html`:
     <button>MyButton</button>
 </div>
 ```
-<sup><a href='/src/Verify.Bunit.Tests/Samples.Component.verified.html#L1-L4' title='File snippet `Samples.Component.verified.html` was extracted from'>snippet source</a> | <a href='#snippet-Samples.Component.verified.html' title='Navigate to start of snippet `Samples.Component.verified.html`'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.Component.verified.html#L1-L4' title='File snippet `Samples.Component.verified.html` was extracted from'>snippet source</a> | <a href='#snippet-Samples.Component.verified.html' title='Navigate to start of snippet `Samples.Component.verified.html`'>anchor</a></sup>
+<a id='snippet-Samples.Component.verified.html-1'/></a>
+```html
+<div>
+    <h1>My Test Component</h1>
+    <button>MyButton</button>
+</div>
+```
+<sup><a href='/src/Verify.Bunit.Tests/Samples.Component.verified.html#L1-L4' title='File snippet `Samples.Component.verified.html` was extracted from'>snippet source</a> | <a href='#snippet-Samples.Component.verified.html-1' title='Navigate to start of snippet `Samples.Component.verified.html`'>anchor</a></sup>
 <!-- endsnippet -->
 
 And the current model rendered as txt `...Component.info.verified.txt`:
@@ -97,7 +139,16 @@ And the current model rendered as txt `...Component.info.verified.txt`:
   }
 }
 ```
-<sup><a href='/src/Verify.Bunit.Tests/Samples.Component.info.verified.txt#L1-L5' title='File snippet `Samples.Component.info.verified.txt` was extracted from'>snippet source</a> | <a href='#snippet-Samples.Component.info.verified.txt' title='Navigate to start of snippet `Samples.Component.info.verified.txt`'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.Component.info.verified.txt#L1-L5' title='File snippet `Samples.Component.info.verified.txt` was extracted from'>snippet source</a> | <a href='#snippet-Samples.Component.info.verified.txt' title='Navigate to start of snippet `Samples.Component.info.verified.txt`'>anchor</a></sup>
+<a id='snippet-Samples.Component.info.verified.txt-1'/></a>
+```txt
+{
+  Instance: {
+    Title: 'My Test Component'
+  }
+}
+```
+<sup><a href='/src/Verify.Bunit.Tests/Samples.Component.info.verified.txt#L1-L5' title='File snippet `Samples.Component.info.verified.txt` was extracted from'>snippet source</a> | <a href='#snippet-Samples.Component.info.verified.txt-1' title='Navigate to start of snippet `Samples.Component.info.verified.txt`'>anchor</a></sup>
 <!-- endsnippet -->
 
 
