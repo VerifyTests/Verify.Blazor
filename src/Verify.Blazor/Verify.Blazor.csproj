@@ -3,6 +3,9 @@
     <TargetFrameworks>netstandard2.1</TargetFrameworks>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\Verify.Bunit\StreamHelpers.cs" Link="StreamHelpers.cs" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="ProjectDefaults" Version="1.0.43" PrivateAssets="All" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" Condition="$(Configuration) == 'Release'" />
     <PackageReference Include="Verify" Version="5.0.4" />

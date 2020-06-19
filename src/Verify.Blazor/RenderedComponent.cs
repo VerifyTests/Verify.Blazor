@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Components;
 namespace VerifyTests.Blazor
 {
     public class RenderedComponent<TComponent>
-        where TComponent : class, IComponent
+        where TComponent : ComponentBase
     {
         TestRenderer renderer;
         ContainerComponent root;
@@ -25,10 +25,10 @@ namespace VerifyTests.Blazor
 
         public async Task SetParametersAndRender(ParameterView parameters)
         {
-            await root.RenderComponentUnderTest<TComponent>(parameters);
-            var (componentId, component) = root.FindComponentUnderTest<TComponent>();
+            await root.RenderComponentUnderTest(typeof(TComponent),parameters);
+            var (componentId, component) = root.FindComponentUnderTest();
             testComponentId = componentId;
-            Instance = component;
+            Instance = (TComponent) component;
         }
     }
 }

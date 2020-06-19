@@ -4,6 +4,18 @@
 </div>
 
 @code {
+
     [Parameter]
-    public string Title { get; set; } = "My Test Component";
+    public string Title
+    {
+        get => title;
+        set
+        {
+            title = value;
+
+            InvokeAsync(StateHasChanged);
+        }
+    }
+
+    private string title = "My Test Component";
 }
