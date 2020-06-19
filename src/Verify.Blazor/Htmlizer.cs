@@ -4,7 +4,6 @@ using System.Globalization;
 using System.Text;
 using System.Text.Encodings.Web;
 using Microsoft.AspNetCore.Components.RenderTree;
-using VerifyTests.Blazor;
 
 /// <summary>
 /// This file is based on
@@ -23,14 +22,6 @@ static class Htmlizer
     const string BLAZOR_ATTR_PREFIX = "blazor:";
     const string ELEMENT_REFERENCE_ATTR_NAME = BLAZOR_ATTR_PREFIX + "elementreference";
 
-    public static bool IsBlazorAttribute(string attributeName)
-        => attributeName.StartsWith(BLAZOR_ATTR_PREFIX, StringComparison.Ordinal);
-
-    public static string ToBlazorAttribute(string attributeName)
-    {
-        return $"{BLAZOR_ATTR_PREFIX}{attributeName}";
-    }
-
     public static string GetHtml(TestRenderer renderer, int componentId)
     {
         var frames = renderer.GetCurrentRenderTreeFrames(componentId);
@@ -39,7 +30,7 @@ static class Htmlizer
         return context.Result.ToString();
     }
 
-    private static int RenderFrames(HtmlRenderingContext context, ArrayRange<RenderTreeFrame> frames, int position, int maxElements)
+    static int RenderFrames(HtmlRenderingContext context, ArrayRange<RenderTreeFrame> frames, int position, int maxElements)
     {
         var nextPosition = position;
         var endPosition = position + maxElements;
@@ -56,7 +47,7 @@ static class Htmlizer
         return nextPosition;
     }
 
-    private static int RenderCore(
+    static int RenderCore(
         HtmlRenderingContext context,
         ArrayRange<RenderTreeFrame> frames,
         int position)
@@ -246,7 +237,7 @@ static class Htmlizer
         return position + maxElements;
     }
 
-    private class HtmlRenderingContext
+    class HtmlRenderingContext
     {
         public TestRenderer Renderer { get; }
 

@@ -5,48 +5,48 @@ Source File: /readme.source.md
 To change this file edit the source file and then run MarkdownSnippets.
 -->
 
-# <img src="/src/icon.png" height="30px"> Verify.Bunit
+# <img src="/src/icon.png" height="30px"> Verify.Blazor
 
-[![Build status](https://ci.appveyor.com/api/projects/status/18lflc71pchw565r?svg=true)](https://ci.appveyor.com/project/SimonCropp/Verify-Bunit)
-[![NuGet Status](https://img.shields.io/nuget/v/Verify.Bunit.svg)](https://www.nuget.org/packages/Verify.Bunit/)
+[![Build status](https://ci.appveyor.com/api/projects/status/spyere4ubpl1tca8?svg=true)](https://ci.appveyor.com/project/SimonCropp/Verify-Blazor)
+[![NuGet Status](https://img.shields.io/nuget/v/Verify.Bunit.svg?label=Verify.Bunit)](https://www.nuget.org/packages/Verify.Bunit/)
+[![NuGet Status](https://img.shields.io/nuget/v/Verify.Blazor.svg?label=Verify.Blazor)](https://www.nuget.org/packages/Verify.Blazor/)
 
-Support for rendering a [Blazor Component](https://docs.microsoft.com/en-us/aspnet/core/blazor/#components) to a verified file via [bunit](https://bunit.egilhansen.com).
+Support for rendering a [Blazor Component](https://docs.microsoft.com/en-us/aspnet/core/blazor/#components) to a verified file via [bunit](https://bunit.egilhansen.com) or via raw Blazor rendering.
 
-Support is available via a [Tidelift Subscription](https://tidelift.com/subscription/pkg/nuget-verify.bunit?utm_source=nuget-verify.bunit&utm_medium=referral&utm_campaign=enterprise).
+Support is available via a [Tidelift Subscription](https://tidelift.com/subscription/pkg/nuget-verify?utm_source=nuget-verify&utm_medium=referral&utm_campaign=enterprise).
 
 <!-- toc -->
 ## Contents
 
-  * [Usage](#usage)
+  * [NuGet packages](#nuget-packages)
+  * [Verify.Blazor Usage](#verifyblazor-usage)
+    * [BeforeRender](#beforerender)
+  * [Verify.Bunit Usage](#verifybunit-usage)
   * [Security contact information](#security-contact-information)<!-- endtoc -->
 
 
-## NuGet package
+## NuGet packages
 
-https://nuget.org/packages/Verify.Bunit/
+ * https://nuget.org/packages/Verify.Bunit/
+ * https://nuget.org/packages/Verify.Blazor/
 
 
-## Usage
+## Verify.Blazor Usage
 
 Enable at startup:
 
-<!-- snippet: Enable -->
-<a id='snippet-enable'/></a>
+<!-- snippet: BlazorEnable -->
+<a id='snippet-blazorenable'/></a>
 ```cs
 VerifyBlazor.Initialize();
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L15-L17' title='File snippet `enable` was extracted from'>snippet source</a> | <a href='#snippet-enable' title='Navigate to start of snippet `enable`'>anchor</a></sup>
-<a id='snippet-enable-1'/></a>
-```cs
-VerifyBunit.Initialize();
-```
-<sup><a href='/src/Verify.Bunit.Tests/Samples.cs#L16-L18' title='File snippet `enable` was extracted from'>snippet source</a> | <a href='#snippet-enable-1' title='Navigate to start of snippet `enable`'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L15-L17' title='File snippet `blazorenable` was extracted from'>snippet source</a> | <a href='#snippet-blazorenable' title='Navigate to start of snippet `blazorenable`'>anchor</a></sup>
 <!-- endsnippet -->
 
 Given the following Component:
 
-<!-- snippet: TestComponent.razor -->
-<a id='snippet-TestComponent.razor'/></a>
+<!-- snippet: Verify.Blazor.Tests/TestComponent.razor -->
+<a id='snippet-Verify.Blazor.Tests/TestComponent.razor'/></a>
 ```razor
 <div>
     <h1>@Title</h1>
@@ -56,22 +56,121 @@ Given the following Component:
 @code {
 
     [Parameter]
-    public string Title
-    {
-        get => title;
-        set
-        {
-            title = value;
+    public string Title { get; set; } = "My Test Component";
 
-            InvokeAsync(StateHasChanged);
-        }
-    }
-
-    private string title = "My Test Component";
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/TestComponent.razor#L1-L21' title='File snippet `TestComponent.razor` was extracted from'>snippet source</a> | <a href='#snippet-TestComponent.razor' title='Navigate to start of snippet `TestComponent.razor`'>anchor</a></sup>
-<a id='snippet-TestComponent.razor-1'/></a>
+<sup><a href='/src/Verify.Blazor.Tests/TestComponent.razor#L1-L11' title='File snippet `Verify.Blazor.Tests/TestComponent.razor` was extracted from'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/TestComponent.razor' title='Navigate to start of snippet `Verify.Blazor.Tests/TestComponent.razor`'>anchor</a></sup>
+<!-- endsnippet -->
+
+This test:
+
+<!-- snippet: BlazorComponentTest -->
+<a id='snippet-blazorcomponenttest'/></a>
+```cs
+[Fact]
+public async Task Component()
+{
+    var target = Render.Component<TestComponent>();
+    await Verifier.Verify(target);
+}
+```
+<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L20-L28' title='File snippet `blazorcomponenttest` was extracted from'>snippet source</a> | <a href='#snippet-blazorcomponenttest' title='Navigate to start of snippet `blazorcomponenttest`'>anchor</a></sup>
+<!-- endsnippet -->
+
+Will produce:
+
+The component rendered as html `...Component.verified.html`:
+
+<!-- snippet: Verify.Blazor.Tests/Samples.Component.verified.html -->
+<a id='snippet-Verify.Blazor.Tests/Samples.Component.verified.html'/></a>
+```html
+<div>
+    <h1>My Test Component</h1>
+    <button>MyButton</button>
+</div>
+```
+<sup><a href='/src/Verify.Blazor.Tests/Samples.Component.verified.html#L1-L4' title='File snippet `Verify.Blazor.Tests/Samples.Component.verified.html` was extracted from'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.Component.verified.html' title='Navigate to start of snippet `Verify.Blazor.Tests/Samples.Component.verified.html`'>anchor</a></sup>
+<!-- endsnippet -->
+
+And the current model rendered as txt `...Component.info.verified.txt`:
+
+<!-- snippet: Verify.Blazor.Tests/Samples.Component.info.verified.txt -->
+<a id='snippet-Verify.Blazor.Tests/Samples.Component.info.verified.txt'/></a>
+```txt
+{
+  Instance: {
+    Title: 'My Test Component'
+  }
+}
+```
+<sup><a href='/src/Verify.Blazor.Tests/Samples.Component.info.verified.txt#L1-L5' title='File snippet `Verify.Blazor.Tests/Samples.Component.info.verified.txt` was extracted from'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.Component.info.verified.txt' title='Navigate to start of snippet `Verify.Blazor.Tests/Samples.Component.info.verified.txt`'>anchor</a></sup>
+<!-- endsnippet -->
+
+### BeforeRender
+
+The state of the componetn can optopnal be manipulated before it is rendered.
+
+This test:
+
+<!-- snippet: BeforeRender -->
+<a id='snippet-beforerender'/></a>
+```cs
+[Fact]
+public async Task BeforeRender()
+{
+    var target = Render.Component<TestComponent>(
+        beforeRender: component => { component.Title = "New Title"; });
+    await Verifier.Verify(target);
+}
+```
+<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L29-L38' title='File snippet `beforerender` was extracted from'>snippet source</a> | <a href='#snippet-beforerender' title='Navigate to start of snippet `beforerender`'>anchor</a></sup>
+<!-- endsnippet -->
+
+Will produce:
+
+<!-- snippet: Verify.Blazor.Tests/Samples.BeforeRender.verified.html -->
+<a id='snippet-Verify.Blazor.Tests/Samples.BeforeRender.verified.html'/></a>
+```html
+<div>
+    <h1>New Title</h1>
+    <button>MyButton</button>
+</div>
+```
+<sup><a href='/src/Verify.Blazor.Tests/Samples.BeforeRender.verified.html#L1-L4' title='File snippet `Verify.Blazor.Tests/Samples.BeforeRender.verified.html` was extracted from'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.BeforeRender.verified.html' title='Navigate to start of snippet `Verify.Blazor.Tests/Samples.BeforeRender.verified.html`'>anchor</a></sup>
+<!-- endsnippet -->
+
+And
+
+<!-- snippet: Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt -->
+<a id='snippet-Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt'/></a>
+```txt
+{
+  Instance: {
+    Title: 'New Title'
+  }
+}
+```
+<sup><a href='/src/Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt#L1-L5' title='File snippet `Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt` was extracted from'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt' title='Navigate to start of snippet `Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt`'>anchor</a></sup>
+<!-- endsnippet -->
+
+
+## Verify.Bunit Usage
+
+Enable at startup:
+
+<!-- snippet: BunitEnable -->
+<a id='snippet-bunitenable'/></a>
+```cs
+VerifyBunit.Initialize();
+```
+<sup><a href='/src/Verify.Bunit.Tests/Samples.cs#L16-L18' title='File snippet `bunitenable` was extracted from'>snippet source</a> | <a href='#snippet-bunitenable' title='Navigate to start of snippet `bunitenable`'>anchor</a></sup>
+<!-- endsnippet -->
+
+Given the following Component:
+
+<!-- snippet: Verify.Bunit.Tests/TestComponent.razor -->
+<a id='snippet-Verify.Bunit.Tests/TestComponent.razor'/></a>
 ```razor
 <div>
     <h1>@Title</h1>
@@ -83,33 +182,13 @@ Given the following Component:
     public string Title { get; set; } = "My Test Component";
 }
 ```
-<sup><a href='/src/Verify.Bunit.Tests/TestComponent.razor#L1-L9' title='File snippet `TestComponent.razor` was extracted from'>snippet source</a> | <a href='#snippet-TestComponent.razor-1' title='Navigate to start of snippet `TestComponent.razor`'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.Tests/TestComponent.razor#L1-L9' title='File snippet `Verify.Bunit.Tests/TestComponent.razor` was extracted from'>snippet source</a> | <a href='#snippet-Verify.Bunit.Tests/TestComponent.razor' title='Navigate to start of snippet `Verify.Bunit.Tests/TestComponent.razor`'>anchor</a></sup>
 <!-- endsnippet -->
 
 This test:
 
-<!-- snippet: ComponentTest -->
-<a id='snippet-componenttest'/></a>
-```cs
-[Fact]
-public async Task Component()
-{
-    //var services = new ServiceCollection();
-    //await using var provider = services.BuildServiceProvider();
-    //var testRenderer = new TestRenderer(provider);
-
-    //var result = new RenderedComponent<TestComponent>(testRenderer);
-    //await result.SetParametersAndRender(ParameterView.Empty);
-    //result.Instance.Title = "sdfsdfsdfsdfsdfsdf";
-    //await result.SetParametersAndRender(ParameterView.Empty);
-    //var items = result.GetMarkup();
-    await Verifier.Verify(
-        Render.Component<TestComponent>(
-            beforeRender: component => { component.Title = "New Title"; }));
-}
-```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L20-L38' title='File snippet `componenttest` was extracted from'>snippet source</a> | <a href='#snippet-componenttest' title='Navigate to start of snippet `componenttest`'>anchor</a></sup>
-<a id='snippet-componenttest-1'/></a>
+<!-- snippet: BunitComponentTest -->
+<a id='snippet-bunitcomponenttest'/></a>
 ```cs
 [Fact]
 public Task Component()
@@ -118,33 +197,28 @@ public Task Component()
     return Verifier.Verify(component);
 }
 ```
-<sup><a href='/src/Verify.Bunit.Tests/Samples.cs#L21-L29' title='File snippet `componenttest` was extracted from'>snippet source</a> | <a href='#snippet-componenttest-1' title='Navigate to start of snippet `componenttest`'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.Tests/Samples.cs#L21-L29' title='File snippet `bunitcomponenttest` was extracted from'>snippet source</a> | <a href='#snippet-bunitcomponenttest' title='Navigate to start of snippet `bunitcomponenttest`'>anchor</a></sup>
 <!-- endsnippet -->
 
 Will produce:
 
 The component rendered as html `...Component.verified.html`:
 
-<!-- snippet: Samples.Component.verified.html -->
-<a id='snippet-Samples.Component.verified.html'/></a>
-```html
-
-```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.Component.verified.html#L1-L1' title='File snippet `Samples.Component.verified.html` was extracted from'>snippet source</a> | <a href='#snippet-Samples.Component.verified.html' title='Navigate to start of snippet `Samples.Component.verified.html`'>anchor</a></sup>
-<a id='snippet-Samples.Component.verified.html-1'/></a>
+<!-- snippet: Verify.Bunit.Tests/Samples.Component.verified.html -->
+<a id='snippet-Verify.Bunit.Tests/Samples.Component.verified.html'/></a>
 ```html
 <div>
     <h1>My Test Component</h1>
     <button>MyButton</button>
 </div>
 ```
-<sup><a href='/src/Verify.Bunit.Tests/Samples.Component.verified.html#L1-L4' title='File snippet `Samples.Component.verified.html` was extracted from'>snippet source</a> | <a href='#snippet-Samples.Component.verified.html-1' title='Navigate to start of snippet `Samples.Component.verified.html`'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.Tests/Samples.Component.verified.html#L1-L4' title='File snippet `Verify.Bunit.Tests/Samples.Component.verified.html` was extracted from'>snippet source</a> | <a href='#snippet-Verify.Bunit.Tests/Samples.Component.verified.html' title='Navigate to start of snippet `Verify.Bunit.Tests/Samples.Component.verified.html`'>anchor</a></sup>
 <!-- endsnippet -->
 
 And the current model rendered as txt `...Component.info.verified.txt`:
 
-<!-- snippet: Samples.Component.info.verified.txt -->
-<a id='snippet-Samples.Component.info.verified.txt'/></a>
+<!-- snippet: Verify.Bunit.Tests/Samples.Component.info.verified.txt -->
+<a id='snippet-Verify.Bunit.Tests/Samples.Component.info.verified.txt'/></a>
 ```txt
 {
   Instance: {
@@ -152,7 +226,7 @@ And the current model rendered as txt `...Component.info.verified.txt`:
   }
 }
 ```
-<sup><a href='/src/Verify.Bunit.Tests/Samples.Component.info.verified.txt#L1-L5' title='File snippet `Samples.Component.info.verified.txt` was extracted from'>snippet source</a> | <a href='#snippet-Samples.Component.info.verified.txt' title='Navigate to start of snippet `Samples.Component.info.verified.txt`'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.Tests/Samples.Component.info.verified.txt#L1-L5' title='File snippet `Verify.Bunit.Tests/Samples.Component.info.verified.txt` was extracted from'>snippet source</a> | <a href='#snippet-Verify.Bunit.Tests/Samples.Component.info.verified.txt' title='Navigate to start of snippet `Verify.Bunit.Tests/Samples.Component.info.verified.txt`'>anchor</a></sup>
 <!-- endsnippet -->
 
 

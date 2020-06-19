@@ -13,12 +13,12 @@ public class Samples :
 {
     static Samples()
     {
-        #region Enable
+        #region BunitEnable
         VerifyBunit.Initialize();
         #endregion
     }
 
-    #region ComponentTest
+    #region BunitComponentTest
     [Fact]
     public Task Component()
     {

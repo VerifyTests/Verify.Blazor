@@ -44,7 +44,7 @@ namespace VerifyTests
             await using var writer = stream.BuildLeaveOpenWriter();
             writer.WriteLine(html);
 
-            return new ConversionResult(null, stream);
+            return new ConversionResult(new ComponentInfo(component), stream);
         }
 
         static ServiceProvider GetProvider(Render target)
@@ -57,5 +57,15 @@ namespace VerifyTests
             var services = new ServiceCollection();
             return services.BuildServiceProvider();
         }
+    }
+}
+
+class ComponentInfo
+{
+    public ComponentBase Instance { get; }
+
+    public ComponentInfo(ComponentBase instance)
+    {
+        Instance = instance;
     }
 }

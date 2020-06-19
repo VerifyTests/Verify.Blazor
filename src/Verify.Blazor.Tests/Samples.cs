@@ -12,18 +12,27 @@ public class Samples
 {
     static Samples()
     {
-        #region Enable
+        #region BlazorEnable
         VerifyBlazor.Initialize();
         #endregion
     }
 
-    #region ComponentTest
+    #region BlazorComponentTest
     [Fact]
     public async Task Component()
     {
-        await Verifier.Verify(
-            Render.Component<TestComponent>(
-                beforeRender: component => { component.Title = "New Title"; }));
+        var target = Render.Component<TestComponent>();
+        await Verifier.Verify(target);
+    }
+
+    #endregion
+    #region BeforeRender
+    [Fact]
+    public async Task BeforeRender()
+    {
+        var target = Render.Component<TestComponent>(
+            beforeRender: component => { component.Title = "New Title"; });
+        await Verifier.Verify(target);
     }
 
     #endregion

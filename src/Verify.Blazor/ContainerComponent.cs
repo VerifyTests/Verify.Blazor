@@ -2,67 +2,64 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 
-namespace VerifyTests.Blazor
+// This provides the ability for test code to trigger rendering at arbitrary times,
+// and to supply arbitrary parameters to the component being tested (including ones
+// flagged as 'cascading').
+//
+// This also avoids the use of Renderer's RenderRootComponentAsync APIs, which are
+// not a good entry-point for unit tests, because their asynchrony is all about waiting
+// for quiescence. We don't want that in tests because we want to assert about all
+// possible states, including loading states.
+class ContainerComponent :
+    IComponent
 {
-    // This provides the ability for test code to trigger rendering at arbitrary times,
-    // and to supply arbitrary parameters to the component being tested (including ones
-    // flagged as 'cascading').
-    //
-    // This also avoids the use of Renderer's RenderRootComponentAsync APIs, which are
-    // not a good entry-point for unit tests, because their asynchrony is all about waiting
-    // for quiescence. We don't want that in tests because we want to assert about all
-    // possible states, including loading states.
-    public class ContainerComponent :
-        IComponent
+    TestRenderer renderer;
+    internal RenderHandle renderHandle;
+    int componentId;
+
+    public ContainerComponent(TestRenderer renderer)
     {
-        TestRenderer renderer;
-        internal RenderHandle renderHandle;
-        int componentId;
+        this.renderer = renderer;
+        componentId = renderer.AttachTestRootComponent(this);
+    }
 
-        public ContainerComponent(TestRenderer renderer)
+    public void Attach(RenderHandle renderHandle)
+    {
+        this.renderHandle = renderHandle;
+    }
+
+    public Task SetParametersAsync(ParameterView parameters)
+    {
+        throw new NotImplementedException($"{nameof(ContainerComponent)} shouldn't receive any parameters");
+    }
+
+    public (int componentId, ComponentBase component) FindComponentUnderTest()
+    {
+        var ownFrames = renderer.GetCurrentRenderTreeFrames(componentId);
+        if (ownFrames.Count == 0)
         {
-            this.renderer = renderer;
-            componentId = renderer.AttachTestRootComponent(this);
+            throw new InvalidOperationException($"{nameof(ContainerComponent)} hasn't yet rendered");
         }
 
-        public void Attach(RenderHandle renderHandle)
-        {
-            this.renderHandle = renderHandle;
-        }
+        ref var childComponentFrame = ref ownFrames.Array[0];
+        return (childComponentFrame.ComponentId, (ComponentBase) childComponentFrame.Component);
+    }
 
-        public Task SetParametersAsync(ParameterView parameters)
+    public Task RenderComponentUnderTest(Type type, ParameterView parameters)
+    {
+        return renderer.DispatchAndAssertNoSynchronousErrors(() =>
         {
-            throw new NotImplementedException($"{nameof(ContainerComponent)} shouldn't receive any parameters");
-        }
-
-        public (int componentId, ComponentBase component) FindComponentUnderTest()
-        {
-            var ownFrames = renderer.GetCurrentRenderTreeFrames(componentId);
-            if (ownFrames.Count == 0)
+            renderHandle.Render(builder =>
             {
-                throw new InvalidOperationException($"{nameof(ContainerComponent)} hasn't yet rendered");
-            }
+                builder.OpenComponent(0, type);
 
-            ref var childComponentFrame = ref ownFrames.Array[0];
-            return (childComponentFrame.ComponentId, (ComponentBase)childComponentFrame.Component);
-        }
-
-        public Task RenderComponentUnderTest(Type type, ParameterView parameters)
-        {
-            return renderer.DispatchAndAssertNoSynchronousErrors(() =>
-            {
-                renderHandle.Render(builder =>
+                foreach (var parameterValue in parameters)
                 {
-                    builder.OpenComponent(0,type);
+                    builder.AddAttribute(1, parameterValue.Name, parameterValue.Value);
+                }
 
-                    foreach (var parameterValue in parameters)
-                    {
-                        builder.AddAttribute(1, parameterValue.Name, parameterValue.Value);
-                    }
-
-                    builder.CloseComponent();
-                });
+                builder.CloseComponent();
             });
-        }
+        });
     }
 }
