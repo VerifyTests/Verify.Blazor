@@ -17,4 +17,5 @@
     <PackageReference Include="Verify.Xunit" Version="5.0.4" />
     <ProjectReference Include="..\Verify.Bunit\Verify.Bunit.csproj" />
   </ItemGroup>
+  <Import Project="$(ProjectDir)..\build.targets" />
 </Project>

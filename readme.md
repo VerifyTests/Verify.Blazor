@@ -22,6 +22,7 @@ Support is available via a [Tidelift Subscription](https://tidelift.com/subscrip
   * [Verify.Blazor Usage](#verifyblazor-usage)
     * [BeforeRender](#beforerender)
   * [Verify.Bunit Usage](#verifybunit-usage)
+  * [Credits](#credits)
   * [Security contact information](#security-contact-information)<!-- endtoc -->
 
 
@@ -99,11 +100,13 @@ And the current model rendered as txt `...Component.info.verified.txt`:
 {
   Instance: {
     Title: 'My Test Component'
-  }
+  },
+  Bytes: '76'
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.Component.info.verified.txt#L1-L5' title='File snippet `Verify.Blazor.Tests/Samples.Component.info.verified.txt` was extracted from'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.Component.info.verified.txt' title='Navigate to start of snippet `Verify.Blazor.Tests/Samples.Component.info.verified.txt`'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.Component.info.verified.txt#L1-L6' title='File snippet `Verify.Blazor.Tests/Samples.Component.info.verified.txt` was extracted from'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.Component.info.verified.txt' title='Navigate to start of snippet `Verify.Blazor.Tests/Samples.Component.info.verified.txt`'>anchor</a></sup>
 <!-- endsnippet -->
+
 
 ### BeforeRender
 
@@ -146,10 +149,11 @@ And
 {
   Instance: {
     Title: 'New Title'
-  }
+  },
+  Bytes: '68'
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt#L1-L5' title='File snippet `Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt` was extracted from'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt' title='Navigate to start of snippet `Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt`'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt#L1-L6' title='File snippet `Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt` was extracted from'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt' title='Navigate to start of snippet `Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt`'>anchor</a></sup>
 <!-- endsnippet -->
 
 
@@ -221,11 +225,20 @@ And the current model rendered as txt `...Component.info.verified.txt`:
 {
   Instance: {
     Title: 'My Test Component'
-  }
+  },
+  RenderCount: 1,
+  NodeCount: 3,
+  Bytes: '76'
 }
 ```
-<sup><a href='/src/Verify.Bunit.Tests/Samples.Component.info.verified.txt#L1-L5' title='File snippet `Verify.Bunit.Tests/Samples.Component.info.verified.txt` was extracted from'>snippet source</a> | <a href='#snippet-Verify.Bunit.Tests/Samples.Component.info.verified.txt' title='Navigate to start of snippet `Verify.Bunit.Tests/Samples.Component.info.verified.txt`'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.Tests/Samples.Component.info.verified.txt#L1-L8' title='File snippet `Verify.Bunit.Tests/Samples.Component.info.verified.txt` was extracted from'>snippet source</a> | <a href='#snippet-Verify.Bunit.Tests/Samples.Component.info.verified.txt' title='Navigate to start of snippet `Verify.Bunit.Tests/Samples.Component.info.verified.txt`'>anchor</a></sup>
 <!-- endsnippet -->
+
+
+## Credits
+
+ * [Unit testing Blazor components - a prototype - Steven Sanderson](https://blog.stevensanderson.com/2019/08/29/blazor-unit-testing-prototype/)
+ * [Bunit - Egil Hansen](https://bunit.egilhansen.com)
 
 
 ## Security contact information

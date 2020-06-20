@@ -8,10 +8,16 @@ static class FragmentToStream
     {
         var stream = new MemoryStream();
         using var writer = stream.BuildLeaveOpenWriter();
-        writer.WriteLine(fragment.Markup);
+        var markup = fragment.Markup;
+        writer.WriteLine(markup);
 
         var instance = ComponentReader.GetInstance(fragment);
-
-        return new ConversionResult(new FragmentInfo(instance), stream);
+        var all = fragment.FindAll("*");
+        var info = new FragmentInfo(
+            instance,
+            fragment.RenderCount,
+            all.Count,
+            markup.Length.ToString("N0"));
+        return new ConversionResult(info, stream);
     }
 }

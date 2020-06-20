@@ -15,4 +15,5 @@
     <PackageReference Include="Verify.Xunit" Version="5.0.4" />
     <ProjectReference Include="..\Verify.Blazor\Verify.Blazor.csproj" />
   </ItemGroup>
+  <Import Project="$(ProjectDir)..\build.targets" />
 </Project>

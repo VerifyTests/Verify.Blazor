@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Rendering;
 
 // This provides the ability for test code to trigger rendering at arbitrary times,
 // and to supply arbitrary parameters to the component being tested (including ones
@@ -14,7 +15,7 @@ class ContainerComponent :
     IComponent
 {
     TestRenderer renderer;
-    internal RenderHandle renderHandle;
+    internal RenderHandle RenderHandle;
     int componentId;
 
     public ContainerComponent(TestRenderer renderer)
@@ -25,41 +26,43 @@ class ContainerComponent :
 
     public void Attach(RenderHandle renderHandle)
     {
-        this.renderHandle = renderHandle;
+        RenderHandle = renderHandle;
     }
 
     public Task SetParametersAsync(ParameterView parameters)
     {
-        throw new NotImplementedException($"{nameof(ContainerComponent)} shouldn't receive any parameters");
+        throw new Exception($"{nameof(ContainerComponent)} shouldn't receive any parameters");
     }
 
     public (int componentId, ComponentBase component) FindComponentUnderTest()
     {
-        var ownFrames = renderer.GetCurrentRenderTreeFrames(componentId);
-        if (ownFrames.Count == 0)
+        var frames = renderer.GetCurrentRenderTreeFrames(componentId);
+        if (frames.Count == 0)
         {
-            throw new InvalidOperationException($"{nameof(ContainerComponent)} hasn't yet rendered");
+            throw new Exception($"{nameof(ContainerComponent)} hasn't yet rendered");
         }
 
-        ref var childComponentFrame = ref ownFrames.Array[0];
-        return (childComponentFrame.ComponentId, (ComponentBase) childComponentFrame.Component);
+        ref var frame = ref frames.Array[0];
+        return (frame.ComponentId, (ComponentBase) frame.Component);
     }
 
     public Task RenderComponentUnderTest(Type type, ParameterView parameters)
     {
         return renderer.DispatchAndAssertNoSynchronousErrors(() =>
         {
-            renderHandle.Render(builder =>
-            {
-                builder.OpenComponent(0, type);
-
-                foreach (var parameterValue in parameters)
-                {
-                    builder.AddAttribute(1, parameterValue.Name, parameterValue.Value);
-                }
-
-                builder.CloseComponent();
-            });
+            RenderHandle.Render(builder => { Render(type, parameters, builder); });
         });
+    }
+
+    static void Render(Type type, ParameterView parameters, RenderTreeBuilder builder)
+    {
+        builder.OpenComponent(0, type);
+
+        foreach (var parameterValue in parameters)
+        {
+            builder.AddAttribute(1, parameterValue.Name, parameterValue.Value);
+        }
+
+        builder.CloseComponent();
     }
 }

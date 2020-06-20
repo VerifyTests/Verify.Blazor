@@ -1,5 +1,8 @@
 {
   Instance: {
     Title: 'My Test Component'
-  }
+  },
+  RenderCount: 1,
+  NodeCount: 3,
+  Bytes: '76'
 }

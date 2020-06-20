@@ -29,12 +29,13 @@ namespace VerifyTests
             var parameters = target.ParameterView ?? ParameterView.Empty;
 
             var type = target.Type;
+            var dispatcher = root.RenderHandle.Dispatcher;
             await root.RenderComponentUnderTest(type, parameters);
             var (componentId, component) = root.FindComponentUnderTest();
             if (target.BeforeRender != null)
             {
                 target.BeforeRender(component);
-                await root.renderHandle.Dispatcher.InvokeAsync(() => { stateHasChanged.Invoke(component, null); });
+                await dispatcher.InvokeAsync(() => { stateHasChanged.Invoke(component, null); });
                 await root.RenderComponentUnderTest(type, parameters);
             }
 
@@ -44,7 +45,8 @@ namespace VerifyTests
             await using var writer = stream.BuildLeaveOpenWriter();
             writer.WriteLine(html);
 
-            return new ConversionResult(new ComponentInfo(component), stream);
+            var info = new ComponentInfo(component, html.Length.ToString("N0"));
+            return new ConversionResult(info, stream);
         }
 
         static ServiceProvider GetProvider(Render target)
@@ -57,15 +59,5 @@ namespace VerifyTests
             var services = new ServiceCollection();
             return services.BuildServiceProvider();
         }
-    }
-}
-
-class ComponentInfo
-{
-    public ComponentBase Instance { get; }
-
-    public ComponentInfo(ComponentBase instance)
-    {
-        Instance = instance;
     }
 }

@@ -41,6 +41,7 @@ And the current model rendered as txt `...Component.info.verified.txt`:
 
 snippet: Verify.Blazor.Tests/Samples.Component.info.verified.txt
 
+
 ### BeforeRender
 
 The state of the component can optionally be manipulated before it is rendered.
@@ -81,6 +82,12 @@ snippet: Verify.Bunit.Tests/Samples.Component.verified.html
 And the current model rendered as txt `...Component.info.verified.txt`:
 
 snippet: Verify.Bunit.Tests/Samples.Component.info.verified.txt
+
+
+## Credits
+
+ * [Unit testing Blazor components - a prototype - Steven Sanderson](https://blog.stevensanderson.com/2019/08/29/blazor-unit-testing-prototype/)
+ * [Bunit - Egil Hansen](https://bunit.egilhansen.com)
 
 
 ## Security contact information

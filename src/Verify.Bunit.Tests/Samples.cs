@@ -28,6 +28,18 @@ public class Samples :
 
     #endregion
 
+    #region BunitBeforeRender
+    [Fact]
+    public Task BeforeRender()
+    {
+        var component = RenderComponent<TestComponent>();
+        component.Instance.Title = "New Title";
+        component.Render();
+        return Verifier.Verify(component);
+    }
+
+    #endregion
+
     [Fact]
     public Task Nested()
     {
