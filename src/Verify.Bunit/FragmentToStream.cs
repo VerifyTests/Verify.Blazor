@@ -17,7 +17,7 @@ static class FragmentToStream
             instance,
             fragment.RenderCount,
             all.Count,
-            markup.Length.ToString("N0"));
+            markup.Replace("\r\n","\n").Length.ToString("N0"));
         return new ConversionResult(info, stream);
     }
 }

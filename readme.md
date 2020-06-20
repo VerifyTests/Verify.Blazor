@@ -228,7 +228,7 @@ And the current model rendered as txt `...Component.info.verified.txt`:
   },
   RenderCount: 1,
   NodeCount: 3,
-  Bytes: '76'
+  Bytes: '73'
 }
 ```
 <sup><a href='/src/Verify.Bunit.Tests/Samples.Component.info.verified.txt#L1-L8' title='File snippet `Verify.Bunit.Tests/Samples.Component.info.verified.txt` was extracted from'>snippet source</a> | <a href='#snippet-Verify.Bunit.Tests/Samples.Component.info.verified.txt' title='Navigate to start of snippet `Verify.Bunit.Tests/Samples.Component.info.verified.txt`'>anchor</a></sup>

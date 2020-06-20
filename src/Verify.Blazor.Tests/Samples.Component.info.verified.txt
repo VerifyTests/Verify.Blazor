@@ -2,5 +2,5 @@
   Instance: {
     Title: 'My Test Component'
   },
-  Bytes: '76'
+  Bytes: '73'
 }

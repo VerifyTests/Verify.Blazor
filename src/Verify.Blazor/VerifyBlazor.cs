@@ -45,7 +45,7 @@ namespace VerifyTests
             await using var writer = stream.BuildLeaveOpenWriter();
             writer.WriteLine(html);
 
-            var info = new ComponentInfo(component, html.Length.ToString("N0"));
+            var info = new ComponentInfo(component, html.Replace("\r\n","\n").Length.ToString("N0"));
             return new ConversionResult(info, stream);
         }
 
