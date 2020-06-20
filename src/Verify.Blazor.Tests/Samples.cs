@@ -1,6 +1,5 @@
 ﻿using System.Threading.Tasks;
 using Verify.Blazor.Tests;
-using VerifyTests;
 using VerifyTests.Blazor;
 using VerifyXunit;
 using Xunit;
@@ -10,13 +9,6 @@ using Xunit;
 [UsesVerify]
 public class Samples
 {
-    static Samples()
-    {
-        #region BlazorEnable
-        VerifyBlazor.Initialize();
-        #endregion
-    }
-
     #region BlazorComponentTest
     [Fact]
     public async Task Component()

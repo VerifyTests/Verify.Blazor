@@ -34,16 +34,6 @@ Support is available via a [Tidelift Subscription](https://tidelift.com/subscrip
 
 ## Verify.Blazor Usage
 
-Enable at startup:
-
-<!-- snippet: BlazorEnable -->
-<a id='snippet-blazorenable'/></a>
-```cs
-VerifyBlazor.Initialize();
-```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L15-L17' title='File snippet `blazorenable` was extracted from'>snippet source</a> | <a href='#snippet-blazorenable' title='Navigate to start of snippet `blazorenable`'>anchor</a></sup>
-<!-- endsnippet -->
-
 Given the following Component:
 
 <!-- snippet: Verify.Blazor.Tests/TestComponent.razor -->
@@ -74,7 +64,7 @@ public async Task Component()
     await Verifier.Verify(target);
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L20-L28' title='File snippet `blazorcomponenttest` was extracted from'>snippet source</a> | <a href='#snippet-blazorcomponenttest' title='Navigate to start of snippet `blazorcomponenttest`'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L12-L20' title='File snippet `blazorcomponenttest` was extracted from'>snippet source</a> | <a href='#snippet-blazorcomponenttest' title='Navigate to start of snippet `blazorcomponenttest`'>anchor</a></sup>
 <!-- endsnippet -->
 
 Will produce:
@@ -125,7 +115,7 @@ public async Task BeforeRender()
     await Verifier.Verify(target);
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L29-L38' title='File snippet `beforerender` was extracted from'>snippet source</a> | <a href='#snippet-beforerender' title='Navigate to start of snippet `beforerender`'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L21-L30' title='File snippet `beforerender` was extracted from'>snippet source</a> | <a href='#snippet-beforerender' title='Navigate to start of snippet `beforerender`'>anchor</a></sup>
 <!-- endsnippet -->
 
 Will produce:

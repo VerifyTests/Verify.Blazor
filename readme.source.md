@@ -19,10 +19,6 @@ toc
 
 ## Verify.Blazor Usage
 
-Enable at startup:
-
-snippet: BlazorEnable
-
 Given the following Component:
 
 snippet: Verify.Blazor.Tests/TestComponent.razor

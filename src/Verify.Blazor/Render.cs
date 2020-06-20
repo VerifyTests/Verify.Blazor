@@ -7,6 +7,10 @@ namespace VerifyTests.Blazor
 {
     public class Render
     {
+        static Render()
+        {
+            VerifyBlazor.Initialize();
+        }
         internal ServiceProvider? Provider { get; }
         internal ILoggerFactory? LoggerFactory { get; }
         internal ParameterView? ParameterView { get; }
