@@ -7,8 +7,6 @@
   <ItemGroup>
     <Content Include="../build.targets" PackagePath="buildMultiTargeting\Verify.Bunit.targets" />
     <Content Include="../build.targets" PackagePath="build\Verify.Bunit.targets" />
-    <PackageReference Include="Fody" Version="6.2.0" PrivateAssets="all" />
-    <PackageReference Include="Obsolete.Fody" Version="5.2.1" PrivateAssets="All" />
     <PackageReference Include="bunit.core" Version="1.0.0-beta-7" />
     <PackageReference Include="bunit.web" Version="1.0.0-beta-7" />
     <PackageReference Include="ProjectDefaults" Version="1.0.43" PrivateAssets="All" />
