@@ -101,7 +101,7 @@ And the current model rendered as txt `...Component.info.verified.txt`:
   Instance: {
     Title: 'My Test Component'
   },
-  Bytes: '76'
+  Bytes: '73'
 }
 ```
 <sup><a href='/src/Verify.Blazor.Tests/Samples.Component.info.verified.txt#L1-L6' title='File snippet `Verify.Blazor.Tests/Samples.Component.info.verified.txt` was extracted from'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.Component.info.verified.txt' title='Navigate to start of snippet `Verify.Blazor.Tests/Samples.Component.info.verified.txt`'>anchor</a></sup>
@@ -150,7 +150,7 @@ And
   Instance: {
     Title: 'New Title'
   },
-  Bytes: '68'
+  Bytes: '65'
 }
 ```
 <sup><a href='/src/Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt#L1-L6' title='File snippet `Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt` was extracted from'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt' title='Navigate to start of snippet `Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt`'>anchor</a></sup>
