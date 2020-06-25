@@ -18,21 +18,28 @@ Support is available via a [Tidelift Subscription](https://tidelift.com/subscrip
 <!-- toc -->
 ## Contents
 
-  * [NuGet packages](#nuget-packages)
-  * [Verify.Blazor Usage](#verifyblazor-usage)
+  * [Verify.Blazor](#verifyblazor)
+    * [Usage](#usage)
     * [BeforeRender](#beforerender)
-  * [Verify.Bunit Usage](#verifybunit-usage)
+  * [Verify.Bunit](#verifybunit)
+    * [Usage](#usage-1)
   * [Credits](#credits)
   * [Security contact information](#security-contact-information)<!-- endtoc -->
 
 
-## NuGet packages
+## Verify.Blazor
 
- * https://nuget.org/packages/Verify.Bunit/
+Verify.Blazor uses the Blazor APIs to take a snapshot (metadata and html) of the current state of a Blazor component. It has fewer dependencies and is a simpler API than Verify.bUnit approach, however it does not provide many of the other features, for example [trigger event handlers](https://bunit.egilhansen.com/docs/interaction/trigger-event-handlers.html).
+
+
+### NuGet package
+
  * https://nuget.org/packages/Verify.Blazor/
 
 
-## Verify.Blazor Usage
+### Usage
+
+
 
 Given the following Component:
 
@@ -147,7 +154,17 @@ And
 <!-- endsnippet -->
 
 
-## Verify.Bunit Usage
+## Verify.Bunit
+
+Verify.Bunit uses the bUnit APIs to take a snapshot (metadata and html) of the current state of a Blazor component. Since it leverages the bUnit API, snapshots can be on a component that has been manipulated using the full bUnit feature set, for example [trigger event handlers](https://bunit.egilhansen.com/docs/interaction/trigger-event-handlers.html).
+
+
+### NuGet package
+
+ * https://nuget.org/packages/Verify.Bunit/
+
+
+### Usage
 
 Enable at startup:
 
