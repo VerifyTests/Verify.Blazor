@@ -13,7 +13,7 @@ toc
 
 ## Verify.Blazor
 
-Verify.Blazor uses the Blazor APIs to take a snapshot (metadata and html) of the current state of a Blazor component. It has fewer dependencies and is a simpler API than Verify.bUnit approach, however it does not provide many of the other features, for example [trigger event handlers](https://bunit.egilhansen.com/docs/interaction/trigger-event-handlers.html).
+Verify.Blazor uses the Blazor APIs to take a snapshot (metadata and html) of the current state of a Blazor component. It has fewer dependencies and is a simpler API than [Verify.Bunit approach](#verifybunit), however it does not provide many of the other features, for example [trigger event handlers](https://bunit.egilhansen.com/docs/interaction/trigger-event-handlers.html).
 
 
 ### NuGet package
@@ -22,8 +22,6 @@ Verify.Blazor uses the Blazor APIs to take a snapshot (metadata and html) of the
 
 
 ### Usage
-
-
 
 Given the following Component:
 
