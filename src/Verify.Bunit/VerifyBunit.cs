@@ -6,7 +6,7 @@ namespace VerifyTests
     {
         public static void Initialize()
         {
-            VerifierSettings.RegisterFileConverter<IRenderedFragment>("html", FragmentToStream.Convert);
+            VerifierSettings.RegisterFileConverter<IRenderedFragment>(FragmentToStream.Convert);
             VerifierSettings.ModifySerialization(settings =>
             {
                 settings.AddExtraSettings(serializerSettings =>
