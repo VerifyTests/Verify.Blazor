@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
@@ -14,7 +15,6 @@ static class VerifyBlazor
     public static void Initialize()
     {
         VerifierSettings.RegisterFileConverter<Render>(
-            "html",
             async (target, settings) => await RenderToResult(target));
     }
 
@@ -45,7 +45,12 @@ static class VerifyBlazor
         writer.WriteLine(html);
 
         var info = new ComponentInfo(component, html.Replace("\r\n", "\n").Length.ToString("N0"));
-        return new ConversionResult(info, stream);
+        return new ConversionResult(
+            info,
+            new List<ConversionStream>
+            {
+                new ConversionStream("html", stream)
+            });
     }
 
     static ServiceProvider GetProvider(Render target)
