@@ -18,6 +18,6 @@ static class FragmentToStream
             fragment.RenderCount,
             all.Count,
             markup.Replace("\r\n","\n").Length.ToString("N0"));
-        return new ConversionResult(info, new []{new ConversionStream("png",stream)});
+        return new ConversionResult(info, new []{new ConversionStream("html", stream)});
     }
 }
