@@ -1,22 +1,24 @@
-﻿using System.Threading.Tasks;
+﻿using System.Diagnostics;
+using System.Threading.Tasks;
 using Verify.Blazor.Tests;
+using VerifyTests;
 using VerifyTests.Blazor;
 using VerifyXunit;
 using Xunit;
 
 [UsesVerify]
-public class Samples
+public class Integration
 {
-    #region BlazorComponentTest
     [Fact]
     public async Task Component()
     {
+        VerifySelenium.Enable();
+
+        Process.Start("dotnet")
         var target = Render.Component<TestComponent>();
         await Verifier.Verify(target);
     }
 
-    #endregion
-    #region BeforeRender
     [Fact]
     public async Task BeforeRender()
     {
@@ -24,6 +26,4 @@ public class Samples
             beforeRender: component => { component.Title = "New Title"; });
         await Verifier.Verify(target);
     }
-
-    #endregion
 }
