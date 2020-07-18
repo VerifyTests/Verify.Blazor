@@ -12,6 +12,8 @@ snippet: SeleniumFixture
 
 ## Tests
 
+Test can now verify the page state or the state of a specific element.
+
 snippet: SeleniumUsageTest
 
 
