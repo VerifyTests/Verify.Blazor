@@ -7,5 +7,6 @@
     <PackageTags>BUnit, Verify</PackageTags>
     <Description>Extends Verify (https://github.com/VerifyTests/Verify) to allow Blazor component verification via BUnit.</Description>
     <SignAssembly>false</SignAssembly>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
   </PropertyGroup>
 </Project>
