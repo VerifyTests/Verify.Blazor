@@ -9,6 +9,8 @@ To change this file edit the source file and then run MarkdownSnippets.
 
 [Verify.Selenium](https://github.com/VerifyTests/Verify.Selenium) extends [Verify](https://github.com/VerifyTests/Verify) to allow verification of Web UIs using [Selenium](https://www.selenium.dev/).
 
+This sample shows how to use Verify.Selenium to perform snapshot testing (html and image) of a running Blazor app.
+
 
 ## Fixture for shared state
 
