@@ -1,8 +1,10 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
+using System.Drawing;
+using System.IO;
 using System.Threading.Tasks;
-using Verify.Blazor.Tests;
+using OpenQA.Selenium.Chrome;
 using VerifyTests;
-using VerifyTests.Blazor;
 using VerifyXunit;
 using Xunit;
 
@@ -14,16 +16,16 @@ public class Integration
     {
         VerifySelenium.Enable();
 
-        Process.Start("dotnet")
-        var target = Render.Component<TestComponent>();
-        await Verifier.Verify(target);
-    }
-
-    [Fact]
-    public async Task BeforeRender()
-    {
-        var target = Render.Component<TestComponent>(
-            beforeRender: component => { component.Title = "New Title"; });
-        await Verifier.Verify(target);
+        var binPath = AppDomain.CurrentDomain.BaseDirectory!.Replace("Verify.Blazor.Tests", "BlazorApp");
+        var appDll = Path.GetFullPath(Path.Combine(binPath, "BlazorApp.dll"));
+        using var process = Process.Start("dotnet", appDll);
+        var options = new ChromeOptions();
+        options.AddArgument("--no-sandbox");
+        options.AddArgument("--headless");
+        var driver = new ChromeDriver(options);
+        driver.Manage().Window.Size = new Size(1024, 768);
+        driver.Navigate().GoToUrl("http://localhost:50419");
+        await Verifier.Verify(driver);
+        process.Kill();
     }
 }
