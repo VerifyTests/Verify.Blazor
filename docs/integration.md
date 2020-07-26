@@ -121,7 +121,7 @@ public class SeleniumUsageTest :
     }
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/SeleniumUsageTest.cs#L8-L35' title='File snippet `seleniumusagetest` was extracted from'>snippet source</a> | <a href='#snippet-seleniumusagetest' title='Navigate to start of snippet `seleniumusagetest`'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/SeleniumUsageTest.cs#L7-L34' title='File snippet `seleniumusagetest` was extracted from'>snippet source</a> | <a href='#snippet-seleniumusagetest' title='Navigate to start of snippet `seleniumusagetest`'>anchor</a></sup>
 <!-- endsnippet -->
 
 
