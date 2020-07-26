@@ -1,5 +1,4 @@
-﻿#if DEBUG
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 using VerifyXunit;
@@ -33,4 +32,3 @@ public class SeleniumUsageTest :
 }
 
 #endregion
-#endif
