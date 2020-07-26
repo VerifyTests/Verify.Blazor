@@ -8,6 +8,9 @@ Support for rendering a [Blazor Component](https://docs.microsoft.com/en-us/aspn
 
 Support is available via a [Tidelift Subscription](https://tidelift.com/subscription/pkg/nuget-verify?utm_source=nuget-verify&utm_medium=referral&utm_campaign=enterprise).
 
+<a href='https://dotnetfoundation.org' alt='Part of the .NET Foundation'><img src='https://raw.githubusercontent.com/VerifyTests/Verify/master/docs/dotNetFoundation.svg' height='30px'></a><br>
+Part of the <a href='https://dotnetfoundation.org' alt=''>.NET Foundation</a>
+
 toc
 
 
