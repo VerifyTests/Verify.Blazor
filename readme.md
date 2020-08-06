@@ -45,7 +45,7 @@ Verify.Blazor uses the Blazor APIs to take a snapshot (metadata and html) of the
 Given the following Component:
 
 <!-- snippet: Verify.Blazor.Tests/TestComponent.razor -->
-<a id='snippet-Verify.Blazor.Tests/TestComponent.razor'/></a>
+<a id='snippet-Verify.Blazor.Tests/TestComponent.razor'></a>
 ```razor
 <div>
     <h1>@Title</h1>
@@ -63,7 +63,7 @@ Given the following Component:
 This test:
 
 <!-- snippet: BlazorComponentTest -->
-<a id='snippet-blazorcomponenttest'/></a>
+<a id='snippet-blazorcomponenttest'></a>
 ```cs
 [Fact]
 public async Task Component()
@@ -80,7 +80,7 @@ Will produce:
 The component rendered as html `...Component.verified.html`:
 
 <!-- snippet: Verify.Blazor.Tests/Samples.Component.verified.html -->
-<a id='snippet-Verify.Blazor.Tests/Samples.Component.verified.html'/></a>
+<a id='snippet-Verify.Blazor.Tests/Samples.Component.verified.html'></a>
 ```html
 <div>
     <h1>My Test Component</h1>
@@ -93,7 +93,7 @@ The component rendered as html `...Component.verified.html`:
 And the current model rendered as txt `...Component.info.verified.txt`:
 
 <!-- snippet: Verify.Blazor.Tests/Samples.Component.info.verified.txt -->
-<a id='snippet-Verify.Blazor.Tests/Samples.Component.info.verified.txt'/></a>
+<a id='snippet-Verify.Blazor.Tests/Samples.Component.info.verified.txt'></a>
 ```txt
 {
   Instance: {
@@ -113,7 +113,7 @@ The state of the component can optionally be manipulated before it is rendered.
 This test:
 
 <!-- snippet: BeforeRender -->
-<a id='snippet-beforerender'/></a>
+<a id='snippet-beforerender'></a>
 ```cs
 [Fact]
 public async Task BeforeRender()
@@ -129,7 +129,7 @@ public async Task BeforeRender()
 Will produce:
 
 <!-- snippet: Verify.Blazor.Tests/Samples.BeforeRender.verified.html -->
-<a id='snippet-Verify.Blazor.Tests/Samples.BeforeRender.verified.html'/></a>
+<a id='snippet-Verify.Blazor.Tests/Samples.BeforeRender.verified.html'></a>
 ```html
 <div>
     <h1>New Title</h1>
@@ -142,7 +142,7 @@ Will produce:
 And
 
 <!-- snippet: Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt -->
-<a id='snippet-Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt'/></a>
+<a id='snippet-Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt'></a>
 ```txt
 {
   Instance: {
@@ -170,7 +170,7 @@ Verify.Bunit uses the bUnit APIs to take a snapshot (metadata and html) of the c
 Enable at startup:
 
 <!-- snippet: BunitEnable -->
-<a id='snippet-bunitenable'/></a>
+<a id='snippet-bunitenable'></a>
 ```cs
 VerifyBunit.Initialize();
 ```
@@ -180,7 +180,7 @@ VerifyBunit.Initialize();
 Given the following Component:
 
 <!-- snippet: Verify.Bunit.Tests/TestComponent.razor -->
-<a id='snippet-Verify.Bunit.Tests/TestComponent.razor'/></a>
+<a id='snippet-Verify.Bunit.Tests/TestComponent.razor'></a>
 ```razor
 <div>
     <h1>@Title</h1>
@@ -198,7 +198,7 @@ Given the following Component:
 This test:
 
 <!-- snippet: BunitComponentTest -->
-<a id='snippet-bunitcomponenttest'/></a>
+<a id='snippet-bunitcomponenttest'></a>
 ```cs
 [Fact]
 public Task Component()
@@ -215,7 +215,7 @@ Will produce:
 The component rendered as html `...Component.verified.html`:
 
 <!-- snippet: Verify.Bunit.Tests/Samples.Component.verified.html -->
-<a id='snippet-Verify.Bunit.Tests/Samples.Component.verified.html'/></a>
+<a id='snippet-Verify.Bunit.Tests/Samples.Component.verified.html'></a>
 ```html
 <div>
     <h1>My Test Component</h1>
@@ -228,7 +228,7 @@ The component rendered as html `...Component.verified.html`:
 And the current model rendered as txt `...Component.info.verified.txt`:
 
 <!-- snippet: Verify.Bunit.Tests/Samples.Component.info.verified.txt -->
-<a id='snippet-Verify.Bunit.Tests/Samples.Component.info.verified.txt'/></a>
+<a id='snippet-Verify.Bunit.Tests/Samples.Component.info.verified.txt'></a>
 ```txt
 {
   Instance: {

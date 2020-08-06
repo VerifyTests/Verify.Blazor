@@ -17,7 +17,7 @@ This sample shows how to use Verify.Selenium to perform snapshot testing (html a
 The running instance of the Blazor app and the Selenium driver are expensive to instantiate and should be share between tests. This sample uses xunit, so a [ClassFixture](https://xunit.net/docs/shared-context.html#class-fixture) is used to share state.
 
 <!-- snippet: SeleniumFixture -->
-<a id='snippet-seleniumfixture'/></a>
+<a id='snippet-seleniumfixture'></a>
 ```cs
 public class SeleniumFixture :
     IDisposable
@@ -94,7 +94,7 @@ public class SeleniumFixture :
 Test can now verify the page state or the state of a specific element.
 
 <!-- snippet: SeleniumUsageTest -->
-<a id='snippet-seleniumusagetest'/></a>
+<a id='snippet-seleniumusagetest'></a>
 ```cs
 [UsesVerify]
 public class SeleniumUsageTest :
@@ -128,7 +128,7 @@ public class SeleniumUsageTest :
 ### Page results
 
 <!-- snippet: SeleniumUsageTest.PageUsage.00.verified.html -->
-<a id='snippet-SeleniumUsageTest.PageUsage.00.verified.html'/></a>
+<a id='snippet-SeleniumUsageTest.PageUsage.00.verified.html'></a>
 ```html
 <html>
   <meta charset="utf-8">
@@ -210,7 +210,7 @@ public class SeleniumUsageTest :
 ### Element results
 
 <!-- snippet: SeleniumUsageTest.ElementUsage.00.verified.html -->
-<a id='snippet-SeleniumUsageTest.ElementUsage.00.verified.html'/></a>
+<a id='snippet-SeleniumUsageTest.ElementUsage.00.verified.html'></a>
 ```html
 <html>
   <body>
