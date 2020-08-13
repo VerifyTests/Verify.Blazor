@@ -9,4 +9,9 @@ static class StreamHelpers
     {
         return new StreamWriter(input, utf8NoBOM, 1024, leaveOpen: true);
     }
+
+    public static MemoryStream ToStream(this string input)
+    {
+        return new MemoryStream(utf8NoBOM.GetBytes(input));
+    }
 }

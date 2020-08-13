@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.IO;
 using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
@@ -40,9 +39,7 @@ static class VerifyBlazor
 
         var html = Htmlizer.GetHtml(renderer, componentId);
 
-        var stream = new MemoryStream();
-        await using var writer = stream.BuildLeaveOpenWriter();
-        writer.WriteLine(html);
+        var stream = html.ToStream();
 
         var info = new ComponentInfo(component, html.Replace("\r\n", "\n").Length.ToString("N0"));
         return new ConversionResult(
