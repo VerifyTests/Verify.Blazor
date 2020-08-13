@@ -6,10 +6,8 @@ static class FragmentToStream
 {
     public static ConversionResult Convert(IRenderedFragment fragment, VerifySettings settings)
     {
-        var stream = new MemoryStream();
-        using var writer = stream.BuildLeaveOpenWriter();
         var markup = fragment.Markup;
-        writer.WriteLine(markup);
+        var stream = markup.ToStream();
 
         var instance = ComponentReader.GetInstance(fragment);
         var all = fragment.FindAll("*");
