@@ -27,7 +27,7 @@ Part of the <a href='https://dotnetfoundation.org' alt=''>.NET Foundation</a>
   * [Verify.Bunit](#verifybunit)
     * [Usage](#usage-1)
   * [Credits](#credits)
-  * [Security contact information](#security-contact-information)<!-- endtoc -->
+  * [Security contact information](#security-contact-information)<!-- endToc -->
 
 
 ## Verify.Blazor
@@ -58,7 +58,7 @@ Given the following Component:
 }
 ```
 <sup><a href='/src/Verify.Blazor.Tests/TestComponent.razor#L1-L9' title='File snippet `Verify.Blazor.Tests/TestComponent.razor` was extracted from'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/TestComponent.razor' title='Navigate to start of snippet `Verify.Blazor.Tests/TestComponent.razor`'>anchor</a></sup>
-<!-- endsnippet -->
+<!-- endSnippet -->
 
 This test:
 
@@ -73,7 +73,7 @@ public async Task Component()
 }
 ```
 <sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L10-L18' title='File snippet `blazorcomponenttest` was extracted from'>snippet source</a> | <a href='#snippet-blazorcomponenttest' title='Navigate to start of snippet `blazorcomponenttest`'>anchor</a></sup>
-<!-- endsnippet -->
+<!-- endSnippet -->
 
 Will produce:
 
@@ -88,7 +88,7 @@ The component rendered as html `...Component.verified.html`:
 </div>
 ```
 <sup><a href='/src/Verify.Blazor.Tests/Samples.Component.verified.html#L1-L4' title='File snippet `Verify.Blazor.Tests/Samples.Component.verified.html` was extracted from'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.Component.verified.html' title='Navigate to start of snippet `Verify.Blazor.Tests/Samples.Component.verified.html`'>anchor</a></sup>
-<!-- endsnippet -->
+<!-- endSnippet -->
 
 And the current model rendered as txt `...Component.info.verified.txt`:
 
@@ -103,7 +103,7 @@ And the current model rendered as txt `...Component.info.verified.txt`:
 }
 ```
 <sup><a href='/src/Verify.Blazor.Tests/Samples.Component.info.verified.txt#L1-L6' title='File snippet `Verify.Blazor.Tests/Samples.Component.info.verified.txt` was extracted from'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.Component.info.verified.txt' title='Navigate to start of snippet `Verify.Blazor.Tests/Samples.Component.info.verified.txt`'>anchor</a></sup>
-<!-- endsnippet -->
+<!-- endSnippet -->
 
 
 ### BeforeRender
@@ -124,7 +124,7 @@ public async Task BeforeRender()
 }
 ```
 <sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L19-L28' title='File snippet `beforerender` was extracted from'>snippet source</a> | <a href='#snippet-beforerender' title='Navigate to start of snippet `beforerender`'>anchor</a></sup>
-<!-- endsnippet -->
+<!-- endSnippet -->
 
 Will produce:
 
@@ -137,7 +137,7 @@ Will produce:
 </div>
 ```
 <sup><a href='/src/Verify.Blazor.Tests/Samples.BeforeRender.verified.html#L1-L4' title='File snippet `Verify.Blazor.Tests/Samples.BeforeRender.verified.html` was extracted from'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.BeforeRender.verified.html' title='Navigate to start of snippet `Verify.Blazor.Tests/Samples.BeforeRender.verified.html`'>anchor</a></sup>
-<!-- endsnippet -->
+<!-- endSnippet -->
 
 And
 
@@ -152,7 +152,7 @@ And
 }
 ```
 <sup><a href='/src/Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt#L1-L6' title='File snippet `Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt` was extracted from'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt' title='Navigate to start of snippet `Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt`'>anchor</a></sup>
-<!-- endsnippet -->
+<!-- endSnippet -->
 
 
 ## Verify.Bunit
@@ -175,7 +175,7 @@ Enable at startup:
 VerifyBunit.Initialize();
 ```
 <sup><a href='/src/Verify.Bunit.Tests/Samples.cs#L16-L18' title='File snippet `bunitenable` was extracted from'>snippet source</a> | <a href='#snippet-bunitenable' title='Navigate to start of snippet `bunitenable`'>anchor</a></sup>
-<!-- endsnippet -->
+<!-- endSnippet -->
 
 Given the following Component:
 
@@ -193,7 +193,7 @@ Given the following Component:
 }
 ```
 <sup><a href='/src/Verify.Bunit.Tests/TestComponent.razor#L1-L9' title='File snippet `Verify.Bunit.Tests/TestComponent.razor` was extracted from'>snippet source</a> | <a href='#snippet-Verify.Bunit.Tests/TestComponent.razor' title='Navigate to start of snippet `Verify.Bunit.Tests/TestComponent.razor`'>anchor</a></sup>
-<!-- endsnippet -->
+<!-- endSnippet -->
 
 This test:
 
@@ -208,7 +208,7 @@ public Task Component()
 }
 ```
 <sup><a href='/src/Verify.Bunit.Tests/Samples.cs#L21-L29' title='File snippet `bunitcomponenttest` was extracted from'>snippet source</a> | <a href='#snippet-bunitcomponenttest' title='Navigate to start of snippet `bunitcomponenttest`'>anchor</a></sup>
-<!-- endsnippet -->
+<!-- endSnippet -->
 
 Will produce:
 
@@ -223,7 +223,7 @@ The component rendered as html `...Component.verified.html`:
 </div>
 ```
 <sup><a href='/src/Verify.Bunit.Tests/Samples.Component.verified.html#L1-L4' title='File snippet `Verify.Bunit.Tests/Samples.Component.verified.html` was extracted from'>snippet source</a> | <a href='#snippet-Verify.Bunit.Tests/Samples.Component.verified.html' title='Navigate to start of snippet `Verify.Bunit.Tests/Samples.Component.verified.html`'>anchor</a></sup>
-<!-- endsnippet -->
+<!-- endSnippet -->
 
 And the current model rendered as txt `...Component.info.verified.txt`:
 
@@ -240,7 +240,7 @@ And the current model rendered as txt `...Component.info.verified.txt`:
 }
 ```
 <sup><a href='/src/Verify.Bunit.Tests/Samples.Component.info.verified.txt#L1-L8' title='File snippet `Verify.Bunit.Tests/Samples.Component.info.verified.txt` was extracted from'>snippet source</a> | <a href='#snippet-Verify.Bunit.Tests/Samples.Component.info.verified.txt' title='Navigate to start of snippet `Verify.Bunit.Tests/Samples.Component.info.verified.txt`'>anchor</a></sup>
-<!-- endsnippet -->
+<!-- endSnippet -->
 
 
 ## Credits
