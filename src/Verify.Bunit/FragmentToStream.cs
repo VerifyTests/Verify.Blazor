@@ -1,5 +1,4 @@
-﻿using System.IO;
-using Bunit;
+﻿using Bunit;
 using VerifyTests;
 
 static class FragmentToStream
