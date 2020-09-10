@@ -2,5 +2,5 @@
   Instance: {
     Title: 'New Title'
   },
-  Bytes: '65'
+  Bytes: '59'
 }

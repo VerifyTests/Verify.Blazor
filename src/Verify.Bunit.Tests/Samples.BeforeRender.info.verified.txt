@@ -4,5 +4,5 @@
   },
   RenderCount: 2,
   NodeCount: 3,
-  Bytes: '65'
+  Bytes: '59'
 }

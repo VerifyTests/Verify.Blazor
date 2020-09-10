@@ -82,12 +82,10 @@ The component rendered as html `...Component.verified.html`:
 <!-- snippet: Verify.Blazor.Tests/Samples.Component.verified.html -->
 <a id='snippet-Verify.Blazor.Tests/Samples.Component.verified.html'></a>
 ```html
-<div>
-    <h1>My Test Component</h1>
-    <button>MyButton</button>
-</div>
+<div><h1>My Test Component</h1>
+    <button>MyButton</button></div>
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.Component.verified.html#L1-L4' title='File snippet `Verify.Blazor.Tests/Samples.Component.verified.html` was extracted from'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.Component.verified.html' title='Navigate to start of snippet `Verify.Blazor.Tests/Samples.Component.verified.html`'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.Component.verified.html#L1-L2' title='File snippet `Verify.Blazor.Tests/Samples.Component.verified.html` was extracted from'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.Component.verified.html' title='Navigate to start of snippet `Verify.Blazor.Tests/Samples.Component.verified.html`'>anchor</a></sup>
 <!-- endSnippet -->
 
 And the current model rendered as txt `...Component.info.verified.txt`:
@@ -99,7 +97,7 @@ And the current model rendered as txt `...Component.info.verified.txt`:
   Instance: {
     Title: 'My Test Component'
   },
-  Bytes: '73'
+  Bytes: '67'
 }
 ```
 <sup><a href='/src/Verify.Blazor.Tests/Samples.Component.info.verified.txt#L1-L6' title='File snippet `Verify.Blazor.Tests/Samples.Component.info.verified.txt` was extracted from'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.Component.info.verified.txt' title='Navigate to start of snippet `Verify.Blazor.Tests/Samples.Component.info.verified.txt`'>anchor</a></sup>
@@ -131,12 +129,10 @@ Will produce:
 <!-- snippet: Verify.Blazor.Tests/Samples.BeforeRender.verified.html -->
 <a id='snippet-Verify.Blazor.Tests/Samples.BeforeRender.verified.html'></a>
 ```html
-<div>
-    <h1>New Title</h1>
-    <button>MyButton</button>
-</div>
+<div><h1>New Title</h1>
+    <button>MyButton</button></div>
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.BeforeRender.verified.html#L1-L4' title='File snippet `Verify.Blazor.Tests/Samples.BeforeRender.verified.html` was extracted from'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.BeforeRender.verified.html' title='Navigate to start of snippet `Verify.Blazor.Tests/Samples.BeforeRender.verified.html`'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.BeforeRender.verified.html#L1-L2' title='File snippet `Verify.Blazor.Tests/Samples.BeforeRender.verified.html` was extracted from'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.BeforeRender.verified.html' title='Navigate to start of snippet `Verify.Blazor.Tests/Samples.BeforeRender.verified.html`'>anchor</a></sup>
 <!-- endSnippet -->
 
 And
@@ -148,7 +144,7 @@ And
   Instance: {
     Title: 'New Title'
   },
-  Bytes: '65'
+  Bytes: '59'
 }
 ```
 <sup><a href='/src/Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt#L1-L6' title='File snippet `Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt` was extracted from'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt' title='Navigate to start of snippet `Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt`'>anchor</a></sup>
@@ -217,12 +213,10 @@ The component rendered as html `...Component.verified.html`:
 <!-- snippet: Verify.Bunit.Tests/Samples.Component.verified.html -->
 <a id='snippet-Verify.Bunit.Tests/Samples.Component.verified.html'></a>
 ```html
-<div>
-    <h1>My Test Component</h1>
-    <button>MyButton</button>
-</div>
+<div><h1>My Test Component</h1>
+    <button>MyButton</button></div>
 ```
-<sup><a href='/src/Verify.Bunit.Tests/Samples.Component.verified.html#L1-L4' title='File snippet `Verify.Bunit.Tests/Samples.Component.verified.html` was extracted from'>snippet source</a> | <a href='#snippet-Verify.Bunit.Tests/Samples.Component.verified.html' title='Navigate to start of snippet `Verify.Bunit.Tests/Samples.Component.verified.html`'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.Tests/Samples.Component.verified.html#L1-L2' title='File snippet `Verify.Bunit.Tests/Samples.Component.verified.html` was extracted from'>snippet source</a> | <a href='#snippet-Verify.Bunit.Tests/Samples.Component.verified.html' title='Navigate to start of snippet `Verify.Bunit.Tests/Samples.Component.verified.html`'>anchor</a></sup>
 <!-- endSnippet -->
 
 And the current model rendered as txt `...Component.info.verified.txt`:
@@ -236,7 +230,7 @@ And the current model rendered as txt `...Component.info.verified.txt`:
   },
   RenderCount: 1,
   NodeCount: 3,
-  Bytes: '73'
+  Bytes: '67'
 }
 ```
 <sup><a href='/src/Verify.Bunit.Tests/Samples.Component.info.verified.txt#L1-L8' title='File snippet `Verify.Bunit.Tests/Samples.Component.info.verified.txt` was extracted from'>snippet source</a> | <a href='#snippet-Verify.Bunit.Tests/Samples.Component.info.verified.txt' title='Navigate to start of snippet `Verify.Bunit.Tests/Samples.Component.info.verified.txt`'>anchor</a></sup>
