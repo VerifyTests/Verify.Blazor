@@ -3,11 +3,12 @@ using Verify.Blazor.Tests;
 using VerifyTests.Blazor;
 using VerifyXunit;
 using Xunit;
-
+#if(DEBUG)
 [UsesVerify]
 public class Samples
 {
     #region BlazorComponentTest
+
     [Fact]
     public async Task Component()
     {
@@ -16,7 +17,9 @@ public class Samples
     }
 
     #endregion
+
     #region BeforeRender
+
     [Fact]
     public async Task BeforeRender()
     {
@@ -27,3 +30,4 @@ public class Samples
 
     #endregion
 }
+#endif
