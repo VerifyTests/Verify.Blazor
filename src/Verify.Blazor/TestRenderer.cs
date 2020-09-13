@@ -12,16 +12,16 @@ class TestRenderer :
 
     TaskCompletionSource<object?> nextRenderCompletion = new TaskCompletionSource<object?>();
 
-    public TestRenderer(IServiceProvider services, ILoggerFactory loggerFactory)
-        : base(services, loggerFactory)
+    public TestRenderer(IServiceProvider services, ILoggerFactory logger)
+        : base(services, logger)
     {
     }
 
-    public new ArrayRange<RenderTreeFrame> GetCurrentRenderTreeFrames(int componentId)
-        => base.GetCurrentRenderTreeFrames(componentId);
+    public new ArrayRange<RenderTreeFrame> GetCurrentRenderTreeFrames(int id)
+        => base.GetCurrentRenderTreeFrames(id);
 
-    public int AttachTestRootComponent(ContainerComponent testRootComponent)
-        => AssignRootComponentId(testRootComponent);
+    public int AttachTestRootComponent(ContainerComponent root)
+        => AssignRootComponentId(root);
 
     public override Dispatcher Dispatcher { get; } = Dispatcher.CreateDefault();
 
@@ -30,7 +30,7 @@ class TestRenderer :
         unhandledException = exception;
     }
 
-    protected override Task UpdateDisplayAsync(in RenderBatch renderBatch)
+    protected override Task UpdateDisplayAsync(in RenderBatch batch)
     {
         // TODO: Capture batches (and the state of component output) for individual inspection
         var prevTcs = nextRenderCompletion;

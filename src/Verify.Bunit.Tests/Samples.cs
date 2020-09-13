@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿#if (Debug)
+using System.Threading.Tasks;
 using Bunit;
 using Verify.Bunit.Tests;
 using VerifyTests;
@@ -53,3 +54,4 @@ public class Samples :
             });
     }
 }
+#endif
