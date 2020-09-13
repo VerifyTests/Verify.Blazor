@@ -14,7 +14,7 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3" />
     <PackageReference Include="bunit" Version="1.0.0-beta-9" />
     <PackageReference Include="ProjectDefaults" Version="1.0.43" PrivateAssets="All" />
-    <PackageReference Include="Verify.Xunit" Version="6.14.0" />
+    <PackageReference Include="Verify.Xunit" Version="6.14.1" />
     <ProjectReference Include="..\Verify.Bunit\Verify.Bunit.csproj" />
   </ItemGroup>
   <Import Project="$(ProjectDir)..\build.targets" />
