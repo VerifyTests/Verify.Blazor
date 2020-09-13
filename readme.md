@@ -170,7 +170,7 @@ Enable at startup:
 ```cs
 VerifyBunit.Initialize();
 ```
-<sup><a href='/src/Verify.Bunit.Tests/Samples.cs#L16-L18' title='File snippet `bunitenable` was extracted from'>snippet source</a> | <a href='#snippet-bunitenable' title='Navigate to start of snippet `bunitenable`'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.Tests/Samples.cs#L17-L19' title='File snippet `bunitenable` was extracted from'>snippet source</a> | <a href='#snippet-bunitenable' title='Navigate to start of snippet `bunitenable`'>anchor</a></sup>
 <!-- endSnippet -->
 
 Given the following Component:
@@ -203,7 +203,7 @@ public Task Component()
     return Verifier.Verify(component);
 }
 ```
-<sup><a href='/src/Verify.Bunit.Tests/Samples.cs#L21-L29' title='File snippet `bunitcomponenttest` was extracted from'>snippet source</a> | <a href='#snippet-bunitcomponenttest' title='Navigate to start of snippet `bunitcomponenttest`'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.Tests/Samples.cs#L22-L30' title='File snippet `bunitcomponenttest` was extracted from'>snippet source</a> | <a href='#snippet-bunitcomponenttest' title='Navigate to start of snippet `bunitcomponenttest`'>anchor</a></sup>
 <!-- endSnippet -->
 
 Will produce:
