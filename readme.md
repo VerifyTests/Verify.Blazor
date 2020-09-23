@@ -72,7 +72,7 @@ public async Task Component()
     await Verifier.Verify(target);
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L10-L19' title='File snippet `blazorcomponenttest` was extracted from'>snippet source</a> | <a href='#snippet-blazorcomponenttest' title='Navigate to start of snippet `blazorcomponenttest`'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L11-L20' title='File snippet `blazorcomponenttest` was extracted from'>snippet source</a> | <a href='#snippet-blazorcomponenttest' title='Navigate to start of snippet `blazorcomponenttest`'>anchor</a></sup>
 <!-- endSnippet -->
 
 Will produce:
@@ -121,7 +121,7 @@ public async Task BeforeRender()
     await Verifier.Verify(target);
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L21-L31' title='File snippet `beforerender` was extracted from'>snippet source</a> | <a href='#snippet-beforerender' title='Navigate to start of snippet `beforerender`'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L22-L32' title='File snippet `beforerender` was extracted from'>snippet source</a> | <a href='#snippet-beforerender' title='Navigate to start of snippet `beforerender`'>anchor</a></sup>
 <!-- endSnippet -->
 
 Will produce:
