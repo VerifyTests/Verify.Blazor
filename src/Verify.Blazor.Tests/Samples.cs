@@ -1,9 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿#if(DEBUG)
+using System.Threading.Tasks;
 using Verify.Blazor.Tests;
 using VerifyTests.Blazor;
 using VerifyXunit;
 using Xunit;
-#if(DEBUG)
+
 [UsesVerify]
 public class Samples
 {

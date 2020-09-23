@@ -9,7 +9,8 @@ using VerifyTests.Blazor;
 
 static class VerifyBlazor
 {
-    static MethodInfo stateHasChanged = typeof(ComponentBase).GetMethod("StateHasChanged", BindingFlags.Instance | BindingFlags.NonPublic)!;
+    static MethodInfo stateHasChanged = typeof(ComponentBase)
+        .GetMethod("StateHasChanged", BindingFlags.Instance | BindingFlags.NonPublic)!;
 
     public static void Initialize()
     {
