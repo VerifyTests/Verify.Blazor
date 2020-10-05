@@ -57,7 +57,7 @@ Given the following Component:
     public string Title { get; set; } = "My Test Component";
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/TestComponent.razor#L1-L9' title='File snippet `Verify.Blazor.Tests/TestComponent.razor` was extracted from'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/TestComponent.razor' title='Navigate to start of snippet `Verify.Blazor.Tests/TestComponent.razor`'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/TestComponent.razor#L1-L9' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/TestComponent.razor' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 This test:
@@ -72,7 +72,7 @@ public async Task Component()
     await Verifier.Verify(target);
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L11-L20' title='File snippet `blazorcomponenttest` was extracted from'>snippet source</a> | <a href='#snippet-blazorcomponenttest' title='Navigate to start of snippet `blazorcomponenttest`'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L11-L20' title='Snippet source file'>snippet source</a> | <a href='#snippet-blazorcomponenttest' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 Will produce:
@@ -85,7 +85,7 @@ The component rendered as html `...Component.verified.html`:
 <div><h1>My Test Component</h1>
     <button>MyButton</button></div>
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.Component.verified.html#L1-L2' title='File snippet `Verify.Blazor.Tests/Samples.Component.verified.html` was extracted from'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.Component.verified.html' title='Navigate to start of snippet `Verify.Blazor.Tests/Samples.Component.verified.html`'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.Component.verified.html#L1-L2' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.Component.verified.html' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 And the current model rendered as txt `...Component.info.verified.txt`:
@@ -100,7 +100,7 @@ And the current model rendered as txt `...Component.info.verified.txt`:
   Bytes: '67'
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.Component.info.verified.txt#L1-L6' title='File snippet `Verify.Blazor.Tests/Samples.Component.info.verified.txt` was extracted from'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.Component.info.verified.txt' title='Navigate to start of snippet `Verify.Blazor.Tests/Samples.Component.info.verified.txt`'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.Component.info.verified.txt#L1-L6' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.Component.info.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -121,7 +121,7 @@ public async Task BeforeRender()
     await Verifier.Verify(target);
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L22-L32' title='File snippet `beforerender` was extracted from'>snippet source</a> | <a href='#snippet-beforerender' title='Navigate to start of snippet `beforerender`'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L22-L32' title='Snippet source file'>snippet source</a> | <a href='#snippet-beforerender' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 Will produce:
@@ -132,7 +132,7 @@ Will produce:
 <div><h1>New Title</h1>
     <button>MyButton</button></div>
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.BeforeRender.verified.html#L1-L2' title='File snippet `Verify.Blazor.Tests/Samples.BeforeRender.verified.html` was extracted from'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.BeforeRender.verified.html' title='Navigate to start of snippet `Verify.Blazor.Tests/Samples.BeforeRender.verified.html`'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.BeforeRender.verified.html#L1-L2' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.BeforeRender.verified.html' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 And
@@ -147,7 +147,7 @@ And
   Bytes: '59'
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt#L1-L6' title='File snippet `Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt` was extracted from'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt' title='Navigate to start of snippet `Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt`'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt#L1-L6' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -170,7 +170,7 @@ Enable at startup:
 ```cs
 VerifyBunit.Initialize();
 ```
-<sup><a href='/src/Verify.Bunit.Tests/Samples.cs#L17-L19' title='File snippet `bunitenable` was extracted from'>snippet source</a> | <a href='#snippet-bunitenable' title='Navigate to start of snippet `bunitenable`'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.Tests/Samples.cs#L17-L19' title='Snippet source file'>snippet source</a> | <a href='#snippet-bunitenable' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 Given the following Component:
@@ -188,7 +188,7 @@ Given the following Component:
     public string Title { get; set; } = "My Test Component";
 }
 ```
-<sup><a href='/src/Verify.Bunit.Tests/TestComponent.razor#L1-L9' title='File snippet `Verify.Bunit.Tests/TestComponent.razor` was extracted from'>snippet source</a> | <a href='#snippet-Verify.Bunit.Tests/TestComponent.razor' title='Navigate to start of snippet `Verify.Bunit.Tests/TestComponent.razor`'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.Tests/TestComponent.razor#L1-L9' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Bunit.Tests/TestComponent.razor' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 This test:
@@ -203,7 +203,7 @@ public Task Component()
     return Verifier.Verify(component);
 }
 ```
-<sup><a href='/src/Verify.Bunit.Tests/Samples.cs#L22-L30' title='File snippet `bunitcomponenttest` was extracted from'>snippet source</a> | <a href='#snippet-bunitcomponenttest' title='Navigate to start of snippet `bunitcomponenttest`'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.Tests/Samples.cs#L22-L30' title='Snippet source file'>snippet source</a> | <a href='#snippet-bunitcomponenttest' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 Will produce:
@@ -216,7 +216,7 @@ The component rendered as html `...Component.verified.html`:
 <div><h1>My Test Component</h1>
     <button>MyButton</button></div>
 ```
-<sup><a href='/src/Verify.Bunit.Tests/Samples.Component.verified.html#L1-L2' title='File snippet `Verify.Bunit.Tests/Samples.Component.verified.html` was extracted from'>snippet source</a> | <a href='#snippet-Verify.Bunit.Tests/Samples.Component.verified.html' title='Navigate to start of snippet `Verify.Bunit.Tests/Samples.Component.verified.html`'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.Tests/Samples.Component.verified.html#L1-L2' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Bunit.Tests/Samples.Component.verified.html' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 And the current model rendered as txt `...Component.info.verified.txt`:
@@ -233,7 +233,7 @@ And the current model rendered as txt `...Component.info.verified.txt`:
   Bytes: '67'
 }
 ```
-<sup><a href='/src/Verify.Bunit.Tests/Samples.Component.info.verified.txt#L1-L8' title='File snippet `Verify.Bunit.Tests/Samples.Component.info.verified.txt` was extracted from'>snippet source</a> | <a href='#snippet-Verify.Bunit.Tests/Samples.Component.info.verified.txt' title='Navigate to start of snippet `Verify.Bunit.Tests/Samples.Component.info.verified.txt`'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.Tests/Samples.Component.info.verified.txt#L1-L8' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Bunit.Tests/Samples.Component.info.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 

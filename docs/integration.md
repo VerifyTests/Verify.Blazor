@@ -85,7 +85,7 @@ public class SeleniumFixture :
     }
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/SeleniumFixture.cs#L10-L78' title='File snippet `seleniumfixture` was extracted from'>snippet source</a> | <a href='#snippet-seleniumfixture' title='Navigate to start of snippet `seleniumfixture`'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/SeleniumFixture.cs#L10-L78' title='Snippet source file'>snippet source</a> | <a href='#snippet-seleniumfixture' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -124,7 +124,7 @@ public class SeleniumUsageTest :
     }
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/SeleniumUsageTest.cs#L10-L40' title='File snippet `seleniumusagetest` was extracted from'>snippet source</a> | <a href='#snippet-seleniumusagetest' title='Navigate to start of snippet `seleniumusagetest`'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/SeleniumUsageTest.cs#L10-L40' title='Snippet source file'>snippet source</a> | <a href='#snippet-seleniumusagetest' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -202,7 +202,7 @@ public class SeleniumUsageTest :
   </body>
 </html>
 ```
-<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/SeleniumUsageTest.PageUsage.00.verified.html#L1-L68' title='File snippet `SeleniumUsageTest.PageUsage.00.verified.html` was extracted from'>snippet source</a> | <a href='#snippet-SeleniumUsageTest.PageUsage.00.verified.html' title='Navigate to start of snippet `SeleniumUsageTest.PageUsage.00.verified.html`'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/SeleniumUsageTest.PageUsage.00.verified.html#L1-L68' title='Snippet source file'>snippet source</a> | <a href='#snippet-SeleniumUsageTest.PageUsage.00.verified.html' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 [TheTests.PageUsage.01.verified.png](/src/Verify.Blazor.Tests/IntegrationTest/SeleniumUsageTest.PageUsage.01.verified.png):
@@ -233,7 +233,7 @@ public class SeleniumUsageTest :
   </body>
 </html>
 ```
-<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/SeleniumUsageTest.ElementUsage.00.verified.html#L1-L17' title='File snippet `SeleniumUsageTest.ElementUsage.00.verified.html` was extracted from'>snippet source</a> | <a href='#snippet-SeleniumUsageTest.ElementUsage.00.verified.html' title='Navigate to start of snippet `SeleniumUsageTest.ElementUsage.00.verified.html`'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/SeleniumUsageTest.ElementUsage.00.verified.html#L1-L17' title='Snippet source file'>snippet source</a> | <a href='#snippet-SeleniumUsageTest.ElementUsage.00.verified.html' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 [TheTests.ElementUsage.01.verified.png](/src/Verify.Blazor.Tests/IntegrationTest/SeleniumUsageTest.ElementUsage.01.verified.png):
