@@ -17,7 +17,7 @@ This sample shows how to use Verify.Selenium to perform snapshot testing (html a
 The running instance of the Blazor app and the Selenium driver are expensive to instantiate and should be share between tests. This sample uses xunit, so a [ClassFixture](https://xunit.net/docs/shared-context.html#class-fixture) is used to share state.
 
 <!-- snippet: SeleniumFixture -->
-<a id='snippet-seleniumfixture'></a>
+<a id='196e8101'></a>
 ```cs
 public class SeleniumFixture :
     IDisposable
@@ -85,7 +85,7 @@ public class SeleniumFixture :
     }
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/SeleniumFixture.cs#L10-L78' title='Snippet source file'>snippet source</a> | <a href='#snippet-seleniumfixture' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/SeleniumFixture.cs#L10-L78' title='Snippet source file'>snippet source</a> | <a href='#196e8101' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -94,7 +94,7 @@ public class SeleniumFixture :
 Test can now verify the page state or the state of a specific element.
 
 <!-- snippet: SeleniumUsageTest -->
-<a id='snippet-seleniumusagetest'></a>
+<a id='2592aa1b'></a>
 ```cs
 [UsesVerify]
 public class SeleniumUsageTest :
@@ -124,14 +124,14 @@ public class SeleniumUsageTest :
     }
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/SeleniumUsageTest.cs#L10-L40' title='Snippet source file'>snippet source</a> | <a href='#snippet-seleniumusagetest' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/SeleniumUsageTest.cs#L10-L40' title='Snippet source file'>snippet source</a> | <a href='#2592aa1b' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
 ### Page results
 
 <!-- snippet: SeleniumUsageTest.PageUsage.00.verified.html -->
-<a id='snippet-SeleniumUsageTest.PageUsage.00.verified.html'></a>
+<a id='afa4c252'></a>
 ```html
 <html>
   <meta charset="utf-8">
@@ -202,7 +202,7 @@ public class SeleniumUsageTest :
   </body>
 </html>
 ```
-<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/SeleniumUsageTest.PageUsage.00.verified.html#L1-L68' title='Snippet source file'>snippet source</a> | <a href='#snippet-SeleniumUsageTest.PageUsage.00.verified.html' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/SeleniumUsageTest.PageUsage.00.verified.html#L1-L68' title='Snippet source file'>snippet source</a> | <a href='#afa4c252' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 [TheTests.PageUsage.01.verified.png](/src/Verify.Blazor.Tests/IntegrationTest/SeleniumUsageTest.PageUsage.01.verified.png):
@@ -213,7 +213,7 @@ public class SeleniumUsageTest :
 ### Element results
 
 <!-- snippet: SeleniumUsageTest.ElementUsage.00.verified.html -->
-<a id='snippet-SeleniumUsageTest.ElementUsage.00.verified.html'></a>
+<a id='28fcf844'></a>
 ```html
 <html>
   <body>
@@ -233,7 +233,7 @@ public class SeleniumUsageTest :
   </body>
 </html>
 ```
-<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/SeleniumUsageTest.ElementUsage.00.verified.html#L1-L17' title='Snippet source file'>snippet source</a> | <a href='#snippet-SeleniumUsageTest.ElementUsage.00.verified.html' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/SeleniumUsageTest.ElementUsage.00.verified.html#L1-L17' title='Snippet source file'>snippet source</a> | <a href='#28fcf844' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 [TheTests.ElementUsage.01.verified.png](/src/Verify.Blazor.Tests/IntegrationTest/SeleniumUsageTest.ElementUsage.01.verified.png):
