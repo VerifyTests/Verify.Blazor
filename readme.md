@@ -45,7 +45,7 @@ Verify.Blazor uses the Blazor APIs to take a snapshot (metadata and html) of the
 Given the following Component:
 
 <!-- snippet: Verify.Blazor.Tests/TestComponent.razor -->
-<a id='f7aa82b1'></a>
+<a id='Verify.Blazor.Tests/TestComponent.razor'></a>
 ```razor
 <div>
     <h1>@Title</h1>
@@ -57,13 +57,13 @@ Given the following Component:
     public string Title { get; set; } = "My Test Component";
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/TestComponent.razor#L1-L9' title='Snippet source file'>snippet source</a> | <a href='#f7aa82b1' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/TestComponent.razor#L1-L9' title='Snippet source file'>snippet source</a> | <a href='#Verify.Blazor.Tests/TestComponent.razor' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 This test:
 
 <!-- snippet: BlazorComponentTest -->
-<a id='e27826dd'></a>
+<a id='blazorcomponenttest'></a>
 ```cs
 [Fact]
 public async Task Component()
@@ -72,7 +72,7 @@ public async Task Component()
     await Verifier.Verify(target);
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L11-L20' title='Snippet source file'>snippet source</a> | <a href='#e27826dd' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L11-L20' title='Snippet source file'>snippet source</a> | <a href='#blazorcomponenttest' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 Will produce:
@@ -80,18 +80,18 @@ Will produce:
 The component rendered as html `...Component.verified.html`:
 
 <!-- snippet: Verify.Blazor.Tests/Samples.Component.verified.html -->
-<a id='bb27015b'></a>
+<a id='Verify.Blazor.Tests/Samples.Component.verified.html'></a>
 ```html
 <div><h1>My Test Component</h1>
     <button>MyButton</button></div>
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.Component.verified.html#L1-L2' title='Snippet source file'>snippet source</a> | <a href='#bb27015b' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.Component.verified.html#L1-L2' title='Snippet source file'>snippet source</a> | <a href='#Verify.Blazor.Tests/Samples.Component.verified.html' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 And the current model rendered as txt `...Component.info.verified.txt`:
 
 <!-- snippet: Verify.Blazor.Tests/Samples.Component.info.verified.txt -->
-<a id='2451f18e'></a>
+<a id='Verify.Blazor.Tests/Samples.Component.info.verified.txt'></a>
 ```txt
 {
   Instance: {
@@ -100,7 +100,7 @@ And the current model rendered as txt `...Component.info.verified.txt`:
   Bytes: '67'
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.Component.info.verified.txt#L1-L6' title='Snippet source file'>snippet source</a> | <a href='#2451f18e' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.Component.info.verified.txt#L1-L6' title='Snippet source file'>snippet source</a> | <a href='#Verify.Blazor.Tests/Samples.Component.info.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -111,7 +111,7 @@ The state of the component can optionally be manipulated before it is rendered.
 This test:
 
 <!-- snippet: BeforeRender -->
-<a id='4a0dd5b3'></a>
+<a id='beforerender'></a>
 ```cs
 [Fact]
 public async Task BeforeRender()
@@ -121,24 +121,24 @@ public async Task BeforeRender()
     await Verifier.Verify(target);
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L22-L32' title='Snippet source file'>snippet source</a> | <a href='#4a0dd5b3' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L22-L32' title='Snippet source file'>snippet source</a> | <a href='#beforerender' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 Will produce:
 
 <!-- snippet: Verify.Blazor.Tests/Samples.BeforeRender.verified.html -->
-<a id='566693c3'></a>
+<a id='Verify.Blazor.Tests/Samples.BeforeRender.verified.html'></a>
 ```html
 <div><h1>New Title</h1>
     <button>MyButton</button></div>
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.BeforeRender.verified.html#L1-L2' title='Snippet source file'>snippet source</a> | <a href='#566693c3' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.BeforeRender.verified.html#L1-L2' title='Snippet source file'>snippet source</a> | <a href='#Verify.Blazor.Tests/Samples.BeforeRender.verified.html' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 And
 
 <!-- snippet: Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt -->
-<a id='af8fdedf'></a>
+<a id='Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt'></a>
 ```txt
 {
   Instance: {
@@ -147,7 +147,7 @@ And
   Bytes: '59'
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt#L1-L6' title='Snippet source file'>snippet source</a> | <a href='#af8fdedf' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt#L1-L6' title='Snippet source file'>snippet source</a> | <a href='#Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -166,17 +166,17 @@ Verify.Bunit uses the bUnit APIs to take a snapshot (metadata and html) of the c
 Enable at startup:
 
 <!-- snippet: BunitEnable -->
-<a id='3f0cd448'></a>
+<a id='bunitenable'></a>
 ```cs
 VerifyBunit.Initialize();
 ```
-<sup><a href='/src/Verify.Bunit.Tests/Samples.cs#L17-L19' title='Snippet source file'>snippet source</a> | <a href='#3f0cd448' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.Tests/Samples.cs#L17-L19' title='Snippet source file'>snippet source</a> | <a href='#bunitenable' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 Given the following Component:
 
 <!-- snippet: Verify.Bunit.Tests/TestComponent.razor -->
-<a id='239864c6'></a>
+<a id='Verify.Bunit.Tests/TestComponent.razor'></a>
 ```razor
 <div>
     <h1>@Title</h1>
@@ -188,13 +188,13 @@ Given the following Component:
     public string Title { get; set; } = "My Test Component";
 }
 ```
-<sup><a href='/src/Verify.Bunit.Tests/TestComponent.razor#L1-L9' title='Snippet source file'>snippet source</a> | <a href='#239864c6' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.Tests/TestComponent.razor#L1-L9' title='Snippet source file'>snippet source</a> | <a href='#Verify.Bunit.Tests/TestComponent.razor' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 This test:
 
 <!-- snippet: BunitComponentTest -->
-<a id='8e5516bc'></a>
+<a id='bunitcomponenttest'></a>
 ```cs
 [Fact]
 public Task Component()
@@ -203,7 +203,7 @@ public Task Component()
     return Verifier.Verify(component);
 }
 ```
-<sup><a href='/src/Verify.Bunit.Tests/Samples.cs#L22-L30' title='Snippet source file'>snippet source</a> | <a href='#8e5516bc' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.Tests/Samples.cs#L22-L30' title='Snippet source file'>snippet source</a> | <a href='#bunitcomponenttest' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 Will produce:
@@ -211,18 +211,18 @@ Will produce:
 The component rendered as html `...Component.verified.html`:
 
 <!-- snippet: Verify.Bunit.Tests/Samples.Component.verified.html -->
-<a id='b05dba83'></a>
+<a id='Verify.Bunit.Tests/Samples.Component.verified.html'></a>
 ```html
 <div><h1>My Test Component</h1>
     <button>MyButton</button></div>
 ```
-<sup><a href='/src/Verify.Bunit.Tests/Samples.Component.verified.html#L1-L2' title='Snippet source file'>snippet source</a> | <a href='#b05dba83' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.Tests/Samples.Component.verified.html#L1-L2' title='Snippet source file'>snippet source</a> | <a href='#Verify.Bunit.Tests/Samples.Component.verified.html' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 And the current model rendered as txt `...Component.info.verified.txt`:
 
 <!-- snippet: Verify.Bunit.Tests/Samples.Component.info.verified.txt -->
-<a id='aab6af8d'></a>
+<a id='Verify.Bunit.Tests/Samples.Component.info.verified.txt'></a>
 ```txt
 {
   Instance: {
@@ -233,7 +233,7 @@ And the current model rendered as txt `...Component.info.verified.txt`:
   Bytes: '67'
 }
 ```
-<sup><a href='/src/Verify.Bunit.Tests/Samples.Component.info.verified.txt#L1-L8' title='Snippet source file'>snippet source</a> | <a href='#aab6af8d' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.Tests/Samples.Component.info.verified.txt#L1-L8' title='Snippet source file'>snippet source</a> | <a href='#Verify.Bunit.Tests/Samples.Component.info.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
