@@ -1,9 +1,10 @@
-﻿using Bunit;
+﻿using System.Collections.Generic;
+using Bunit;
 using VerifyTests;
 
 static class FragmentToStream
 {
-    public static ConversionResult Convert(IRenderedFragment fragment, VerifySettings settings)
+    public static ConversionResult Convert(IRenderedFragment fragment, IReadOnlyDictionary<string, object> context)
     {
         var markup = fragment.Markup;
         var stream = markup.ToStream();
@@ -14,7 +15,7 @@ static class FragmentToStream
             instance,
             fragment.RenderCount,
             all.Count,
-            markup.Replace("\r\n","\n").Length.ToString("N0"));
-        return new ConversionResult(info, new []{new ConversionStream("html", stream)});
+            markup.Replace("\r\n", "\n").Length.ToString("N0"));
+        return new ConversionResult(info, new[] {new ConversionStream("html", stream)});
     }
 }
