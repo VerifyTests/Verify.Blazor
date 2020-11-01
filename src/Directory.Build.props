@@ -2,7 +2,7 @@
 <Project>
   <PropertyGroup>
     <NoWarn>CS1591;CS0649;BL0006</NoWarn>
-    <Version>6.1.0</Version>
+    <Version>6.2.0</Version>
     <AssemblyVersion>1.0.0</AssemblyVersion>
     <PackageTags>BUnit, Verify</PackageTags>
     <Description>Extends Verify (https://github.com/VerifyTests/Verify) to allow Blazor component verification via BUnit.</Description>
