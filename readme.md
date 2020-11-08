@@ -95,9 +95,9 @@ And the current model rendered as txt `...Component.info.verified.txt`:
 ```txt
 {
   Instance: {
-    Title: 'My Test Component'
+    Title: My Test Component
   },
-  Bytes: '67'
+  Bytes: 67
 }
 ```
 <sup><a href='/src/Verify.Blazor.Tests/Samples.Component.info.verified.txt#L1-L6' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.Component.info.verified.txt' title='Start of snippet'>anchor</a></sup>
@@ -142,9 +142,9 @@ And
 ```txt
 {
   Instance: {
-    Title: 'New Title'
+    Title: New Title
   },
-  Bytes: '59'
+  Bytes: 59
 }
 ```
 <sup><a href='/src/Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt#L1-L6' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt' title='Start of snippet'>anchor</a></sup>
