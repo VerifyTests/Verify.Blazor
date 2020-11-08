@@ -1,6 +1,6 @@
 {
   Instance: {
-    Title: 'My Test Component'
+    Title: My Test Component
   },
-  Bytes: '67'
+  Bytes: 67
 }

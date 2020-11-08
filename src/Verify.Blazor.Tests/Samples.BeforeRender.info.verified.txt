@@ -1,6 +1,6 @@
 {
   Instance: {
-    Title: 'New Title'
+    Title: New Title
   },
-  Bytes: '59'
+  Bytes: 59
 }
