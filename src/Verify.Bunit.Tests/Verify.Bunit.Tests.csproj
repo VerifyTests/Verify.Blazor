@@ -5,7 +5,7 @@
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="MarkdownSnippets.MsBuild" Version="21.6.1" />
+    <PackageReference Include="MarkdownSnippets.MsBuild" Version="21.7.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components" Version="5.0.0" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.0" />
@@ -13,7 +13,7 @@
     <PackageReference Include="Xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3" />
     <PackageReference Include="bunit" Version="1.0.0-beta-9" />
-    <PackageReference Include="ProjectDefaults" Version="1.0.47" PrivateAssets="All" />
+    <PackageReference Include="ProjectDefaults" Version="1.0.48" PrivateAssets="All" />
     <PackageReference Include="Verify.Xunit" Version="8.2.0" />
     <ProjectReference Include="..\Verify.Bunit\Verify.Bunit.csproj" />
   </ItemGroup>
