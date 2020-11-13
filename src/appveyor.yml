@@ -2,7 +2,7 @@ image: Visual Studio 2019 Preview
 skip_commits:
   message: /docs|Merge pull request.*/
 install:
-  - choco install googlechrome
+  - choco install googlechrome --ignorechecksum
 build_script:
 - ps: >-
     dotnet build src --configuration Release
