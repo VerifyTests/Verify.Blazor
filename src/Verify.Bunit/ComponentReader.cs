@@ -22,7 +22,7 @@ static class ComponentReader
             return null;
         }
 
-        var instanceProperty = renderComponentInterface.GetProperty("Instance");
-        return (IComponent)instanceProperty.GetValue(fragment);
+        var instanceProperty = renderComponentInterface.GetProperty("Instance")!;
+        return (IComponent)instanceProperty.GetValue(fragment)!;
     }
 }
