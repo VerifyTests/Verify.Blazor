@@ -10,7 +10,7 @@ class TestRenderer :
 {
     Exception? unhandledException;
 
-    TaskCompletionSource<object?> nextRenderCompletion = new TaskCompletionSource<object?>();
+    TaskCompletionSource<object?> nextRenderCompletion = new();
 
     public TestRenderer(IServiceProvider services, ILoggerFactory logger)
         : base(services, logger)
@@ -34,7 +34,7 @@ class TestRenderer :
     {
         // TODO: Capture batches (and the state of component output) for individual inspection
         var prevTcs = nextRenderCompletion;
-        nextRenderCompletion = new TaskCompletionSource<object?>();
+        nextRenderCompletion = new();
         prevTcs.SetResult(null);
         return Task.CompletedTask;
     }

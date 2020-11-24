@@ -22,9 +22,9 @@ static class VerifyBlazor
     {
         await using var provider = GetProvider(target);
         var loggerFactory = target.LoggerFactory ?? NullLoggerFactory.Instance;
-        var renderer = new TestRenderer(provider, loggerFactory);
+        TestRenderer renderer = new(provider, loggerFactory);
 
-        var root = new ContainerComponent(renderer);
+        ContainerComponent root = new(renderer);
         var parameters = target.ParameterView ?? ParameterView.Empty;
 
         var type = target.Type;
@@ -42,12 +42,12 @@ static class VerifyBlazor
 
         var stream = html.ToStream();
 
-        var info = new ComponentInfo(component, html.Replace("\r\n", "\n").Length.ToString("N0"));
-        return new ConversionResult(
+        ComponentInfo info = new(component, html.Replace("\r\n", "\n").Length.ToString("N0"));
+        return new(
             info,
             new List<ConversionStream>
             {
-                new ConversionStream("html", stream)
+                new("html", stream)
             });
     }
 
@@ -58,7 +58,7 @@ static class VerifyBlazor
             return target.Provider;
         }
 
-        var services = new ServiceCollection();
+        ServiceCollection services = new();
         return services.BuildServiceProvider();
     }
 }

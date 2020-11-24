@@ -198,7 +198,7 @@ public class SeleniumUsageTest :
     </div>
     <script src="_framework/blazor.webassembly.js"></script>
     <script type="text/javascript">var Module; window.__wasmmodulecallback__(); delete window.__wasmmodulecallback__;</script>
-    <script src="_framework/wasm/dotnet.3.2.0.js" defer="" integrity="sha256-mPoqx7XczFHBWk3gRNn0hc9ekG1OvkKY4XiKRY5Mj5U=" crossorigin="anonymous"></script>
+    <script src="_framework/dotnet.5.0.0.js" defer="" integrity="sha256-rip887O/MzF0Xf3GXtIvfySYu+t66+HDS8TyLMVM1Ss=" crossorigin="anonymous"></script>
   </body>
 </html>
 ```

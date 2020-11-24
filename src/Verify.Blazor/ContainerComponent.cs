@@ -31,7 +31,7 @@ class ContainerComponent :
 
     public Task SetParametersAsync(ParameterView parameters)
     {
-        throw new Exception($"{nameof(ContainerComponent)} shouldn't receive any parameters");
+        throw new($"{nameof(ContainerComponent)} shouldn't receive any parameters");
     }
 
     public (int componentId, ComponentBase component) FindComponentUnderTest()
@@ -39,7 +39,7 @@ class ContainerComponent :
         var frames = renderer.GetCurrentRenderTreeFrames(componentId);
         if (frames.Count == 0)
         {
-            throw new Exception($"{nameof(ContainerComponent)} hasn't yet rendered");
+            throw new($"{nameof(ContainerComponent)} hasn't yet rendered");
         }
 
         ref var frame = ref frames.Array[0];

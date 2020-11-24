@@ -3,10 +3,10 @@ using System.Text;
 
 static class StreamHelpers
 {
-    static Encoding utf8NoBOM = new UTF8Encoding(false, true);
+    static UTF8Encoding utf8NoBOM = new(false, true);
 
     public static MemoryStream ToStream(this string input)
     {
-        return new MemoryStream(utf8NoBOM.GetBytes(input));
+        return new(utf8NoBOM.GetBytes(input));
     }
 }

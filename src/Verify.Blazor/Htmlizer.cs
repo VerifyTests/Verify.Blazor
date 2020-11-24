@@ -13,7 +13,7 @@ static class Htmlizer
 {
     static readonly HtmlEncoder HtmlEncoder = HtmlEncoder.Default;
 
-    static readonly HashSet<string> SelfClosingElements = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+    static readonly HashSet<string> SelfClosingElements = new(StringComparer.OrdinalIgnoreCase)
     {
         "area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"
     };
@@ -25,7 +25,7 @@ static class Htmlizer
     public static string GetHtml(TestRenderer renderer, int componentId)
     {
         var frames = renderer.GetCurrentRenderTreeFrames(componentId);
-        var context = new HtmlRenderingContext(renderer);
+        HtmlRenderingContext context = new(renderer);
         RenderFrames(context, frames, 0, frames.Count);
         return context.Result.ToString();
     }
@@ -246,7 +246,7 @@ static class Htmlizer
             Renderer = renderer;
         }
 
-        public StringBuilder Result { get; } = new StringBuilder();
+        public StringBuilder Result { get; } = new();
 
         public string? ClosestSelectValueAsString { get; set; }
     }

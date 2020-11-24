@@ -11,11 +11,11 @@ static class FragmentToStream
 
         var instance = ComponentReader.GetInstance(fragment);
         var all = fragment.FindAll("*");
-        var info = new FragmentInfo(
+        FragmentInfo info = new(
             instance,
             fragment.RenderCount,
             all.Count,
             markup.Replace("\r\n", "\n").Length.ToString("N0"));
-        return new ConversionResult(info, new[] {new ConversionStream("html", stream)});
+        return new(info, new[] {new ConversionStream("html", stream)});
     }
 }

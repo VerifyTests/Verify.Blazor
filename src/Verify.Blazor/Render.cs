@@ -38,7 +38,7 @@ namespace VerifyTests.Blazor
             Action<T>? beforeRender = null)
             where T : ComponentBase
         {
-            return new Render(
+            return new(
                 typeof(T),
                 provider,
                 loggerFactory,
