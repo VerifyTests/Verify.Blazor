@@ -15,7 +15,7 @@ static class VerifyBlazor
     public static void Initialize()
     {
         VerifierSettings.RegisterFileConverter<Render>(
-            async (target, settings) => await RenderToResult(target));
+            async (target, _) => await RenderToResult(target));
     }
 
     static async Task<ConversionResult> RenderToResult(Render target)
