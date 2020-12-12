@@ -11,6 +11,6 @@
     <PackageReference Include="bunit.core" Version="1.0.0-beta-9" />
     <PackageReference Include="ProjectDefaults" Version="1.0.48" PrivateAssets="All" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" Condition="$(Configuration) == 'Release'" />
-    <PackageReference Include="Verify" Version="8.11.0" />
+    <PackageReference Include="Verify" Version="8.12.0" />
   </ItemGroup>
 </Project>
