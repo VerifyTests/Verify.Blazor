@@ -7,8 +7,8 @@
   <ItemGroup>
     <Content Include="../build.targets" PackagePath="buildMultiTargeting\Verify.Bunit.targets" />
     <Content Include="../build.targets" PackagePath="build\Verify.Bunit.targets" />
+    <PackageReference Include="bunit.core" Version="1.0.0-preview-01" />
     <PackageReference Include="bunit.web" Version="1.0.0-preview-01" />
-    <PackageReference Include="bunit.core" Version="1.0.0-beta-9" />
     <PackageReference Include="ProjectDefaults" Version="1.0.50" PrivateAssets="All" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" Condition="$(Configuration) == 'Release'" />
     <PackageReference Include="Verify" Version="8.13.0" />
