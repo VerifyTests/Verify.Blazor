@@ -77,21 +77,21 @@ public async Task Component()
 
 Will produce:
 
-The component rendered as html `...Component.verified.html`:
+The component rendered as html `...Component.01.verified.html`:
 
-<!-- snippet: Verify.Blazor.Tests/Samples.Component.verified.html -->
-<a id='snippet-Verify.Blazor.Tests/Samples.Component.verified.html'></a>
+<!-- snippet: Verify.Blazor.Tests/Samples.Component.01.verified.html -->
+<a id='snippet-Verify.Blazor.Tests/Samples.Component.01.verified.html'></a>
 ```html
 <div><h1>My Test Component</h1>
     <button>MyButton</button></div>
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.Component.verified.html#L1-L2' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.Component.verified.html' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.Component.01.verified.html#L1-L2' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.Component.01.verified.html' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
-And the current model rendered as txt `...Component.info.verified.txt`:
+And the current model rendered as txt `...Component.00.verified.txt`:
 
-<!-- snippet: Verify.Blazor.Tests/Samples.Component.info.verified.txt -->
-<a id='snippet-Verify.Blazor.Tests/Samples.Component.info.verified.txt'></a>
+<!-- snippet: Verify.Blazor.Tests/Samples.Component.00.verified.txt -->
+<a id='snippet-Verify.Blazor.Tests/Samples.Component.00.verified.txt'></a>
 ```txt
 {
   Instance: {
@@ -100,7 +100,7 @@ And the current model rendered as txt `...Component.info.verified.txt`:
   Bytes: 67
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.Component.info.verified.txt#L1-L6' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.Component.info.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.Component.00.verified.txt#L1-L6' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.Component.00.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -126,19 +126,19 @@ public async Task BeforeRender()
 
 Will produce:
 
-<!-- snippet: Verify.Blazor.Tests/Samples.BeforeRender.verified.html -->
-<a id='snippet-Verify.Blazor.Tests/Samples.BeforeRender.verified.html'></a>
+<!-- snippet: Verify.Blazor.Tests/Samples.BeforeRender.01.verified.html -->
+<a id='snippet-Verify.Blazor.Tests/Samples.BeforeRender.01.verified.html'></a>
 ```html
 <div><h1>New Title</h1>
     <button>MyButton</button></div>
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.BeforeRender.verified.html#L1-L2' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.BeforeRender.verified.html' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.BeforeRender.01.verified.html#L1-L2' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.BeforeRender.01.verified.html' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 And
 
-<!-- snippet: Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt -->
-<a id='snippet-Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt'></a>
+<!-- snippet: Verify.Blazor.Tests/Samples.BeforeRender.00.verified.txt -->
+<a id='snippet-Verify.Blazor.Tests/Samples.BeforeRender.00.verified.txt'></a>
 ```txt
 {
   Instance: {
@@ -147,7 +147,7 @@ And
   Bytes: 59
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt#L1-L6' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.BeforeRender.00.verified.txt#L1-L6' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.BeforeRender.00.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 

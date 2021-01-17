@@ -36,13 +36,13 @@ snippet: BlazorComponentTest
 
 Will produce:
 
-The component rendered as html `...Component.verified.html`:
+The component rendered as html `...Component.01.verified.html`:
 
-snippet: Verify.Blazor.Tests/Samples.Component.verified.html
+snippet: Verify.Blazor.Tests/Samples.Component.01.verified.html
 
-And the current model rendered as txt `...Component.info.verified.txt`:
+And the current model rendered as txt `...Component.00.verified.txt`:
 
-snippet: Verify.Blazor.Tests/Samples.Component.info.verified.txt
+snippet: Verify.Blazor.Tests/Samples.Component.00.verified.txt
 
 
 ### BeforeRender
@@ -55,11 +55,11 @@ snippet: BeforeRender
 
 Will produce:
 
-snippet: Verify.Blazor.Tests/Samples.BeforeRender.verified.html
+snippet: Verify.Blazor.Tests/Samples.BeforeRender.01.verified.html
 
 And
 
-snippet: Verify.Blazor.Tests/Samples.BeforeRender.info.verified.txt
+snippet: Verify.Blazor.Tests/Samples.BeforeRender.00.verified.txt
 
 
 ## Verify.Bunit
