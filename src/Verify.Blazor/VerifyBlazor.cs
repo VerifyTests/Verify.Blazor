@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.DependencyInjection;
@@ -38,17 +37,9 @@ static class VerifyBlazor
             await root.RenderComponentUnderTest(type, parameters);
         }
 
-        var html = Htmlizer.GetHtml(renderer, componentId);
-
-        var stream = html.ToStream();
-
-        ComponentInfo info = new(component, html.Replace("\r\n", "\n").Length.ToString("N0"));
-        return new(
-            info,
-            new List<ConversionStream>
-            {
-                new("html", stream)
-            });
+        var html = Htmlizer.GetHtml(renderer, componentId).Replace("\r\n", "\n");
+        ComponentInfo info = new(component, html.Length.ToString("N0"));
+        return new(info,"html", html);
     }
 
     static ServiceProvider GetProvider(Render target)
