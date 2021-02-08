@@ -134,12 +134,14 @@ public class SeleniumUsageTest :
 <a id='snippet-SeleniumUsageTest.PageUsage.00.verified.html'></a>
 ```html
 <html>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>BlazorApp</title>
-  <base href="/">
-  <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
-  <link href="css/app.css" rel="stylesheet">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>BlazorApp</title>
+    <base href="/">
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet">
+  </head>
   <body>
     <app>
       <div class="sidebar">
@@ -198,11 +200,11 @@ public class SeleniumUsageTest :
     </div>
     <script src="_framework/blazor.webassembly.js"></script>
     <script type="text/javascript">var Module; window.__wasmmodulecallback__(); delete window.__wasmmodulecallback__;</script>
-    <script src="_framework/dotnet.5.0.0.js" defer="" integrity="sha256-rip887O/MzF0Xf3GXtIvfySYu+t66+HDS8TyLMVM1Ss=" crossorigin="anonymous"></script>
+    <script src="_framework/dotnet.5.0.1.js" defer="" integrity="sha256-SWZOE2EsCqc/7dPgJrcFqUvVvdeJ9cipeZ2NFMC9v2s=" crossorigin="anonymous"></script>
   </body>
 </html>
 ```
-<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/SeleniumUsageTest.PageUsage.00.verified.html#L1-L68' title='Snippet source file'>snippet source</a> | <a href='#snippet-SeleniumUsageTest.PageUsage.00.verified.html' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/SeleniumUsageTest.PageUsage.00.verified.html#L1-L70' title='Snippet source file'>snippet source</a> | <a href='#snippet-SeleniumUsageTest.PageUsage.00.verified.html' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 [TheTests.PageUsage.01.verified.png](/src/Verify.Blazor.Tests/IntegrationTest/SeleniumUsageTest.PageUsage.01.verified.png):
@@ -216,6 +218,7 @@ public class SeleniumUsageTest :
 <a id='snippet-SeleniumUsageTest.ElementUsage.00.verified.html'></a>
 ```html
 <html>
+  <head></head>
   <body>
     <div class="content px-4">
       <h1>Hello, world!</h1>
@@ -233,7 +236,7 @@ public class SeleniumUsageTest :
   </body>
 </html>
 ```
-<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/SeleniumUsageTest.ElementUsage.00.verified.html#L1-L17' title='Snippet source file'>snippet source</a> | <a href='#snippet-SeleniumUsageTest.ElementUsage.00.verified.html' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/SeleniumUsageTest.ElementUsage.00.verified.html#L1-L18' title='Snippet source file'>snippet source</a> | <a href='#snippet-SeleniumUsageTest.ElementUsage.00.verified.html' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 [TheTests.ElementUsage.01.verified.png](/src/Verify.Blazor.Tests/IntegrationTest/SeleniumUsageTest.ElementUsage.01.verified.png):
