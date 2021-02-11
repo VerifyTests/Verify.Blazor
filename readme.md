@@ -21,6 +21,7 @@ Part of the <a href='https://dotnetfoundation.org' alt=''>.NET Foundation</a>
 <!-- toc -->
 ## Contents
 
+  * [Component](#component)
   * [Verify.Blazor](#verifyblazor)
     * [Usage](#usage)
     * [BeforeRender](#beforerender)
@@ -28,6 +29,26 @@ Part of the <a href='https://dotnetfoundation.org' alt=''>.NET Foundation</a>
     * [Usage](#usage-1)
   * [Credits](#credits)
   * [Security contact information](#security-contact-information)<!-- endToc -->
+
+## Component
+
+The below samples use the following Component:
+
+<!-- snippet: BlazorApp/TestComponent.razor -->
+<a id='snippet-BlazorApp/TestComponent.razor'></a>
+```razor
+<div>
+    <h1>@Title</h1>
+    <button>MyButton</button>
+</div>
+
+@code {
+    [Parameter]
+    public string Title { get; set; } = "My Test Component";
+}
+```
+<sup><a href='/src/BlazorApp/TestComponent.razor#L1-L9' title='Snippet source file'>snippet source</a> | <a href='#snippet-BlazorApp/TestComponent.razor' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
 
 
 ## Verify.Blazor
@@ -41,24 +62,6 @@ Verify.Blazor uses the Blazor APIs to take a snapshot (metadata and html) of the
 
 
 ### Usage
-
-Given the following Component:
-
-<!-- snippet: Verify.Blazor.Tests/TestComponent.razor -->
-<a id='snippet-Verify.Blazor.Tests/TestComponent.razor'></a>
-```razor
-<div>
-    <h1>@Title</h1>
-    <button>MyButton</button>
-</div>
-
-@code {
-    [Parameter]
-    public string Title { get; set; } = "My Test Component";
-}
-```
-<sup><a href='/src/Verify.Blazor.Tests/TestComponent.razor#L1-L9' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/TestComponent.razor' title='Start of snippet'>anchor</a></sup>
-<!-- endSnippet -->
 
 This test:
 
@@ -171,24 +174,6 @@ Enable at startup:
 VerifyBunit.Initialize();
 ```
 <sup><a href='/src/Verify.Bunit.Tests/Samples.cs#L17-L19' title='Snippet source file'>snippet source</a> | <a href='#snippet-bunitenable' title='Start of snippet'>anchor</a></sup>
-<!-- endSnippet -->
-
-Given the following Component:
-
-<!-- snippet: Verify.Bunit.Tests/TestComponent.razor -->
-<a id='snippet-Verify.Bunit.Tests/TestComponent.razor'></a>
-```razor
-<div>
-    <h1>@Title</h1>
-    <button>MyButton</button>
-</div>
-
-@code {
-    [Parameter]
-    public string Title { get; set; } = "My Test Component";
-}
-```
-<sup><a href='/src/Verify.Bunit.Tests/TestComponent.razor#L1-L9' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Bunit.Tests/TestComponent.razor' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 This test:

@@ -13,6 +13,12 @@ Part of the <a href='https://dotnetfoundation.org' alt=''>.NET Foundation</a>
 
 toc
 
+## Component
+
+The below samples use the following Component:
+
+snippet: BlazorApp/TestComponent.razor
+
 
 ## Verify.Blazor
 
@@ -25,10 +31,6 @@ Verify.Blazor uses the Blazor APIs to take a snapshot (metadata and html) of the
 
 
 ### Usage
-
-Given the following Component:
-
-snippet: Verify.Blazor.Tests/TestComponent.razor
 
 This test:
 
@@ -77,10 +79,6 @@ Verify.Bunit uses the bUnit APIs to take a snapshot (metadata and html) of the c
 Enable at startup:
 
 snippet: BunitEnable
-
-Given the following Component:
-
-snippet: Verify.Bunit.Tests/TestComponent.razor
 
 This test:
 

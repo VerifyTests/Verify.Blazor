@@ -1,6 +1,6 @@
 ﻿#if(DEBUG)
 using System.Threading.Tasks;
-using Verify.Blazor.Tests;
+using BlazorApp;
 using VerifyTests.Blazor;
 using VerifyXunit;
 using Xunit;
