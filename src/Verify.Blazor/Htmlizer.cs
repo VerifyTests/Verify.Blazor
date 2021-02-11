@@ -20,7 +20,7 @@ static class Htmlizer
 
     const string BLAZOR_INTERNAL_ATTR_PREFIX = "__internal_";
     const string BLAZOR_ATTR_PREFIX = "blazor:";
-    const string ELEMENT_REFERENCE_ATTR_NAME = BLAZOR_ATTR_PREFIX + "elementreference";
+    const string ELEMENT_REFERENCE_ATTR_NAME = BLAZOR_ATTR_PREFIX + "elementReference";
 
     public static string GetHtml(TestRenderer renderer, int componentId)
     {
@@ -39,7 +39,7 @@ static class Htmlizer
             nextPosition = RenderCore(context, frames, position);
             if (position == nextPosition)
             {
-                throw new InvalidOperationException("We didn't consume any input.");
+                throw new("We didn't consume any input.");
             }
             position = nextPosition;
         }
@@ -58,7 +58,7 @@ static class Htmlizer
             case RenderTreeFrameType.Element:
                 return RenderElement(context, frames, position);
             case RenderTreeFrameType.Attribute:
-                throw new InvalidOperationException($"Attributes should only be encountered within {nameof(RenderElement)}");
+                throw new($"Attributes should only be encountered within {nameof(RenderElement)}");
             case RenderTreeFrameType.Text:
                 context.Result.Append(HtmlEncoder.Encode(frame.TextContent));
                 return ++position;
@@ -73,7 +73,7 @@ static class Htmlizer
             case RenderTreeFrameType.ComponentReferenceCapture:
                 return ++position;
             default:
-                throw new InvalidOperationException($"Invalid element frame type '{frame.FrameType}'.");
+                throw new($"Invalid element frame type '{frame.FrameType}'.");
         }
     }
 
@@ -216,9 +216,14 @@ static class Htmlizer
                     // NOTE: This was added to make it more obvious
                     //       that this is a generated/special blazor attribute
                     //	     for internal usage
+                    var nameParts = frame.AttributeName.Split('_', StringSplitOptions.RemoveEmptyEntries);
                     result.Append(" ");
                     result.Append(BLAZOR_ATTR_PREFIX);
+                    result.Append(BLAZOR_ATTR_PREFIX);
                     result.Append(frame.AttributeName);
+                    result.Append(nameParts[2]);
+                    result.Append(":");
+                    result.Append(nameParts[1]);
                     break;
                 case bool flag when flag:
                     result.Append(" ");
