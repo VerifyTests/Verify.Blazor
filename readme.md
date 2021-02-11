@@ -63,6 +63,29 @@ Verify.Blazor uses the Blazor APIs to take a snapshot (metadata and html) of the
 
 ### Usage
 
+Enable at startup:
+
+<!-- snippet: ModuleInitializer.cs -->
+<a id='snippet-ModuleInitializer.cs'></a>
+```cs
+using System.Runtime.CompilerServices;
+using VerifyTests;
+
+public static class ModuleInitializer
+{
+    [ModuleInitializer]
+    public static void Initialize()
+    {
+        // remove some noise from the html snapshot
+        VerifierSettings.ScrubLinesContaining("<!--!-->");
+
+        VerifySelenium.Enable();
+    }
+}
+```
+<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/ModuleInitializer.cs#L1-L14' title='Snippet source file'>snippet source</a> | <a href='#snippet-ModuleInitializer.cs' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
 This test:
 
 <!-- snippet: BlazorComponentTest -->

@@ -32,6 +32,10 @@ Verify.Blazor uses the Blazor APIs to take a snapshot (metadata and html) of the
 
 ### Usage
 
+Enable at startup:
+
+snippet: ModuleInitializer.cs
+
 This test:
 
 snippet: BlazorComponentTest

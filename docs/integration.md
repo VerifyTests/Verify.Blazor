@@ -20,23 +20,19 @@ The running instance of the Blazor app and the Selenium driver are expensive to 
 <a id='snippet-seleniumfixture'></a>
 ```cs
 public class SeleniumFixture :
-    IDisposable
+    IAsyncLifetime
 {
     Process? process;
     ChromeDriver? driver;
 
-    public SeleniumFixture()
+    public Task InitializeAsync()
     {
-        // remove some noise from the html snapshot
-        VerifierSettings.ScrubLinesContaining("<!--!-->");
-
-        VerifySelenium.Enable();
-
         StartBlazorApp();
 
         StartDriver();
 
         WaitForRender();
+        return Task.CompletedTask;
     }
 
     void StartBlazorApp()
@@ -69,7 +65,7 @@ public class SeleniumFixture :
 
     public ChromeDriver Driver => driver!;
 
-    public void Dispose()
+    public Task DisposeAsync()
     {
         if (driver != null)
         {
@@ -82,10 +78,12 @@ public class SeleniumFixture :
             process.Kill();
             process.Dispose();
         }
+
+        return Task.CompletedTask;
     }
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/SeleniumFixture.cs#L10-L78' title='Snippet source file'>snippet source</a> | <a href='#snippet-seleniumfixture' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/SeleniumFixture.cs#L11-L78' title='Snippet source file'>snippet source</a> | <a href='#snippet-seleniumfixture' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 

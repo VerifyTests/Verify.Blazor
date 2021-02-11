@@ -2,31 +2,28 @@
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
-using VerifyTests;
+using Xunit;
 
 #region SeleniumFixture
 
 public class SeleniumFixture :
-    IDisposable
+    IAsyncLifetime
 {
     Process? process;
     ChromeDriver? driver;
 
-    public SeleniumFixture()
+    public Task InitializeAsync()
     {
-        // remove some noise from the html snapshot
-        VerifierSettings.ScrubLinesContaining("<!--!-->");
-
-        VerifySelenium.Enable();
-
         StartBlazorApp();
 
         StartDriver();
 
         WaitForRender();
+        return Task.CompletedTask;
     }
 
     void StartBlazorApp()
@@ -54,12 +51,12 @@ public class SeleniumFixture :
     void WaitForRender()
     {
         var wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(5));
-        wait.Until(drv => drv.FindElement(By.ClassName("main")));
+        wait.Until(_ => _.FindElement(By.ClassName("main")));
     }
 
     public ChromeDriver Driver => driver!;
 
-    public void Dispose()
+    public Task DisposeAsync()
     {
         if (driver != null)
         {
@@ -72,6 +69,8 @@ public class SeleniumFixture :
             process.Kill();
             process.Dispose();
         }
+
+        return Task.CompletedTask;
     }
 }
 
