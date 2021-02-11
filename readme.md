@@ -193,32 +193,32 @@ public Task Component()
 
 Will produce:
 
-The component rendered as html `...Component.verified.html`:
+The component rendered as html `...Component.01.verified.html`:
 
-<!-- snippet: Verify.Bunit.Tests/Samples.Component.verified.html -->
-<a id='snippet-Verify.Bunit.Tests/Samples.Component.verified.html'></a>
+<!-- snippet: Verify.Bunit.Tests/Samples.Component.01.verified.html -->
+<a id='snippet-Verify.Bunit.Tests/Samples.Component.01.verified.html'></a>
 ```html
 <div><h1>My Test Component</h1>
     <button>MyButton</button></div>
 ```
-<sup><a href='/src/Verify.Bunit.Tests/Samples.Component.verified.html#L1-L2' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Bunit.Tests/Samples.Component.verified.html' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.Tests/Samples.Component.01.verified.html#L1-L2' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Bunit.Tests/Samples.Component.01.verified.html' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
-And the current model rendered as txt `...Component.info.verified.txt`:
+And the current model rendered as txt `...Component.00.verified.txt`:
 
-<!-- snippet: Verify.Bunit.Tests/Samples.Component.info.verified.txt -->
-<a id='snippet-Verify.Bunit.Tests/Samples.Component.info.verified.txt'></a>
+<!-- snippet: Verify.Bunit.Tests/Samples.Component.00.verified.txt -->
+<a id='snippet-Verify.Bunit.Tests/Samples.Component.00.verified.txt'></a>
 ```txt
 {
   Instance: {
-    Title: 'My Test Component'
+    Title: My Test Component
   },
   RenderCount: 1,
   NodeCount: 3,
-  Bytes: '67'
+  Bytes: 67
 }
 ```
-<sup><a href='/src/Verify.Bunit.Tests/Samples.Component.info.verified.txt#L1-L8' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Bunit.Tests/Samples.Component.info.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.Tests/Samples.Component.00.verified.txt#L1-L8' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Bunit.Tests/Samples.Component.00.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 

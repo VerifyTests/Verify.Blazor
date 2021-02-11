@@ -86,13 +86,13 @@ snippet: BunitComponentTest
 
 Will produce:
 
-The component rendered as html `...Component.verified.html`:
+The component rendered as html `...Component.01.verified.html`:
 
-snippet: Verify.Bunit.Tests/Samples.Component.verified.html
+snippet: Verify.Bunit.Tests/Samples.Component.01.verified.html
 
-And the current model rendered as txt `...Component.info.verified.txt`:
+And the current model rendered as txt `...Component.00.verified.txt`:
 
-snippet: Verify.Bunit.Tests/Samples.Component.info.verified.txt
+snippet: Verify.Bunit.Tests/Samples.Component.00.verified.txt
 
 
 ## Credits

@@ -1,7 +1,7 @@
-﻿#if (Debug)
+﻿#if(DEBUG)
 using System.Threading.Tasks;
+using BlazorApp;
 using Bunit;
-using Verify.Bunit.Tests;
 using VerifyTests;
 using VerifyXunit;
 using Xunit;
