@@ -60,7 +60,7 @@ public class SeleniumFixture :
     void WaitForRender()
     {
         var wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(5));
-        wait.Until(drv => drv.FindElement(By.ClassName("main")));
+        wait.Until(_ => _.FindElement(By.ClassName("main")));
     }
 
     public ChromeDriver Driver => driver!;
@@ -83,7 +83,7 @@ public class SeleniumFixture :
     }
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/SeleniumFixture.cs#L11-L78' title='Snippet source file'>snippet source</a> | <a href='#snippet-seleniumfixture' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/SeleniumFixture.cs#L11-L77' title='Snippet source file'>snippet source</a> | <a href='#snippet-seleniumfixture' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
