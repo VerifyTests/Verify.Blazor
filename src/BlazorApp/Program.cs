@@ -1,4 +1,3 @@
-using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using BlazorApp;
@@ -15,7 +14,7 @@ public class Program
         builder.Services.AddScoped(
             _ => new HttpClient
             {
-                BaseAddress = new Uri(builder.HostEnvironment.BaseAddress)
+                BaseAddress = new(builder.HostEnvironment.BaseAddress)
             });
 
         await builder.Build().RunAsync();

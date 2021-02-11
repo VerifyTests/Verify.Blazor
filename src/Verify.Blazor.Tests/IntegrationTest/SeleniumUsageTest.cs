@@ -18,7 +18,7 @@ public class SeleniumUsageTest :
 
     public SeleniumUsageTest(SeleniumFixture fixture)
     {
-        settings = new VerifySettings();
+        settings = new();
         settings.AutoVerify();
         driver = fixture.Driver;
     }

@@ -31,7 +31,7 @@ public class SeleniumFixture :
         var baseDirectory = AppDomain.CurrentDomain.BaseDirectory!;
         var binPath = baseDirectory.Replace("Verify.Blazor.Tests", "BlazorApp");
         var projectDir = Path.GetFullPath(Path.Combine(binPath, "../../"));
-        var startInfo = new ProcessStartInfo("dotnet", "run")
+        ProcessStartInfo startInfo = new("dotnet", "run")
         {
             WorkingDirectory = projectDir
         };
@@ -40,17 +40,17 @@ public class SeleniumFixture :
 
     void StartDriver()
     {
-        var options = new ChromeOptions();
+        ChromeOptions options = new();
         options.AddArgument("--no-sandbox");
         options.AddArgument("--headless");
-        driver = new ChromeDriver(options);
-        driver.Manage().Window.Size = new Size(1024, 768);
+        driver = new(options);
+        driver.Manage().Window.Size = new(1024, 768);
         driver.Navigate().GoToUrl("http://localhost:5000");
     }
 
     void WaitForRender()
     {
-        var wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(5));
+        WebDriverWait wait = new(Driver, TimeSpan.FromSeconds(5));
         wait.Until(_ => _.FindElement(By.ClassName("main")));
     }
 
