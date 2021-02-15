@@ -27,6 +27,11 @@ Part of the <a href='https://dotnetfoundation.org' alt=''>.NET Foundation</a>
     * [BeforeRender](#beforerender)
   * [Verify.Bunit](#verifybunit)
     * [Usage](#usage-1)
+  * [Scrubbing](#scrubbing)
+    * [Integrity check](#integrity-check)
+    * [Pretty print](#pretty-print)
+    * [Noise in rendered template](#noise-in-rendered-template)
+    * [Resulting scrubbing](#resulting-scrubbing)
   * [Credits](#credits)
   * [Security contact information](#security-contact-information)<!-- endToc -->
 
@@ -78,23 +83,15 @@ public static class ModuleInitializer
     public static void Initialize()
     {
         // remove some noise from the html snapshot
-        VerifierSettings.ScrubLinesContaining("<!--!-->");
+        VerifierSettings.ScrubEmptyLines();
+        VerifierSettings.ScrubLinesWithReplace(s => s.Replace("<!--!-->", ""));
         HtmlPrettyPrint.All();
-        VerifierSettings.ScrubLinesWithReplace(s =>
-        {
-            var indexOf = s.IndexOf("sha256-");
-            if (indexOf == -1)
-            {
-                return s;
-            }
-
-            return s.Substring(0, indexOf) + s.Substring(indexOf + 51);
-        });
+        VerifierSettings.ScrubLinesContaining("<script src=\"_framework/dotnet.");
         VerifySelenium.Enable();
     }
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/ModuleInitializer.cs#L1-L25' title='Snippet source file'>snippet source</a> | <a href='#snippet-ModuleInitializer.cs' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/ModuleInitializer.cs#L1-L17' title='Snippet source file'>snippet source</a> | <a href='#snippet-ModuleInitializer.cs' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 This test:
@@ -194,6 +191,7 @@ And
 <!-- endSnippet -->
 
 
+
 ## Verify.Bunit
 
 Verify.Bunit uses the bUnit APIs to take a snapshot (metadata and html) of the current state of a Blazor component. Since it leverages the bUnit API, snapshots can be on a component that has been manipulated using the full bUnit feature set, for example [trigger event handlers](https://bunit.egilhansen.com/docs/interaction/trigger-event-handlers.html).
@@ -259,6 +257,44 @@ And the current model rendered as txt `...Component.00.verified.txt`:
 }
 ```
 <sup><a href='/src/Verify.Bunit.Tests/Samples.Component.00.verified.txt#L1-L8' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Bunit.Tests/Samples.Component.00.verified.txt' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+
+## Scrubbing
+
+
+### Integrity check
+
+In Blazor an integrity check is applied to the `dotnet.*.js` file.
+
+```
+<script src="_framework/dotnet.5.0.2.js" defer="" integrity="sha256-AQfZ6sKmq4EzOxN3pymKJ1nlGQaneN66/2mcbArnIJ8=" crossorigin="anonymous"></script>
+```
+
+This line will change when the dotnet SDK is updated.
+
+
+### Pretty print
+
+For readability it is useful to pretty print html using [Verify.AngleSharp](https://github.com/VerifyTests/Verify.AngleSharp#pretty-print).
+
+
+### Noise in rendered template
+
+Blazor uses `<!--!-->` to delineate components in the resulting html. Some empty lines can be rendered when components are stitched together.
+
+
+### Resulting scrubbing
+
+<!-- snippet: scrubbers -->
+<a id='snippet-scrubbers'></a>
+```cs
+VerifierSettings.ScrubEmptyLines();
+VerifierSettings.ScrubLinesWithReplace(s => s.Replace("<!--!-->", ""));
+HtmlPrettyPrint.All();
+VerifierSettings.ScrubLinesContaining("<script src=\"_framework/dotnet.");
+```
+<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/ModuleInitializer.cs#L11-L16' title='Snippet source file'>snippet source</a> | <a href='#snippet-scrubbers' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
