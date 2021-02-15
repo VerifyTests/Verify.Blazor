@@ -69,6 +69,7 @@ Enable at startup:
 <a id='snippet-ModuleInitializer.cs'></a>
 ```cs
 using System.Runtime.CompilerServices;
+using Verify.AngleSharp;
 using VerifyTests;
 
 public static class ModuleInitializer
@@ -78,7 +79,7 @@ public static class ModuleInitializer
     {
         // remove some noise from the html snapshot
         VerifierSettings.ScrubLinesContaining("<!--!-->");
-
+        HtmlPrettyPrint.All();
         VerifierSettings.ScrubLinesWithReplace(s =>
         {
             var indexOf = s.IndexOf("sha256-");
@@ -87,13 +88,13 @@ public static class ModuleInitializer
                 return s;
             }
 
-            return s.Substring(0, indexOf) + s.Substring(indexOf);
+            return s.Substring(0, indexOf) + s.Substring(indexOf + 51);
         });
         VerifySelenium.Enable();
     }
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/ModuleInitializer.cs#L1-L24' title='Snippet source file'>snippet source</a> | <a href='#snippet-ModuleInitializer.cs' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/ModuleInitializer.cs#L1-L25' title='Snippet source file'>snippet source</a> | <a href='#snippet-ModuleInitializer.cs' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 This test:
@@ -118,10 +119,13 @@ The component rendered as html `...Component.01.verified.html`:
 <!-- snippet: Verify.Blazor.Tests/Samples.Component.01.verified.html -->
 <a id='snippet-Verify.Blazor.Tests/Samples.Component.01.verified.html'></a>
 ```html
-<div><h1>My Test Component</h1>
-    <button>MyButton</button></div>
+
+<div>
+  <h1>My Test Component</h1>
+  <button>MyButton</button>
+</div>
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.Component.01.verified.html#L1-L2' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.Component.01.verified.html' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.Component.01.verified.html#L1-L5' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.Component.01.verified.html' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 And the current model rendered as txt `...Component.00.verified.txt`:
@@ -165,10 +169,13 @@ Will produce:
 <!-- snippet: Verify.Blazor.Tests/Samples.BeforeRender.01.verified.html -->
 <a id='snippet-Verify.Blazor.Tests/Samples.BeforeRender.01.verified.html'></a>
 ```html
-<div><h1>New Title</h1>
-    <button>MyButton</button></div>
+
+<div>
+  <h1>New Title</h1>
+  <button>MyButton</button>
+</div>
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.BeforeRender.01.verified.html#L1-L2' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.BeforeRender.01.verified.html' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.BeforeRender.01.verified.html#L1-L5' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.BeforeRender.01.verified.html' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 And
