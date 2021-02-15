@@ -68,6 +68,7 @@ And
 snippet: Verify.Blazor.Tests/Samples.BeforeRender.00.verified.txt
 
 
+
 ## Verify.Bunit
 
 Verify.Bunit uses the bUnit APIs to take a snapshot (metadata and html) of the current state of a Blazor component. Since it leverages the bUnit API, snapshots can be on a component that has been manipulated using the full bUnit feature set, for example [trigger event handlers](https://bunit.egilhansen.com/docs/interaction/trigger-event-handlers.html).
@@ -97,6 +98,35 @@ snippet: Verify.Bunit.Tests/Samples.Component.01.verified.html
 And the current model rendered as txt `...Component.00.verified.txt`:
 
 snippet: Verify.Bunit.Tests/Samples.Component.00.verified.txt
+
+
+## Scrubbing
+
+
+### Integrity check
+
+In Blazor an integrity check is applied to the `dotnet.*.js` file.
+
+```
+<script src="_framework/dotnet.5.0.2.js" defer="" integrity="sha256-AQfZ6sKmq4EzOxN3pymKJ1nlGQaneN66/2mcbArnIJ8=" crossorigin="anonymous"></script>
+```
+
+This line will change when the dotnet SDK is updated.
+
+
+### Pretty print
+
+For readability it is useful to pretty print html using [Verify.AngleSharp](https://github.com/VerifyTests/Verify.AngleSharp#pretty-print).
+
+
+### Noise in rendered template
+
+Blazor uses `<!--!-->` to delineate components in the resulting html. Some empty lines can be rendered when components are stitched together.
+
+
+### Resulting scrubbing
+
+snippet: scrubbers
 
 
 ## Credits
