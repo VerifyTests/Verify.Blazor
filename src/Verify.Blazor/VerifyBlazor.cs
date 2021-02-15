@@ -39,7 +39,7 @@ static class VerifyBlazor
 
         var html = Htmlizer.GetHtml(renderer, componentId).Replace("\r\n", "\n");
         ComponentInfo info = new(component, html.Length.ToString("N0"));
-        return new(info,"html", html);
+        return new(info, "html", html);
     }
 
     static ServiceProvider GetProvider(Render target)

@@ -79,11 +79,21 @@ public static class ModuleInitializer
         // remove some noise from the html snapshot
         VerifierSettings.ScrubLinesContaining("<!--!-->");
 
+        VerifierSettings.ScrubLinesWithReplace(s =>
+        {
+            var indexOf = s.IndexOf("sha256-");
+            if (indexOf == -1)
+            {
+                return s;
+            }
+
+            return s.Substring(0, indexOf) + s.Substring(indexOf);
+        });
         VerifySelenium.Enable();
     }
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/ModuleInitializer.cs#L1-L14' title='Snippet source file'>snippet source</a> | <a href='#snippet-ModuleInitializer.cs' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/ModuleInitializer.cs#L1-L24' title='Snippet source file'>snippet source</a> | <a href='#snippet-ModuleInitializer.cs' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 This test:

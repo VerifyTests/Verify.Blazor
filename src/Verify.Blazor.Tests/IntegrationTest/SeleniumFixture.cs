@@ -44,7 +44,7 @@ public class SeleniumFixture :
         options.AddArgument("--headless");
         driver = new(options);
         driver.Manage().Window.Size = new(1024, 768);
-        driver.Navigate().GoToUrl("http://localhost:5000");
+        driver.Navigate().GoToUrl("http://localhost:5025");
     }
 
     void WaitForRender()

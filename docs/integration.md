@@ -54,7 +54,7 @@ public class SeleniumFixture :
         options.AddArgument("--headless");
         driver = new(options);
         driver.Manage().Window.Size = new(1024, 768);
-        driver.Navigate().GoToUrl("http://localhost:5000");
+        driver.Navigate().GoToUrl("http://localhost:5025");
     }
 
     void WaitForRender()
@@ -131,78 +131,40 @@ public class SeleniumUsageTest :
 <!-- snippet: SeleniumUsageTest.PageUsage.00.verified.html -->
 <a id='snippet-SeleniumUsageTest.PageUsage.00.verified.html'></a>
 ```html
-<html>
-  <head>
+<html><head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>BlazorApp</title>
     <base href="/">
     <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
     <link href="css/app.css" rel="stylesheet">
-  </head>
-  <body>
-    <app>
-      <div class="sidebar">
-        <div class="top-row pl-4 navbar navbar-dark">
-          <a class="navbar-brand" href="">BlazorApp</a>
-          <button class="navbar-toggler">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        </div>
-        <div class="collapse">
-          <ul class="nav flex-column">
-            <li class="nav-item px-3">
-              <a href="" class="nav-link active">
-                <span class="oi oi-home" aria-hidden="true"></span>
-                Home
-              </a>
-            </li>
-            <li class="nav-item px-3">
-              <a href="counter" class="nav-link">
-                <span class="oi oi-plus" aria-hidden="true"></span>
-                Counter
-              </a>
-            </li>
-            <li class="nav-item px-3">
-              <a href="fetchdata" class="nav-link">
-                <span class="oi oi-list-rich" aria-hidden="true"></span>
-                Fetch data
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="main">
-        <div class="top-row px-4">
-          <a href="http://blazor.net" target="_blank" class="ml-md-auto">About</a>
-        </div>
-        <div class="content px-4">
-          <h1>Hello, world!</h1>
-          Welcome to your new app.  
-          <div class="alert alert-secondary mt-4" role="alert">
-            <span class="oi oi-pencil mr-2" aria-hidden="true"></span>
-            <strong>How is Blazor working for you?</strong>
-            <span class="text-nowrap">
-              Please take our
-              <a target="_blank" class="font-weight-bold" href="https://go.microsoft.com/fwlink/?linkid=2127996">brief survey</a>
-            </span>
-            and tell us what you think.
-          </div>
-        </div>
-      </div>
-    </app>
+</head>
+
+<body>
+
+
+
+
+Welcome to your new app.
+
+
+        Please take our
+        <a target="_blank" class="font-weight-bold" href="https://go.microsoft.com/fwlink/?linkid=2127996">brief survey</a></span>
+    and tell us what you think.
+</div></div></div></app>
+
     <div id="blazor-error-ui">
-      An unhandled error has occurred.
-      <a href="" class="reload">Reload</a>
-      <a class="dismiss">🗙</a>
+        An unhandled error has occurred.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
     </div>
     <script src="_framework/blazor.webassembly.js"></script>
-    <script type="text/javascript">var Module; window.__wasmmodulecallback__(); delete window.__wasmmodulecallback__;</script>
-    <script src="_framework/dotnet.5.0.2.js" defer="" integrity="sha256-AQfZ6sKmq4EzOxN3pymKJ1nlGQaneN66/2mcbArnIJ8=" crossorigin="anonymous"></script>
-  </body>
-</html>
+
+
+
+<script type="text/javascript">var Module; window.__wasmmodulecallback__(); delete window.__wasmmodulecallback__;</script><script src="_framework/dotnet.5.0.2.js" defer="" integrity="sha256-AQfZ6sKmq4EzOxN3pymKJ1nlGQaneN66/2mcbArnIJ8=" crossorigin="anonymous"></script></body></html>
 ```
-<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/SeleniumUsageTest.PageUsage.00.verified.html#L1-L70' title='Snippet source file'>snippet source</a> | <a href='#snippet-SeleniumUsageTest.PageUsage.00.verified.html' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/SeleniumUsageTest.PageUsage.00.verified.html#L1-L32' title='Snippet source file'>snippet source</a> | <a href='#snippet-SeleniumUsageTest.PageUsage.00.verified.html' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 [TheTests.PageUsage.01.verified.png](/src/Verify.Blazor.Tests/IntegrationTest/SeleniumUsageTest.PageUsage.01.verified.png):
@@ -215,26 +177,16 @@ public class SeleniumUsageTest :
 <!-- snippet: SeleniumUsageTest.ElementUsage.00.verified.html -->
 <a id='snippet-SeleniumUsageTest.ElementUsage.00.verified.html'></a>
 ```html
-<html>
-  <head></head>
-  <body>
-    <div class="content px-4">
-      <h1>Hello, world!</h1>
-      Welcome to your new app.  
-      <div class="alert alert-secondary mt-4" role="alert">
-        <span class="oi oi-pencil mr-2" aria-hidden="true"></span>
-        <strong>How is Blazor working for you?</strong>
-        <span class="text-nowrap">
-          Please take our
-          <a target="_blank" class="font-weight-bold" href="https://go.microsoft.com/fwlink/?linkid=2127996">brief survey</a>
-        </span>
-        and tell us what you think.
-      </div>
-    </div>
-  </body>
-</html>
+
+Welcome to your new app.
+
+
+        Please take our
+        <a target="_blank" class="font-weight-bold" href="https://go.microsoft.com/fwlink/?linkid=2127996">brief survey</a></span>
+    and tell us what you think.
+</div></div>
 ```
-<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/SeleniumUsageTest.ElementUsage.00.verified.html#L1-L18' title='Snippet source file'>snippet source</a> | <a href='#snippet-SeleniumUsageTest.ElementUsage.00.verified.html' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/SeleniumUsageTest.ElementUsage.00.verified.html#L1-L8' title='Snippet source file'>snippet source</a> | <a href='#snippet-SeleniumUsageTest.ElementUsage.00.verified.html' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 [TheTests.ElementUsage.01.verified.png](/src/Verify.Blazor.Tests/IntegrationTest/SeleniumUsageTest.ElementUsage.01.verified.png):
