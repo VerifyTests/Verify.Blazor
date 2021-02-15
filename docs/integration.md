@@ -195,11 +195,10 @@ public class SeleniumUsageTest :
     </div>
     <script src="_framework/blazor.webassembly.js"></script>
     <script type="text/javascript">var Module; window.__wasmmodulecallback__(); delete window.__wasmmodulecallback__;</script>
-    <script src="_framework/dotnet.5.0.2.js" defer="" integrity="" crossorigin="anonymous"></script>
   </body>
 </html>
 ```
-<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/SeleniumUsageTest.PageUsage.00.verified.html#L1-L70' title='Snippet source file'>snippet source</a> | <a href='#snippet-SeleniumUsageTest.PageUsage.00.verified.html' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/SeleniumUsageTest.PageUsage.00.verified.html#L1-L69' title='Snippet source file'>snippet source</a> | <a href='#snippet-SeleniumUsageTest.PageUsage.00.verified.html' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 [TheTests.PageUsage.01.verified.png](/src/Verify.Blazor.Tests/IntegrationTest/SeleniumUsageTest.PageUsage.01.verified.png):
