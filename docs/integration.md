@@ -5,34 +5,45 @@ Source File: /docs/integration.source.md
 To change this file edit the source file and then run MarkdownSnippets.
 -->
 
-# Integration testing using Verify.Selenium
+# Integration testing using Verify.Playwright
 
-[Verify.Selenium](https://github.com/VerifyTests/Verify.Selenium) extends [Verify](https://github.com/VerifyTests/Verify) to allow verification of Web UIs using [Selenium](https://www.selenium.dev/).
+[Verify.Playwright](https://github.com/VerifyTests/Verify.HeadlessBrowsers#playwright-usage) extends [Verify](https://github.com/VerifyTests/Verify) to allow verification of Web UIs using [Playwright for .NET](https://github.com/microsoft/playwright-sharp/).
 
-This sample shows how to use Verify.Selenium to perform snapshot testing (html and image) of a running Blazor app.
+This sample shows how to use Verify.Playwright to perform snapshot testing (html and image) of a running Blazor app.
 
 
 ## Fixture for shared state
 
-The running instance of the Blazor app and the Selenium driver are expensive to instantiate and should be share between tests. This sample uses xunit, so a [ClassFixture](https://xunit.net/docs/shared-context.html#class-fixture) is used to share state.
+The running instance of the Blazor app and the Playwright driver are expensive to instantiate and should be share between tests. This sample uses xunit, so a [ClassFixture](https://xunit.net/docs/shared-context.html#class-fixture) is used to share state.
 
-<!-- snippet: SeleniumFixture -->
-<a id='snippet-seleniumfixture'></a>
+<!-- snippet: PlaywrightFixture.cs -->
+<a id='snippet-PlaywrightFixture.cs'></a>
 ```cs
-public class SeleniumFixture :
+using System;
+using System.Diagnostics;
+using System.IO;
+using System.Threading.Tasks;
+using PlaywrightSharp;
+using PlaywrightSharp.Chromium;
+using Xunit;
+
+public class PlaywrightFixture :
     IAsyncLifetime
 {
+    IPlaywright? playwright;
     Process? process;
-    ChromeDriver? driver;
+    IChromiumBrowser? browser;
 
-    public Task InitializeAsync()
+    public IChromiumBrowser Browser
+    {
+        get => browser!;
+    }
+
+    public async Task InitializeAsync()
     {
         StartBlazorApp();
-
-        StartDriver();
-
-        WaitForRender();
-        return Task.CompletedTask;
+        playwright = await Playwright.CreateAsync();
+        browser = await playwright.Chromium.LaunchAsync();
     }
 
     void StartBlazorApp()
@@ -47,30 +58,16 @@ public class SeleniumFixture :
         process = Process.Start(startInfo);
     }
 
-    void StartDriver()
+    public async Task DisposeAsync()
     {
-        ChromeOptions options = new();
-        options.AddArgument("--no-sandbox");
-        options.AddArgument("--headless");
-        driver = new(options);
-        driver.Manage().Window.Size = new(1024, 768);
-        driver.Navigate().GoToUrl("http://localhost:5025");
-    }
-
-    void WaitForRender()
-    {
-        WebDriverWait wait = new(Driver, TimeSpan.FromSeconds(5));
-        wait.Until(_ => _.FindElement(By.ClassName("main")));
-    }
-
-    public ChromeDriver Driver => driver!;
-
-    public Task DisposeAsync()
-    {
-        if (driver != null)
+        if (browser != null)
         {
-            driver.Quit();
-            driver.Dispose();
+            await browser.DisposeAsync();
+        }
+
+        if (playwright != null)
+        {
+            playwright.Dispose();
         }
 
         if (process != null)
@@ -78,12 +75,10 @@ public class SeleniumFixture :
             process.Kill();
             process.Dispose();
         }
-
-        return Task.CompletedTask;
     }
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/SeleniumFixture.cs#L10-L76' title='Snippet source file'>snippet source</a> | <a href='#snippet-seleniumfixture' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/PlaywrightFixture.cs#L1-L58' title='Snippet source file'>snippet source</a> | <a href='#snippet-PlaywrightFixture.cs' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -91,43 +86,58 @@ public class SeleniumFixture :
 
 Test can now verify the page state or the state of a specific element.
 
-<!-- snippet: SeleniumUsageTest -->
-<a id='snippet-seleniumusagetest'></a>
+<!-- snippet: PlaywrightUsageTest.cs -->
+<a id='snippet-PlaywrightUsageTest.cs'></a>
 ```cs
-[UsesVerify]
-public class SeleniumUsageTest :
-    IClassFixture<SeleniumFixture>
-{
-    RemoteWebDriver driver;
+using System.Threading.Tasks;
+using PlaywrightSharp;
+using PlaywrightSharp.Chromium;
+using VerifyXunit;
+using Xunit;
 
-    public SeleniumUsageTest(SeleniumFixture fixture)
+[UsesVerify]
+public class PlaywrightUsageTest :
+    IClassFixture<PlaywrightFixture>
+{
+    IChromiumBrowser browser;
+
+    public PlaywrightUsageTest(PlaywrightFixture fixture)
     {
-        driver = fixture.Driver;
+        browser = fixture.Browser;
     }
 
     [Fact]
     public async Task PageUsage()
     {
-        await Verifier.Verify(driver);
+        var page = await browser.NewPageAsync();
+        page.ViewportSize.Height = 768;
+        page.ViewportSize.Width = 1024;
+        await page.GoToAsync("http://localhost:5025");
+        await page.WaitForSelectorAsync(".main");
+        await Verifier.Verify(page);
     }
 
     [Fact]
     public async Task ElementUsage()
     {
-        var element = driver.FindElement(By.ClassName("content"));
+        var page = await browser.NewPageAsync();
+        await page.GoToAsync("http://localhost:5025");
+        await page.WaitForSelectorAsync(".main");
+        var element = await page.QuerySelectorAsync(".content");
         await Verifier.Verify(element);
     }
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/SeleniumUsageTest.cs#L9-L36' title='Snippet source file'>snippet source</a> | <a href='#snippet-seleniumusagetest' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/PlaywrightUsageTest.cs#L1-L38' title='Snippet source file'>snippet source</a> | <a href='#snippet-PlaywrightUsageTest.cs' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
 ### Page results
 
-<!-- snippet: SeleniumUsageTest.PageUsage.00.verified.html -->
-<a id='snippet-SeleniumUsageTest.PageUsage.00.verified.html'></a>
+<!-- snippet: PlaywrightUsageTest.PageUsage.00.verified.html -->
+<a id='snippet-PlaywrightUsageTest.PageUsage.00.verified.html'></a>
 ```html
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -198,37 +208,35 @@ public class SeleniumUsageTest :
   </body>
 </html>
 ```
-<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/SeleniumUsageTest.PageUsage.00.verified.html#L1-L69' title='Snippet source file'>snippet source</a> | <a href='#snippet-SeleniumUsageTest.PageUsage.00.verified.html' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/PlaywrightUsageTest.PageUsage.00.verified.html#L1-L70' title='Snippet source file'>snippet source</a> | <a href='#snippet-PlaywrightUsageTest.PageUsage.00.verified.html' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
-[TheTests.PageUsage.01.verified.png](/src/Verify.Blazor.Tests/IntegrationTest/SeleniumUsageTest.PageUsage.01.verified.png):
+[PlaywrightUsageTest.PageUsage.01.verified.png](/src/Verify.Blazor.Tests/IntegrationTest/PlaywrightUsageTest.PageUsage.01.verified.png):
 
-<img src="/src/Verify.Blazor.Tests/IntegrationTest/SeleniumUsageTest.PageUsage.01.verified.png" width="400px">
+<img src="/src/Verify.Blazor.Tests/IntegrationTest/PlaywrightUsageTest.PageUsage.01.verified.png" width="400px">
 
 
 ### Element results
 
-<!-- snippet: SeleniumUsageTest.ElementUsage.00.verified.html -->
-<a id='snippet-SeleniumUsageTest.ElementUsage.00.verified.html'></a>
+<!-- snippet: PlaywrightUsageTest.ElementUsage.00.verified.html -->
+<a id='snippet-PlaywrightUsageTest.ElementUsage.00.verified.html'></a>
 ```html
 
-<div class="content px-4">
-  <h1>Hello, world!</h1>
-  Welcome to your new app.
-  <div class="alert alert-secondary mt-4" role="alert">
-    <span class="oi oi-pencil mr-2" aria-hidden="true"></span>
-    <strong>How is Blazor working for you?</strong>
-    <span class="text-nowrap">
-      Please take our
-      <a target="_blank" class="font-weight-bold" href="https://go.microsoft.com/fwlink/?linkid=2127996">brief survey</a>
-    </span>
-    and tell us what you think.
-  </div>
+<h1>Hello, world!</h1>
+Welcome to your new app.
+<div class="alert alert-secondary mt-4" role="alert">
+  <span class="oi oi-pencil mr-2" aria-hidden="true"></span>
+  <strong>How is Blazor working for you?</strong>
+  <span class="text-nowrap">
+    Please take our
+    <a target="_blank" class="font-weight-bold" href="https://go.microsoft.com/fwlink/?linkid=2127996">brief survey</a>
+  </span>
+  and tell us what you think.
 </div>
 ```
-<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/SeleniumUsageTest.ElementUsage.00.verified.html#L1-L14' title='Snippet source file'>snippet source</a> | <a href='#snippet-SeleniumUsageTest.ElementUsage.00.verified.html' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/PlaywrightUsageTest.ElementUsage.00.verified.html#L1-L12' title='Snippet source file'>snippet source</a> | <a href='#snippet-PlaywrightUsageTest.ElementUsage.00.verified.html' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
-[TheTests.ElementUsage.01.verified.png](/src/Verify.Blazor.Tests/IntegrationTest/SeleniumUsageTest.ElementUsage.01.verified.png):
+[PlaywrightUsageTest.ElementUsage.01.verified.png](/src/Verify.Blazor.Tests/IntegrationTest/PlaywrightUsageTest.ElementUsage.01.verified.png):
 
-<img src="/src/Verify.Blazor.Tests/IntegrationTest/SeleniumUsageTest.ElementUsage.01.verified.png" width="400px">
+<img src="/src/Verify.Blazor.Tests/IntegrationTest/PlaywrightUsageTest.ElementUsage.01.verified.png" width="400px">

@@ -1,5 +1,4 @@
-﻿#if(DEBUG)
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using BlazorApp;
 using VerifyTests.Blazor;
 using VerifyXunit;
@@ -31,4 +30,3 @@ public class Samples
 
     #endregion
 }
-#endif

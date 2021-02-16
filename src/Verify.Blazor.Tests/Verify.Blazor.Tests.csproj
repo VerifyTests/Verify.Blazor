@@ -4,15 +4,14 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="AngleSharp" Version="1.0.0-alpha-844" />
-    <PackageReference Include="AngleSharp.Diffing" Version="0.14.0" />
+    <PackageReference Include="PlaywrightSharp" Version="0.180.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.3" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="88.0.4324.9600" />
-    <PackageReference Include="Verify.AngleSharp" Version="2.6.0-beta.1" />
-    <PackageReference Include="Verify.Selenium" Version="0.10.0-beta.1" />
+    <PackageReference Include="Verify.AngleSharp" Version="2.6.0-beta.2" />
+    <PackageReference Include="Verify.Playwright" Version="0.10.0-beta.1" />
     <PackageReference Include="Xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3" />
-    <PackageReference Include="ProjectDefaults" Version="1.0.53" PrivateAssets="All" />
+    <PackageReference Include="ProjectDefaults" Version="1.0.54" PrivateAssets="All" />
     <PackageReference Include="Verify.Xunit" Version="11.0.0-beta.3" />
     <ProjectReference Include="..\BlazorApp\BlazorApp.csproj" />
     <ProjectReference Include="..\Verify.Blazor\Verify.Blazor.csproj" />

@@ -87,7 +87,7 @@ public static class ModuleInitializer
         VerifierSettings.ScrubLinesWithReplace(s => s.Replace("<!--!-->", ""));
         HtmlPrettyPrint.All();
         VerifierSettings.ScrubLinesContaining("<script src=\"_framework/dotnet.");
-        VerifySelenium.Enable();
+        VerifyPlaywright.Enable();
     }
 }
 ```
@@ -106,7 +106,7 @@ public async Task Component()
     await Verifier.Verify(target);
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L11-L20' title='Snippet source file'>snippet source</a> | <a href='#snippet-blazorcomponenttest' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L10-L19' title='Snippet source file'>snippet source</a> | <a href='#snippet-blazorcomponenttest' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 Will produce:
@@ -158,7 +158,7 @@ public async Task BeforeRender()
     await Verifier.Verify(target);
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L22-L32' title='Snippet source file'>snippet source</a> | <a href='#snippet-beforerender' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L21-L31' title='Snippet source file'>snippet source</a> | <a href='#snippet-beforerender' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 Will produce:

@@ -14,6 +14,6 @@ public static class ModuleInitializer
         HtmlPrettyPrint.All();
         VerifierSettings.ScrubLinesContaining("<script src=\"_framework/dotnet.");
         #endregion
-        VerifySelenium.Enable();
+        VerifyPlaywright.Enable();
     }
 }
