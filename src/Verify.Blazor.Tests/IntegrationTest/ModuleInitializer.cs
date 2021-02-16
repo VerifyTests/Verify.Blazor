@@ -20,6 +20,8 @@ public static class ModuleInitializer
         #endregion
 
         VerifyPlaywright.Enable();
-        VerifyImageMagick.RegisterComparers(metric: ErrorMetric.MeanAbsolute);
+        VerifyImageMagick.RegisterComparers(
+            threshold:.01,
+            metric: ErrorMetric.MeanAbsolute);
     }
 }
