@@ -88,10 +88,11 @@ public static class ModuleInitializer
         HtmlPrettyPrint.All();
         VerifierSettings.ScrubLinesContaining("<script src=\"_framework/dotnet.");
         VerifyPlaywright.Enable();
+        VerifyImageMagick.RegisterComparers();
     }
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/ModuleInitializer.cs#L1-L17' title='Snippet source file'>snippet source</a> | <a href='#snippet-ModuleInitializer.cs' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/ModuleInitializer.cs#L1-L18' title='Snippet source file'>snippet source</a> | <a href='#snippet-ModuleInitializer.cs' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 This test:
