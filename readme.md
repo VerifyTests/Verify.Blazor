@@ -94,7 +94,7 @@ public static class ModuleInitializer
 
         VerifyPlaywright.Enable();
         VerifyImageMagick.RegisterComparers(
-            threshold:.01,
+            threshold: .01,
             metric: ErrorMetric.MeanAbsolute);
     }
 }
