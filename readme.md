@@ -74,6 +74,7 @@ Enable at startup:
 <a id='snippet-ModuleInitializer.cs'></a>
 ```cs
 using System.Runtime.CompilerServices;
+using ImageMagick;
 using Verify.AngleSharp;
 using VerifyTests;
 
@@ -83,16 +84,20 @@ public static class ModuleInitializer
     public static void Initialize()
     {
         // remove some noise from the html snapshot
+
+
         VerifierSettings.ScrubEmptyLines();
         VerifierSettings.ScrubLinesWithReplace(s => s.Replace("<!--!-->", ""));
         HtmlPrettyPrint.All();
         VerifierSettings.ScrubLinesContaining("<script src=\"_framework/dotnet.");
+
+
         VerifyPlaywright.Enable();
-        VerifyImageMagick.RegisterComparers();
+        VerifyImageMagick.RegisterComparers(metric: ErrorMetric.MeanAbsolute);
     }
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/ModuleInitializer.cs#L1-L18' title='Snippet source file'>snippet source</a> | <a href='#snippet-ModuleInitializer.cs' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/ModuleInitializer.cs#L1-L23' title='Snippet source file'>snippet source</a> | <a href='#snippet-ModuleInitializer.cs' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 This test:
@@ -295,7 +300,7 @@ VerifierSettings.ScrubLinesWithReplace(s => s.Replace("<!--!-->", ""));
 HtmlPrettyPrint.All();
 VerifierSettings.ScrubLinesContaining("<script src=\"_framework/dotnet.");
 ```
-<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/ModuleInitializer.cs#L11-L16' title='Snippet source file'>snippet source</a> | <a href='#snippet-scrubbers' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/ModuleInitializer.cs#L13-L20' title='Snippet source file'>snippet source</a> | <a href='#snippet-scrubbers' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
