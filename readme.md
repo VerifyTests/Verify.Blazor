@@ -93,11 +93,13 @@ public static class ModuleInitializer
 
 
         VerifyPlaywright.Enable();
-        VerifyImageMagick.RegisterComparers(metric: ErrorMetric.MeanAbsolute);
+        VerifyImageMagick.RegisterComparers(
+            threshold:.01,
+            metric: ErrorMetric.MeanAbsolute);
     }
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/ModuleInitializer.cs#L1-L23' title='Snippet source file'>snippet source</a> | <a href='#snippet-ModuleInitializer.cs' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/ModuleInitializer.cs#L1-L25' title='Snippet source file'>snippet source</a> | <a href='#snippet-ModuleInitializer.cs' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 This test:
