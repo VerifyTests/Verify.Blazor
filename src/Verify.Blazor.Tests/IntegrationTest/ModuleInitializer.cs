@@ -15,5 +15,6 @@ public static class ModuleInitializer
         VerifierSettings.ScrubLinesContaining("<script src=\"_framework/dotnet.");
         #endregion
         VerifyPlaywright.Enable();
+        VerifyImageMagick.RegisterComparers();
     }
 }
