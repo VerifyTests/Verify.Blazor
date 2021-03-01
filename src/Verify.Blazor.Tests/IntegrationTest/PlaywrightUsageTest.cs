@@ -30,7 +30,8 @@ public class PlaywrightUsageTest :
     public async Task ElementUsage()
     {
         var page = await browser.NewPageAsync();
-        await page.GoToAsync("http://localhost:5025");
+        await page.GoToAsync("http://localhost:5025",LifecycleEvent.DOMContentLoaded);
+        await Task.Delay(1000);
         await page.WaitForSelectorAsync(".main");
         var element = await page.QuerySelectorAsync(".content");
         await Verifier.Verify(element);

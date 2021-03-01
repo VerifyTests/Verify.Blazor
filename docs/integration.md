@@ -121,14 +121,15 @@ public class PlaywrightUsageTest :
     public async Task ElementUsage()
     {
         var page = await browser.NewPageAsync();
-        await page.GoToAsync("http://localhost:5025");
+        await page.GoToAsync("http://localhost:5025",LifecycleEvent.DOMContentLoaded);
+        await Task.Delay(1000);
         await page.WaitForSelectorAsync(".main");
         var element = await page.QuerySelectorAsync(".content");
         await Verifier.Verify(element);
     }
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/PlaywrightUsageTest.cs#L1-L38' title='Snippet source file'>snippet source</a> | <a href='#snippet-PlaywrightUsageTest.cs' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/PlaywrightUsageTest.cs#L1-L39' title='Snippet source file'>snippet source</a> | <a href='#snippet-PlaywrightUsageTest.cs' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
