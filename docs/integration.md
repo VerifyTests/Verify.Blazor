@@ -65,10 +65,7 @@ public class PlaywrightFixture :
             await browser.DisposeAsync();
         }
 
-        if (playwright != null)
-        {
-            playwright.Dispose();
-        }
+        playwright?.Dispose();
 
         if (process != null)
         {
@@ -78,7 +75,7 @@ public class PlaywrightFixture :
     }
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/PlaywrightFixture.cs#L1-L58' title='Snippet source file'>snippet source</a> | <a href='#snippet-PlaywrightFixture.cs' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/PlaywrightFixture.cs#L1-L55' title='Snippet source file'>snippet source</a> | <a href='#snippet-PlaywrightFixture.cs' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
