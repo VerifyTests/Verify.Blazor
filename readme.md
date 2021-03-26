@@ -18,22 +18,6 @@ Support is available via a [Tidelift Subscription](https://tidelift.com/subscrip
 <a href='https://dotnetfoundation.org' alt='Part of the .NET Foundation'><img src='https://raw.githubusercontent.com/VerifyTests/Verify/master/docs/dotNetFoundation.svg' height='30px'></a><br>
 Part of the <a href='https://dotnetfoundation.org' alt=''>.NET Foundation</a>
 
-<!-- toc -->
-## Contents
-
-  * [Component](#component)
-  * [Verify.Blazor](#verifyblazor)
-    * [Usage](#usage)
-    * [BeforeRender](#beforerender)
-  * [Verify.Bunit](#verifybunit)
-    * [Usage](#usage-1)
-  * [Scrubbing](#scrubbing)
-    * [Integrity check](#integrity-check)
-    * [Pretty print](#pretty-print)
-    * [Noise in rendered template](#noise-in-rendered-template)
-    * [Resulting scrubbing](#resulting-scrubbing)
-  * [Credits](#credits)
-  * [Security contact information](#security-contact-information)<!-- endToc -->
 
 ## Component
 
