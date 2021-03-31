@@ -22,12 +22,12 @@ static class Htmlizer
     const string BLAZOR_ATTR_PREFIX = "blazor:";
     const string ELEMENT_REFERENCE_ATTR_NAME = BLAZOR_ATTR_PREFIX + "elementReference";
 
-    public static string GetHtml(TestRenderer renderer, int componentId)
+    public static StringBuilder GetHtml(TestRenderer renderer, int componentId)
     {
         var frames = renderer.GetCurrentRenderTreeFrames(componentId);
         HtmlRenderingContext context = new(renderer);
         RenderFrames(context, frames, 0, frames.Count);
-        return context.Result.ToString();
+        return context.Result;
     }
 
     static int RenderFrames(HtmlRenderingContext context, ArrayRange<RenderTreeFrame> frames, int position, int maxElements)
