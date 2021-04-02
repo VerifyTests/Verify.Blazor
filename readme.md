@@ -108,7 +108,6 @@ The component rendered as html `...Component.01.verified.html`:
 <!-- snippet: Verify.Blazor.Tests/Samples.Component.01.verified.html -->
 <a id='snippet-Verify.Blazor.Tests/Samples.Component.01.verified.html'></a>
 ```html
-
 <div>
   <h1>My Test Component</h1>
   <button>MyButton</button>
@@ -158,7 +157,6 @@ Will produce:
 <!-- snippet: Verify.Blazor.Tests/Samples.BeforeRender.01.verified.html -->
 <a id='snippet-Verify.Blazor.Tests/Samples.BeforeRender.01.verified.html'></a>
 ```html
-
 <div>
   <h1>New Title</h1>
   <button>MyButton</button>
