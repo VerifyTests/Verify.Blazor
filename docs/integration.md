@@ -219,7 +219,6 @@ public class PlaywrightUsageTest :
 <!-- snippet: PlaywrightUsageTest.ElementUsage.00.verified.html -->
 <a id='snippet-PlaywrightUsageTest.ElementUsage.00.verified.html'></a>
 ```html
-
 <h1>Hello, world!</h1>
 Welcome to your new app.
 <div class="alert alert-secondary mt-4" role="alert">
