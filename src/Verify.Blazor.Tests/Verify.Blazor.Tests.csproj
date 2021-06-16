@@ -4,7 +4,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="AngleSharp" Version="1.0.0-alpha-844" />
-    <PackageReference Include="PlaywrightSharp" Version="0.192.0" />
+    <PackageReference Include="Microsoft.Playwright" Version="1.12.2" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.10.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Verify.AngleSharp" Version="2.6.0" />
@@ -13,7 +13,7 @@
     <PackageReference Include="Xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3" />
     <PackageReference Include="ProjectDefaults" Version="1.0.54" PrivateAssets="All" />
-    <PackageReference Include="Verify.Xunit" Version="11.18.3" />
+    <PackageReference Include="Verify.Xunit" Version="11.18.4" />
     <ProjectReference Include="..\BlazorApp\BlazorApp.csproj" />
     <ProjectReference Include="..\Verify.Blazor\Verify.Blazor.csproj" />
   </ItemGroup>

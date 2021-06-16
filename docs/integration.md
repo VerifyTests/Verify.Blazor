@@ -23,8 +23,7 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
-using PlaywrightSharp;
-using PlaywrightSharp.Chromium;
+using Microsoft.Playwright;
 using Xunit;
 
 public class PlaywrightFixture :
@@ -32,9 +31,9 @@ public class PlaywrightFixture :
 {
     IPlaywright? playwright;
     Process? process;
-    IChromiumBrowser? browser;
+    IBrowser? browser;
 
-    public IChromiumBrowser Browser
+    public IBrowser Browser
     {
         get => browser!;
     }
@@ -75,7 +74,7 @@ public class PlaywrightFixture :
     }
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/PlaywrightFixture.cs#L1-L55' title='Snippet source file'>snippet source</a> | <a href='#snippet-PlaywrightFixture.cs' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/PlaywrightFixture.cs#L1-L54' title='Snippet source file'>snippet source</a> | <a href='#snippet-PlaywrightFixture.cs' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
