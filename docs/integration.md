@@ -86,8 +86,7 @@ Test can now verify the page state or the state of a specific element.
 <a id='snippet-PlaywrightUsageTest.cs'></a>
 ```cs
 using System.Threading.Tasks;
-using PlaywrightSharp;
-using PlaywrightSharp.Chromium;
+using Microsoft.Playwright;
 using VerifyXunit;
 using Xunit;
 
@@ -95,7 +94,7 @@ using Xunit;
 public class PlaywrightUsageTest :
     IClassFixture<PlaywrightFixture>
 {
-    IChromiumBrowser browser;
+    IBrowser browser;
 
     public PlaywrightUsageTest(PlaywrightFixture fixture)
     {
@@ -106,9 +105,10 @@ public class PlaywrightUsageTest :
     public async Task PageUsage()
     {
         var page = await browser.NewPageAsync();
-        page.ViewportSize.Height = 768;
-        page.ViewportSize.Width = 1024;
-        await page.GoToAsync("http://localhost:5025");
+        var size = page.ViewportSize!;
+        size.Height = 768;
+        size.Width = 1024;
+        await page.GotoAsync("http://localhost:5025");
         await page.WaitForSelectorAsync(".main");
         await Verifier.Verify(page);
     }
@@ -117,8 +117,8 @@ public class PlaywrightUsageTest :
     public async Task ElementUsage()
     {
         var page = await browser.NewPageAsync();
-        await page.GoToAsync("http://localhost:5025",LifecycleEvent.DOMContentLoaded);
-        await Task.Delay(1000);
+        await page.GotoAsync("http://localhost:5025");
+        await page.WaitForLoadStateAsync(LoadState.DOMContentLoaded);
         await page.WaitForSelectorAsync(".main");
         var element = await page.QuerySelectorAsync(".content");
         await Verifier.Verify(element);
