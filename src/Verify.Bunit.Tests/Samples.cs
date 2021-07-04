@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using BlazorApp;
 using Bunit;
-using VerifyTests;
 using VerifyXunit;
 using Xunit;
 
@@ -12,13 +11,6 @@ using Xunit;
 public class Samples :
     TestContext
 {
-    static Samples()
-    {
-        #region BunitEnable
-        VerifyBunit.Initialize();
-        #endregion
-    }
-
     #region BunitComponentTest
     [Fact]
     public Task Component()

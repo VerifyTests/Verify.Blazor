@@ -82,6 +82,24 @@ public static class ModuleInitializer
 }
 ```
 <sup><a href='/src/Verify.Blazor.Tests/ModuleInitializer.cs#L1-L25' title='Snippet source file'>snippet source</a> | <a href='#snippet-ModuleInitializer.cs' title='Start of snippet'>anchor</a></sup>
+<a id='snippet-ModuleInitializer.cs-1'></a>
+```cs
+using System.Runtime.CompilerServices;
+using VerifyTests;
+using VerifyXunit;
+
+
+[UsesVerify]
+public static class ModuleInitializer
+{
+    [ModuleInitializer]
+    public static void Initialize()
+    {
+        VerifyBunit.Initialize();
+    }
+}
+```
+<sup><a href='/src/Verify.Bunit.Tests/ModuleInitializer.cs#L1-L15' title='Snippet source file'>snippet source</a> | <a href='#snippet-ModuleInitializer.cs-1' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 This test:
@@ -197,9 +215,17 @@ Enable at startup:
 <!-- snippet: BunitEnable -->
 <a id='snippet-bunitenable'></a>
 ```cs
-VerifyBunit.Initialize();
+[UsesVerify]
+public static class ModuleInitializer
+{
+    [ModuleInitializer]
+    public static void Initialize()
+    {
+        VerifyBunit.Initialize();
+    }
+}
 ```
-<sup><a href='/src/Verify.Bunit.Tests/Samples.cs#L17-L19' title='Snippet source file'>snippet source</a> | <a href='#snippet-bunitenable' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.Tests/ModuleInitializer.cs#L5-L17' title='Snippet source file'>snippet source</a> | <a href='#snippet-bunitenable' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 This test:
@@ -214,7 +240,7 @@ public Task Component()
     return Verifier.Verify(component);
 }
 ```
-<sup><a href='/src/Verify.Bunit.Tests/Samples.cs#L22-L30' title='Snippet source file'>snippet source</a> | <a href='#snippet-bunitcomponenttest' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.Tests/Samples.cs#L14-L22' title='Snippet source file'>snippet source</a> | <a href='#snippet-bunitcomponenttest' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 Will produce:
