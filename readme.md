@@ -86,10 +86,8 @@ public static class ModuleInitializer
 ```cs
 using System.Runtime.CompilerServices;
 using VerifyTests;
-using VerifyXunit;
 
 
-[UsesVerify]
 public static class ModuleInitializer
 {
     [ModuleInitializer]
@@ -99,7 +97,7 @@ public static class ModuleInitializer
     }
 }
 ```
-<sup><a href='/src/Verify.Bunit.Tests/ModuleInitializer.cs#L1-L15' title='Snippet source file'>snippet source</a> | <a href='#snippet-ModuleInitializer.cs-1' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.Tests/ModuleInitializer.cs#L1-L13' title='Snippet source file'>snippet source</a> | <a href='#snippet-ModuleInitializer.cs-1' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 This test:
@@ -215,7 +213,6 @@ Enable at startup:
 <!-- snippet: BunitEnable -->
 <a id='snippet-bunitenable'></a>
 ```cs
-[UsesVerify]
 public static class ModuleInitializer
 {
     [ModuleInitializer]
@@ -225,7 +222,7 @@ public static class ModuleInitializer
     }
 }
 ```
-<sup><a href='/src/Verify.Bunit.Tests/ModuleInitializer.cs#L5-L17' title='Snippet source file'>snippet source</a> | <a href='#snippet-bunitenable' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.Tests/ModuleInitializer.cs#L4-L15' title='Snippet source file'>snippet source</a> | <a href='#snippet-bunitenable' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 This test:
