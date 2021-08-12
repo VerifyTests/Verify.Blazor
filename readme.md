@@ -127,26 +127,6 @@ public async Task PassingParameters()
 }
 ```
 <sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L12-L29' title='Snippet source file'>snippet source</a> | <a href='#snippet-blazorcomponenttestwithparameters' title='Start of snippet'>anchor</a></sup>
-<a id='snippet-blazorcomponenttestwithparameters-1'></a>
-```cs
-[Fact]
-public async Task PassingTemplateInstance()
-{
-    var template = new TestComponent
-    {
-        Title = "The Title",
-        Person = new()
-        {
-            Name = "Sam"
-        }
-    };
-
-    var target = Render.Component(template: template);
-
-    await Verifier.Verify(target);
-}
-```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L30-L49' title='Snippet source file'>snippet source</a> | <a href='#snippet-blazorcomponenttestwithparameters-1' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -154,26 +134,8 @@ public async Task PassingTemplateInstance()
 
 This test:
 
-<!-- snippet: BlazorComponentTestWithParameters -->
-<a id='snippet-blazorcomponenttestwithparameters'></a>
-```cs
-[Fact]
-public async Task PassingParameters()
-{
-    var parameters = ParameterView.FromDictionary(
-        new Dictionary<string, object>
-        {
-            { "Title", "The Title" },
-            { "Person", new Person { Name = "Sam" } }
-        });
-
-    var target = Render.Component<TestComponent>(parameters: parameters);
-
-    await Verifier.Verify(target);
-}
-```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L12-L29' title='Snippet source file'>snippet source</a> | <a href='#snippet-blazorcomponenttestwithparameters' title='Start of snippet'>anchor</a></sup>
-<a id='snippet-blazorcomponenttestwithparameters-1'></a>
+<!-- snippet: BlazorComponentTestWithTemplateInstance -->
+<a id='snippet-blazorcomponenttestwithtemplateinstance'></a>
 ```cs
 [Fact]
 public async Task PassingTemplateInstance()
@@ -192,7 +154,7 @@ public async Task PassingTemplateInstance()
     await Verifier.Verify(target);
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L30-L49' title='Snippet source file'>snippet source</a> | <a href='#snippet-blazorcomponenttestwithparameters-1' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L31-L50' title='Snippet source file'>snippet source</a> | <a href='#snippet-blazorcomponenttestwithtemplateinstance' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
