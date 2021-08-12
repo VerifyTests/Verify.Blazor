@@ -69,9 +69,8 @@ public static class ModuleInitializer
     [ModuleInitializer]
     public static void Initialize()
     {
+        
         // remove some noise from the html snapshot
-
-
         VerifierSettings.ScrubEmptyLines();
         VerifierSettings.ScrubLinesWithReplace(s => s.Replace("<!--!-->", ""));
         HtmlPrettyPrint.All();
@@ -85,7 +84,7 @@ public static class ModuleInitializer
     }
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/ModuleInitializer.cs#L1-L25' title='Snippet source file'>snippet source</a> | <a href='#snippet-ModuleInitializer.cs' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/ModuleInitializer.cs#L1-L24' title='Snippet source file'>snippet source</a> | <a href='#snippet-ModuleInitializer.cs' title='Start of snippet'>anchor</a></sup>
 <a id='snippet-ModuleInitializer.cs-1'></a>
 ```cs
 using System.Runtime.CompilerServices;
@@ -347,12 +346,13 @@ Blazor uses `<!--!-->` to delineate components in the resulting html. Some empty
 <!-- snippet: scrubbers -->
 <a id='snippet-scrubbers'></a>
 ```cs
+// remove some noise from the html snapshot
 VerifierSettings.ScrubEmptyLines();
 VerifierSettings.ScrubLinesWithReplace(s => s.Replace("<!--!-->", ""));
 HtmlPrettyPrint.All();
 VerifierSettings.ScrubLinesContaining("<script src=\"_framework/dotnet.");
 ```
-<sup><a href='/src/Verify.Blazor.Tests/ModuleInitializer.cs#L13-L20' title='Snippet source file'>snippet source</a> | <a href='#snippet-scrubbers' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/ModuleInitializer.cs#L11-L19' title='Snippet source file'>snippet source</a> | <a href='#snippet-scrubbers' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
