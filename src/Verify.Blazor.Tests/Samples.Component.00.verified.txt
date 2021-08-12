@@ -1,6 +1,0 @@
-{
-  Instance: {
-    Title: My Test Component
-  },
-  Bytes: 67
-}

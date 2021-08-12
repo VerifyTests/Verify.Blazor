@@ -1,6 +1,0 @@
-{
-  Instance: {
-    Title: New Title
-  },
-  Bytes: 59
-}

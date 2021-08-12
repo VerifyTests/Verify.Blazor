@@ -12,22 +12,16 @@ public class Samples :
     TestContext
 {
     #region BunitComponentTest
+
     [Fact]
     public Task Component()
     {
-        var component = RenderComponent<TestComponent>();
-        return Verifier.Verify(component);
-    }
-
-    #endregion
-
-    #region BunitBeforeRender
-    [Fact]
-    public Task BeforeRender()
-    {
-        var component = RenderComponent<TestComponent>();
-        component.Instance.Title = "New Title";
-        component.Render();
+        var component = RenderComponent<TestComponent>(
+            builder =>
+            {
+                builder.Add(_ => _.Title, "New Title");
+                builder.Add(_ => _.Person, new() { Name = "Sam" });
+            });
         return Verifier.Verify(component);
     }
 
@@ -36,7 +30,12 @@ public class Samples :
     [Fact]
     public Task Nested()
     {
-        var component = RenderComponent<TestComponent>();
+        var component = RenderComponent<TestComponent>(
+            builder =>
+            {
+                builder.Add(_ => _.Title, "New Title");
+                builder.Add(_ => _.Person, new() { Name = "Sam" });
+            });
 
         return Verifier.Verify(
             new

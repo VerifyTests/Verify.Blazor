@@ -1,5 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using BlazorApp;
+using Microsoft.AspNetCore.Components;
 using VerifyTests.Blazor;
 using VerifyXunit;
 using Xunit;
@@ -7,24 +9,40 @@ using Xunit;
 [UsesVerify]
 public class Samples
 {
-    #region BlazorComponentTest
+    #region BlazorComponentTestWithParameters
 
     [Fact]
-    public async Task Component()
+    public async Task PassingParameters()
     {
-        var target = Render.Component<TestComponent>();
+        var parameters = ParameterView.FromDictionary(
+            new Dictionary<string, object>
+            {
+                { "Title", "The Title" },
+                { "Person", new Person { Name = "Sam" } }
+            });
+
+        var target = Render.Component<TestComponent>(parameters: parameters);
+
         await Verifier.Verify(target);
     }
 
     #endregion
-
-    #region BeforeRender
+    #region BlazorComponentTestWithParameters
 
     [Fact]
-    public async Task BeforeRender()
+    public async Task PassingTemplateInstance()
     {
-        var target = Render.Component<TestComponent>(
-            beforeRender: component => { component.Title = "New Title"; });
+        var template = new TestComponent
+        {
+            Title = "The Title",
+            Person = new()
+            {
+                Name = "Sam"
+            }
+        };
+
+        var target = Render.Component(template: template);
+
         await Verifier.Verify(target);
     }
 

@@ -33,37 +33,32 @@ Enable at startup:
 
 snippet: ModuleInitializer.cs
 
-This test:
 
-snippet: BlazorComponentTest
-
-Will produce:
-
-The component rendered as html `...Component.01.verified.html`:
-
-snippet: Verify.Blazor.Tests/Samples.Component.01.verified.html
-
-And the current model rendered as txt `...Component.00.verified.txt`:
-
-snippet: Verify.Blazor.Tests/Samples.Component.00.verified.txt
-
-
-### BeforeRender
-
-The state of the component can optionally be manipulated before it is rendered.
+#### Render using ParameterView
 
 This test:
 
-snippet: BeforeRender
+snippet: BlazorComponentTestWithParameters
 
-Will produce:
 
-snippet: Verify.Blazor.Tests/Samples.BeforeRender.01.verified.html
+#### Render using template instance
 
-And
+This test:
 
-snippet: Verify.Blazor.Tests/Samples.BeforeRender.00.verified.txt
+snippet: BlazorComponentTestWithParameters
 
+
+#### Result
+
+Both will produce:
+
+The component rendered as html `...01.verified.html`:
+
+snippet: Verify.Blazor.Tests/Samples.PassingParameters.01.verified.html
+
+And the current model rendered as txt `...00.verified.txt`:
+
+snippet: Verify.Blazor.Tests/Samples.PassingParameters.00.verified.txt
 
 
 ## Verify.Bunit

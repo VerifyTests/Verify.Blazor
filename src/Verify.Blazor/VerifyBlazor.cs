@@ -24,19 +24,10 @@ static class VerifyBlazor
         TestRenderer renderer = new(provider, loggerFactory);
 
         ContainerComponent root = new(renderer);
-        var parameters = target.ParameterView ?? ParameterView.Empty;
 
         var type = target.Type;
-        var dispatcher = root.RenderHandle.Dispatcher;
-        await root.RenderComponentUnderTest(type, parameters);
+        await root.RenderComponentUnderTest(type, target.Parameters);
         var (componentId, component) = root.FindComponentUnderTest();
-        if (target.BeforeRender != null)
-        {
-            target.BeforeRender(component);
-            await dispatcher.InvokeAsync(() => { stateHasChanged.Invoke(component, null); });
-            await root.RenderComponentUnderTest(type, parameters);
-        }
-
         var html = Htmlizer.GetHtml(renderer, componentId).Replace("\r\n", "\n");
         ComponentInfo info = new(component, html.Length.ToString("N0"));
         return new(info, "html", html);
