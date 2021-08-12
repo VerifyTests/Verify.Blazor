@@ -45,7 +45,7 @@ snippet: BlazorComponentTestWithParameters
 
 This test:
 
-snippet: BlazorComponentTestWithParameters
+snippet: BlazorComponentTestWithTemplateInstance
 
 
 #### Result

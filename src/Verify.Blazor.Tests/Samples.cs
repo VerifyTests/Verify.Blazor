@@ -27,7 +27,8 @@ public class Samples
     }
 
     #endregion
-    #region BlazorComponentTestWithParameters
+
+    #region BlazorComponentTestWithTemplateInstance
 
     [Fact]
     public async Task PassingTemplateInstance()
