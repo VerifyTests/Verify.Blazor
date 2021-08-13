@@ -13,7 +13,8 @@ namespace VerifyTests.Blazor
         {
             VerifyBlazor.Initialize();
         }
-
+        
+        internal Action<ComponentBase>? Callback { get; }
         internal ServiceProvider? Provider { get; }
         internal ILoggerFactory? LoggerFactory { get; }
         internal ParameterView Parameters { get; }
@@ -23,11 +24,13 @@ namespace VerifyTests.Blazor
             Type type,
             ServiceProvider? provider,
             ILoggerFactory? loggerFactory,
-            ParameterView parameters)
+            ParameterView parameters,
+            Action<ComponentBase>? callback)
         {
             Provider = provider;
             LoggerFactory = loggerFactory;
             Parameters = parameters;
+            Callback = callback;
             Type = type;
         }
 
@@ -35,14 +38,25 @@ namespace VerifyTests.Blazor
             ServiceProvider? provider = null,
             ILoggerFactory? loggerFactory = null,
             ParameterView? parameters = null,
-            T? template = null)
+            T? template = null,
+            Action<T>? callback = null)
             where T : ComponentBase
         {
+            Action<ComponentBase>? render = null;
+            if (callback != null)
+            {
+                render = component =>
+                {
+                    callback.Invoke((T)component);
+                };
+            }
+
             return new(
                 typeof(T),
                 provider,
                 loggerFactory,
-                Merge(parameters, template));
+                Merge(parameters, template),
+                render);
         }
 
         static ParameterView Merge<T>(ParameterView? parameters, T? template)

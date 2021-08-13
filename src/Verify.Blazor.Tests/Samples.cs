@@ -48,4 +48,28 @@ public class Samples
     }
 
     #endregion
+
+
+    [Fact]
+    public async Task Callback()
+    {
+        var template = new TestComponent
+        {
+            Title = "The Title",
+            Person = new()
+            {
+                Name = "Sam"
+            }
+        };
+
+        var target = Render.Component(
+            template: template,
+            callback: component =>
+            {
+                Assert.NotSame(component, template);
+                component.Title = "New title";
+            });
+
+        await Verifier.Verify(target);
+    }
 }

@@ -43,15 +43,13 @@ class ContainerComponent :
         }
 
         ref var frame = ref frames.Array[0];
-        return (frame.ComponentId, (ComponentBase) frame.Component);
+        return (frame.ComponentId, (ComponentBase)frame.Component);
     }
 
     public Task RenderComponentUnderTest(Type type, ParameterView parameters)
     {
-        return renderer.DispatchAndAssertNoSynchronousErrors(() =>
-        {
-            RenderHandle.Render(builder => { Render(type, parameters, builder); });
-        });
+        return renderer.DispatchAndAssertNoSynchronousErrors(
+            () => { RenderHandle.Render(builder => { Render(type, parameters, builder); }); });
     }
 
     static void Render(Type type, ParameterView parameters, RenderTreeBuilder builder)
