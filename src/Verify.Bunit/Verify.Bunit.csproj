@@ -2,7 +2,8 @@
   <PropertyGroup>
     <TargetFrameworks>net5</TargetFrameworks>
     <SignAssembly>false</SignAssembly>
-    <Version>$(Version)</Version>
+    <PackageTags>BUnit, Verify, Blazor</PackageTags>
+    <Description>Extends Verify (https://github.com/VerifyTests/Verify) to allow Blazor component verification via BUnit.</Description>
   </PropertyGroup>
   <ItemGroup>
     <Content Include="../build.targets" PackagePath="buildMultiTargeting\Verify.Bunit.targets" />

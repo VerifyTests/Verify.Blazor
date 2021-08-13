@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>net5</TargetFrameworks>
+    <PackageTags>Blazor, Verify</PackageTags>
+    <Description>Extends Verify (https://github.com/VerifyTests/Verify) to allow Blazor component verification.</Description>
   </PropertyGroup>
   <ItemGroup>
-
     <Content Include="../build.targets" PackagePath="buildMultiTargeting\Verify.Blazor.targets" />
     <Content Include="../build.targets" PackagePath="build\Verify.Blazor.targets" />
-
     <PackageReference Include="ProjectDefaults" Version="1.0.56" PrivateAssets="All" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" Condition="$(Configuration) == 'Release'" />
     <PackageReference Include="Verify" Version="11.23.1" />
