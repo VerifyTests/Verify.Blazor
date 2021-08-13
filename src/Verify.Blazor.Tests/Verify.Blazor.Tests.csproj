@@ -5,7 +5,7 @@
   <ItemGroup>
     <PackageReference Include="AngleSharp" Version="0.16.0" />
     <PackageReference Include="Microsoft.Playwright" Version="1.13.0" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.10.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Verify.AngleSharp" Version="2.7.2" />
     <PackageReference Include="Verify.ImageMagick" Version="2.8.0" />
