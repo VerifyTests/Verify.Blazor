@@ -2,7 +2,7 @@ image: Visual Studio 2019
 skip_commits:
   message: /docs|Merge pull request.*/
 install:
-  - choco install googlechrome --ignorechecksum
+  - choco install chromium
   - npx playwright install
 build_script:
 - ps: >-
