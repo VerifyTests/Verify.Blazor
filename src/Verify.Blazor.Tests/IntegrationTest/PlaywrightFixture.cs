@@ -1,8 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.IO;
-using System.Threading.Tasks;
-using Microsoft.Playwright;
+﻿using Microsoft.Playwright;
 using Xunit;
 
 public class PlaywrightFixture :

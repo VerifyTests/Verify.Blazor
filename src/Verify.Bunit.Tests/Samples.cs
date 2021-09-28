@@ -1,5 +1,4 @@
 ﻿#if(DEBUG)
-using System.Threading.Tasks;
 using BlazorApp;
 using Bunit;
 using VerifyXunit;

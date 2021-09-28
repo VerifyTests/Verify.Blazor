@@ -1,5 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-using ImageMagick;
+﻿using ImageMagick;
 using Verify.AngleSharp;
 using VerifyTests;
 

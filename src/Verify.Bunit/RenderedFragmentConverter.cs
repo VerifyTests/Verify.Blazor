@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Bunit;
+﻿using Bunit;
 using Newtonsoft.Json;
 using VerifyTests;
 
