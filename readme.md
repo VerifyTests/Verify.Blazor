@@ -59,7 +59,6 @@ Enable at startup:
 <!-- snippet: ModuleInitializer.cs -->
 <a id='snippet-ModuleInitializer.cs'></a>
 ```cs
-using System.Runtime.CompilerServices;
 using ImageMagick;
 using Verify.AngleSharp;
 using VerifyTests;
@@ -84,10 +83,9 @@ public static class ModuleInitializer
     }
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/ModuleInitializer.cs#L1-L24' title='Snippet source file'>snippet source</a> | <a href='#snippet-ModuleInitializer.cs' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/ModuleInitializer.cs#L1-L23' title='Snippet source file'>snippet source</a> | <a href='#snippet-ModuleInitializer.cs' title='Start of snippet'>anchor</a></sup>
 <a id='snippet-ModuleInitializer.cs-1'></a>
 ```cs
-using System.Runtime.CompilerServices;
 using VerifyTests;
 
 
@@ -100,7 +98,7 @@ public static class ModuleInitializer
     }
 }
 ```
-<sup><a href='/src/Verify.Bunit.Tests/ModuleInitializer.cs#L1-L13' title='Snippet source file'>snippet source</a> | <a href='#snippet-ModuleInitializer.cs-1' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.Tests/ModuleInitializer.cs#L1-L12' title='Snippet source file'>snippet source</a> | <a href='#snippet-ModuleInitializer.cs-1' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -126,7 +124,7 @@ public async Task PassingParameters()
     await Verifier.Verify(target);
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L12-L29' title='Snippet source file'>snippet source</a> | <a href='#snippet-blazorcomponenttestwithparameters' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L10-L27' title='Snippet source file'>snippet source</a> | <a href='#snippet-blazorcomponenttestwithparameters' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -154,7 +152,7 @@ public async Task PassingTemplateInstance()
     await Verifier.Verify(target);
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L31-L50' title='Snippet source file'>snippet source</a> | <a href='#snippet-blazorcomponenttestwithtemplateinstance' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L29-L48' title='Snippet source file'>snippet source</a> | <a href='#snippet-blazorcomponenttestwithtemplateinstance' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -221,7 +219,7 @@ public static class ModuleInitializer
     }
 }
 ```
-<sup><a href='/src/Verify.Bunit.Tests/ModuleInitializer.cs#L4-L15' title='Snippet source file'>snippet source</a> | <a href='#snippet-bunitenable' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.Tests/ModuleInitializer.cs#L3-L14' title='Snippet source file'>snippet source</a> | <a href='#snippet-bunitenable' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 This test:
@@ -241,7 +239,7 @@ public Task Component()
     return Verifier.Verify(component);
 }
 ```
-<sup><a href='/src/Verify.Bunit.Tests/Samples.cs#L14-L28' title='Snippet source file'>snippet source</a> | <a href='#snippet-bunitcomponenttest' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.Tests/Samples.cs#L13-L27' title='Snippet source file'>snippet source</a> | <a href='#snippet-bunitcomponenttest' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 Will produce:
@@ -314,7 +312,7 @@ VerifierSettings.ScrubLinesWithReplace(s => s.Replace("<!--!-->", ""));
 HtmlPrettyPrint.All();
 VerifierSettings.ScrubLinesContaining("<script src=\"_framework/dotnet.");
 ```
-<sup><a href='/src/Verify.Blazor.Tests/ModuleInitializer.cs#L11-L19' title='Snippet source file'>snippet source</a> | <a href='#snippet-scrubbers' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/ModuleInitializer.cs#L10-L18' title='Snippet source file'>snippet source</a> | <a href='#snippet-scrubbers' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 

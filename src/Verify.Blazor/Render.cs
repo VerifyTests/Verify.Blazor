@@ -1,98 +1,94 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace VerifyTests.Blazor
+namespace VerifyTests.Blazor;
+
+public class Render
 {
-    public class Render
+    static Render()
     {
-        static Render()
-        {
-            VerifyBlazor.Initialize();
-        }
+        VerifyBlazor.Initialize();
+    }
         
-        internal Action<ComponentBase>? Callback { get; }
-        internal ServiceProvider? Provider { get; }
-        internal ILoggerFactory? LoggerFactory { get; }
-        internal ParameterView Parameters { get; }
-        internal Type Type { get; }
+    internal Action<ComponentBase>? Callback { get; }
+    internal ServiceProvider? Provider { get; }
+    internal ILoggerFactory? LoggerFactory { get; }
+    internal ParameterView Parameters { get; }
+    internal Type Type { get; }
 
-        Render(
-            Type type,
-            ServiceProvider? provider,
-            ILoggerFactory? loggerFactory,
-            ParameterView parameters,
-            Action<ComponentBase>? callback)
+    Render(
+        Type type,
+        ServiceProvider? provider,
+        ILoggerFactory? loggerFactory,
+        ParameterView parameters,
+        Action<ComponentBase>? callback)
+    {
+        Provider = provider;
+        LoggerFactory = loggerFactory;
+        Parameters = parameters;
+        Callback = callback;
+        Type = type;
+    }
+
+    public static Render Component<T>(
+        ServiceProvider? provider = null,
+        ILoggerFactory? loggerFactory = null,
+        ParameterView? parameters = null,
+        T? template = null,
+        Action<T>? callback = null)
+        where T : ComponentBase
+    {
+        Action<ComponentBase>? render = null;
+        if (callback != null)
         {
-            Provider = provider;
-            LoggerFactory = loggerFactory;
-            Parameters = parameters;
-            Callback = callback;
-            Type = type;
+            render = component =>
+            {
+                callback.Invoke((T)component);
+            };
         }
 
-        public static Render Component<T>(
-            ServiceProvider? provider = null,
-            ILoggerFactory? loggerFactory = null,
-            ParameterView? parameters = null,
-            T? template = null,
-            Action<T>? callback = null)
-            where T : ComponentBase
-        {
-            Action<ComponentBase>? render = null;
-            if (callback != null)
-            {
-                render = component =>
-                {
-                    callback.Invoke((T)component);
-                };
-            }
+        return new(
+            typeof(T),
+            provider,
+            loggerFactory,
+            Merge(parameters, template),
+            render);
+    }
 
-            return new(
-                typeof(T),
-                provider,
-                loggerFactory,
-                Merge(parameters, template),
-                render);
+    static ParameterView Merge<T>(ParameterView? parameters, T? template)
+        where T : ComponentBase
+    {
+        if (parameters == null &&
+            template is null)
+        {
+            return ParameterView.Empty;
         }
 
-        static ParameterView Merge<T>(ParameterView? parameters, T? template)
-            where T : ComponentBase
+        if (template is null)
         {
-            if (parameters == null &&
-                template is null)
-            {
-                return ParameterView.Empty;
-            }
-
-            if (template is null)
-            {
-                return parameters!.Value;
-            }
+            return parameters!.Value;
+        }
             
-            var dictionary = new Dictionary<string, object>();
-            if (parameters != null)
+        var dictionary = new Dictionary<string, object>();
+        if (parameters != null)
+        {
+            foreach (var item in parameters)
             {
-                foreach (var item in parameters)
-                {
-                    dictionary.Add(item.Name, item.Value);
-                }
+                dictionary.Add(item.Name, item.Value);
             }
-
-            const BindingFlags flags = BindingFlags.Public | BindingFlags.Instance | BindingFlags.GetProperty | BindingFlags.FlattenHierarchy;
-            foreach (var property in typeof(T).GetProperties(flags))
-            {
-                var value = property.GetValue(template);
-                if (value != null)
-                {
-                    dictionary.Add(property.Name, value);
-                }
-            }
-
-            return ParameterView.FromDictionary(dictionary);
         }
+
+        const BindingFlags flags = BindingFlags.Public | BindingFlags.Instance | BindingFlags.GetProperty | BindingFlags.FlattenHierarchy;
+        foreach (var property in typeof(T).GetProperties(flags))
+        {
+            var value = property.GetValue(template);
+            if (value != null)
+            {
+                dictionary.Add(property.Name, value);
+            }
+        }
+
+        return ParameterView.FromDictionary(dictionary);
     }
 }

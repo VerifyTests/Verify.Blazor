@@ -1,20 +1,19 @@
 ﻿using Bunit;
 
-namespace VerifyTests
+namespace VerifyTests;
+
+public static class VerifyBunit
 {
-    public static class VerifyBunit
+    public static void Initialize()
     {
-        public static void Initialize()
+        VerifierSettings.RegisterFileConverter<IRenderedFragment>(FragmentToStream.Convert);
+        VerifierSettings.ModifySerialization(settings =>
         {
-            VerifierSettings.RegisterFileConverter<IRenderedFragment>(FragmentToStream.Convert);
-            VerifierSettings.ModifySerialization(settings =>
+            settings.AddExtraSettings(serializerSettings =>
             {
-                settings.AddExtraSettings(serializerSettings =>
-                {
-                    var converters = serializerSettings.Converters;
-                    converters.Add(new RenderedFragmentConverter());
-                });
+                var converters = serializerSettings.Converters;
+                converters.Add(new RenderedFragmentConverter());
             });
-        }
+        });
     }
 }

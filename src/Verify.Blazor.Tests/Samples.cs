@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using BlazorApp;
+﻿using BlazorApp;
 using Microsoft.AspNetCore.Components;
 using VerifyTests.Blazor;
 using VerifyXunit;
