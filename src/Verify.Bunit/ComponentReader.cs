@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Bunit;
+﻿using Bunit;
 using Microsoft.AspNetCore.Components;
 
 static class ComponentReader
