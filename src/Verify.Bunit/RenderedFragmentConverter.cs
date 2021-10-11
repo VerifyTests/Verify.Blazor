@@ -5,13 +5,8 @@ using VerifyTests;
 class RenderedFragmentConverter :
     WriteOnlyJsonConverter<IRenderedFragment>
 {
-    public override void WriteJson(JsonWriter writer, IRenderedFragment? fragment, JsonSerializer serializer, IReadOnlyDictionary<string, object> context)
+    public override void WriteJson(JsonWriter writer, IRenderedFragment fragment, JsonSerializer serializer, IReadOnlyDictionary<string, object> context)
     {
-        if (fragment == null)
-        {
-            return;
-        }
-
         writer.WriteStartObject();
 
         writer.WritePropertyName("Instance");
