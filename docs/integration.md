@@ -196,7 +196,7 @@ public class PlaywrightUsageTest :
       <a class="dismiss">🗙</a>
     </div>
     <script src="_framework/blazor.webassembly.js"></script>
-    <script type="text/javascript">var Module; window.__wasmmodulecallback__(); delete window.__wasmmodulecallback__;</script>
+    <script>var Module; window.__wasmmodulecallback__(); delete window.__wasmmodulecallback__;</script>
   </body>
 </html>
 ```

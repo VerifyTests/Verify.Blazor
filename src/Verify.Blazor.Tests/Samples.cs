@@ -13,7 +13,7 @@ public class Samples
     public async Task PassingParameters()
     {
         var parameters = ParameterView.FromDictionary(
-            new Dictionary<string, object>
+            new Dictionary<string, object?>
             {
                 { "Title", "The Title" },
                 { "Person", new Person { Name = "Sam" } }

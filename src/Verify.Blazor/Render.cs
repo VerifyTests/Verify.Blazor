@@ -70,7 +70,7 @@ public class Render
             return parameters!.Value;
         }
             
-        var dictionary = new Dictionary<string, object>();
+        var dictionary = new Dictionary<string, object?>();
         if (parameters != null)
         {
             foreach (var item in parameters)
