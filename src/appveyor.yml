@@ -1,6 +1,4 @@
 image: Visual Studio 2022
-skip_commits:
-  message: /docs|Merge pull request.*/
 init:
   - choco install googlechrome --ignorechecksum
   - npx playwright install
