@@ -121,7 +121,7 @@ public async Task PassingParameters()
 
     var target = Render.Component<TestComponent>(parameters: parameters);
 
-    await Verifier.Verify(target);
+    await Verify(target);
 }
 ```
 <sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L10-L27' title='Snippet source file'>snippet source</a> | <a href='#snippet-blazorcomponenttestwithparameters' title='Start of snippet'>anchor</a></sup>
@@ -149,7 +149,7 @@ public async Task PassingTemplateInstance()
 
     var target = Render.Component(template: template);
 
-    await Verifier.Verify(target);
+    await Verify(target);
 }
 ```
 <sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L29-L48' title='Snippet source file'>snippet source</a> | <a href='#snippet-blazorcomponenttestwithtemplateinstance' title='Start of snippet'>anchor</a></sup>
@@ -236,7 +236,7 @@ public Task Component()
             builder.Add(_ => _.Title, "New Title");
             builder.Add(_ => _.Person, new() { Name = "Sam" });
         });
-    return Verifier.Verify(component);
+    return Verify(component);
 }
 ```
 <sup><a href='/src/Verify.Bunit.Tests/Samples.cs#L13-L27' title='Snippet source file'>snippet source</a> | <a href='#snippet-bunitcomponenttest' title='Start of snippet'>anchor</a></sup>
