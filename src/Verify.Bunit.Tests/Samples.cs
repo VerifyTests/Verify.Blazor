@@ -21,7 +21,7 @@ public class Samples :
                 builder.Add(_ => _.Title, "New Title");
                 builder.Add(_ => _.Person, new() { Name = "Sam" });
             });
-        return Verifier.Verify(component);
+        return Verify(component);
     }
 
     #endregion
@@ -36,7 +36,7 @@ public class Samples :
                 builder.Add(_ => _.Person, new() { Name = "Sam" });
             });
 
-        return Verifier.Verify(
+        return Verify(
             new
             {
                 OtherProp = "Foo",

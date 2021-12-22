@@ -22,7 +22,7 @@ public class PlaywrightUsageTest :
         size.Width = 1024;
         await page.GotoAsync("http://localhost:5025");
         await page.WaitForSelectorAsync(".main");
-        await Verifier.Verify(page);
+        await Verify(page);
     }
 
     [Fact]
@@ -33,6 +33,6 @@ public class PlaywrightUsageTest :
         await page.WaitForLoadStateAsync(LoadState.DOMContentLoaded);
         await page.WaitForSelectorAsync(".main");
         var element = await page.QuerySelectorAsync(".content");
-        await Verifier.Verify(element);
+        await Verify(element);
     }
 }

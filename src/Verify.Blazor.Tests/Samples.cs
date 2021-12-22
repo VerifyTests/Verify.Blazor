@@ -21,7 +21,7 @@ public class Samples
 
         var target = Render.Component<TestComponent>(parameters: parameters);
 
-        await Verifier.Verify(target);
+        await Verify(target);
     }
 
     #endregion
@@ -42,7 +42,7 @@ public class Samples
 
         var target = Render.Component(template: template);
 
-        await Verifier.Verify(target);
+        await Verify(target);
     }
 
     #endregion
@@ -68,6 +68,6 @@ public class Samples
                 component.Title = "New title";
             });
 
-        await Verifier.Verify(target);
+        await Verify(target);
     }
 }
