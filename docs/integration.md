@@ -20,7 +20,6 @@ The running instance of the Blazor app and the Playwright driver are expensive t
 <a id='snippet-PlaywrightFixture.cs'></a>
 ```cs
 using Microsoft.Playwright;
-using Xunit;
 
 public class PlaywrightFixture :
     IAsyncLifetime
@@ -70,7 +69,7 @@ public class PlaywrightFixture :
     }
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/PlaywrightFixture.cs#L1-L50' title='Snippet source file'>snippet source</a> | <a href='#snippet-PlaywrightFixture.cs' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/PlaywrightFixture.cs#L1-L49' title='Snippet source file'>snippet source</a> | <a href='#snippet-PlaywrightFixture.cs' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -82,8 +81,6 @@ Test can now verify the page state or the state of a specific element.
 <a id='snippet-PlaywrightUsageTest.cs'></a>
 ```cs
 using Microsoft.Playwright;
-using VerifyXunit;
-using Xunit;
 
 [UsesVerify]
 public class PlaywrightUsageTest :
@@ -120,7 +117,7 @@ public class PlaywrightUsageTest :
     }
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/PlaywrightUsageTest.cs#L1-L38' title='Snippet source file'>snippet source</a> | <a href='#snippet-PlaywrightUsageTest.cs' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/PlaywrightUsageTest.cs#L1-L36' title='Snippet source file'>snippet source</a> | <a href='#snippet-PlaywrightUsageTest.cs' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
