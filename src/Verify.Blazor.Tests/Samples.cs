@@ -1,8 +1,6 @@
 ﻿using BlazorApp;
 using Microsoft.AspNetCore.Components;
 using VerifyTests.Blazor;
-using VerifyXunit;
-using Xunit;
 
 [UsesVerify]
 public class Samples

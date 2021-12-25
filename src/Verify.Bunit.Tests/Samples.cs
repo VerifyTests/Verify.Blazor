@@ -1,8 +1,6 @@
 ﻿#if(DEBUG)
 using BlazorApp;
 using Bunit;
-using VerifyXunit;
-using Xunit;
 
 // Non-nullable field is uninitialized
 #pragma warning disable CS8618

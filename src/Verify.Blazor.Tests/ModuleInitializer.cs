@@ -1,6 +1,5 @@
 ﻿using ImageMagick;
-using Verify.AngleSharp;
-using VerifyTests;
+using VerifyTests.AngleSharp;
 
 public static class ModuleInitializer
 {
@@ -8,7 +7,7 @@ public static class ModuleInitializer
     public static void Initialize()
     {
         #region scrubbers
-        
+
         // remove some noise from the html snapshot
         VerifierSettings.ScrubEmptyLines();
         VerifierSettings.ScrubLinesWithReplace(s => s.Replace("<!--!-->", ""));

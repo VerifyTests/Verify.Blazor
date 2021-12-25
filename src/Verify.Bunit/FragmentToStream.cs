@@ -1,5 +1,4 @@
 ﻿using Bunit;
-using VerifyTests;
 
 static class FragmentToStream
 {

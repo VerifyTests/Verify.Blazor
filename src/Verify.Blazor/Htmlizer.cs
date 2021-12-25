@@ -209,7 +209,7 @@ static class Htmlizer
 
             switch (frame.AttributeValue)
             {
-                case bool flag when flag && frame.AttributeName.StartsWith(BLAZOR_INTERNAL_ATTR_PREFIX, StringComparison.Ordinal):
+                case true when frame.AttributeName.StartsWith(BLAZOR_INTERNAL_ATTR_PREFIX, StringComparison.Ordinal):
                     // NOTE: This was added to make it more obvious
                     //       that this is a generated/special blazor attribute
                     //	     for internal usage
@@ -222,7 +222,7 @@ static class Htmlizer
                     result.Append(":");
                     result.Append(nameParts[1]);
                     break;
-                case bool flag when flag:
+                case true:
                     result.Append(" ");
                     result.Append(frame.AttributeName);
                     break;

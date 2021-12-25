@@ -1,6 +1,5 @@
 ﻿using Bunit;
 using Newtonsoft.Json;
-using VerifyTests;
 
 class RenderedFragmentConverter :
     WriteOnlyJsonConverter<IRenderedFragment>

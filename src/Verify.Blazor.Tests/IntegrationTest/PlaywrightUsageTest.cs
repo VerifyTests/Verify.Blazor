@@ -1,6 +1,4 @@
 ﻿using Microsoft.Playwright;
-using VerifyXunit;
-using Xunit;
 
 [UsesVerify]
 public class PlaywrightUsageTest :

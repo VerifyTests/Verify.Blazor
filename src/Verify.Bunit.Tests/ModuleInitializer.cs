@@ -1,6 +1,4 @@
-﻿using VerifyTests;
-
-#region BunitEnable
+﻿#region BunitEnable
 
 public static class ModuleInitializer
 {

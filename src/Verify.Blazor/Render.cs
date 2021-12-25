@@ -10,7 +10,7 @@ public class Render
     {
         VerifyBlazor.Initialize();
     }
-        
+
     internal Action<ComponentBase>? Callback { get; }
     internal ServiceProvider? Provider { get; }
     internal ILoggerFactory? LoggerFactory { get; }
@@ -69,7 +69,7 @@ public class Render
         {
             return parameters!.Value;
         }
-            
+
         var dictionary = new Dictionary<string, object?>();
         if (parameters != null)
         {
