@@ -25,12 +25,13 @@ static class VerifyBlazor
         var type = target.Type;
         var dispatcher = root.RenderHandle.Dispatcher;
         await root.RenderComponentUnderTest(type, target.Parameters);
-        var (componentId, component) = root.FindComponentUnderTest();  
+        var (componentId, component) = root.FindComponentUnderTest();
         if (target.Callback != null)
         {
             target.Callback(component);
             await dispatcher.InvokeAsync(() => { stateHasChanged.Invoke(component, null); });
         }
+
         var html = Htmlizer.GetHtml(renderer, componentId).Replace("\r\n", "\n");
         var info = new ComponentInfo(component, html.Length.ToString("N0"));
         return new(info, "html", html);
