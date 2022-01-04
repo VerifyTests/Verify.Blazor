@@ -8,7 +8,7 @@ public class Samples
     #region BlazorComponentTestWithParameters
 
     [Fact]
-    public async Task PassingParameters()
+    public Task PassingParameters()
     {
         var parameters = ParameterView.FromDictionary(
             new Dictionary<string, object?>
@@ -19,7 +19,7 @@ public class Samples
 
         var target = Render.Component<TestComponent>(parameters: parameters);
 
-        await Verify(target);
+        return Verify(target);
     }
 
     #endregion
@@ -27,7 +27,7 @@ public class Samples
     #region BlazorComponentTestWithTemplateInstance
 
     [Fact]
-    public async Task PassingTemplateInstance()
+    public Task PassingTemplateInstance()
     {
         var template = new TestComponent
         {
@@ -40,14 +40,13 @@ public class Samples
 
         var target = Render.Component(template: template);
 
-        await Verify(target);
+        return Verify(target);
     }
 
     #endregion
 
-
     [Fact]
-    public async Task Callback()
+    public Task Callback()
     {
         var template = new TestComponent
         {
@@ -66,6 +65,6 @@ public class Samples
                 component.Title = "New title";
             });
 
-        await Verify(target);
+        return Verify(target);
     }
 }

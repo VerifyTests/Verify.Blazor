@@ -106,7 +106,7 @@ This test:
 <a id='snippet-blazorcomponenttestwithparameters'></a>
 ```cs
 [Fact]
-public async Task PassingParameters()
+public Task PassingParameters()
 {
     var parameters = ParameterView.FromDictionary(
         new Dictionary<string, object?>
@@ -117,7 +117,7 @@ public async Task PassingParameters()
 
     var target = Render.Component<TestComponent>(parameters: parameters);
 
-    await Verify(target);
+    return Verify(target);
 }
 ```
 <sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L8-L25' title='Snippet source file'>snippet source</a> | <a href='#snippet-blazorcomponenttestwithparameters' title='Start of snippet'>anchor</a></sup>
@@ -132,7 +132,7 @@ This test:
 <a id='snippet-blazorcomponenttestwithtemplateinstance'></a>
 ```cs
 [Fact]
-public async Task PassingTemplateInstance()
+public Task PassingTemplateInstance()
 {
     var template = new TestComponent
     {
@@ -145,7 +145,7 @@ public async Task PassingTemplateInstance()
 
     var target = Render.Component(template: template);
 
-    await Verify(target);
+    return Verify(target);
 }
 ```
 <sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L27-L46' title='Snippet source file'>snippet source</a> | <a href='#snippet-blazorcomponenttestwithtemplateinstance' title='Start of snippet'>anchor</a></sup>
