@@ -54,50 +54,6 @@ Verify.Blazor uses the Blazor APIs to take a snapshot (metadata and html) of the
 
 ### Usage
 
-Enable at startup:
-
-<!-- snippet: ModuleInitializer.cs -->
-<a id='snippet-ModuleInitializer.cs'></a>
-```cs
-using ImageMagick;
-using VerifyTests.AngleSharp;
-
-public static class ModuleInitializer
-{
-    [ModuleInitializer]
-    public static void Initialize()
-    {
-
-        // remove some noise from the html snapshot
-        VerifierSettings.ScrubEmptyLines();
-        VerifierSettings.ScrubLinesWithReplace(s => s.Replace("<!--!-->", ""));
-        HtmlPrettyPrint.All();
-        VerifierSettings.ScrubLinesContaining("<script src=\"_framework/dotnet.");
-
-
-        VerifyPlaywright.Enable();
-        VerifyImageMagick.RegisterComparers(
-            threshold: .01,
-            metric: ErrorMetric.MeanAbsolute);
-    }
-}
-```
-<sup><a href='/src/Verify.Blazor.Tests/ModuleInitializer.cs#L1-L22' title='Snippet source file'>snippet source</a> | <a href='#snippet-ModuleInitializer.cs' title='Start of snippet'>anchor</a></sup>
-<a id='snippet-ModuleInitializer.cs-1'></a>
-```cs
-public static class ModuleInitializer
-{
-    [ModuleInitializer]
-    public static void Initialize()
-    {
-        VerifyBunit.Initialize();
-    }
-}
-```
-<sup><a href='/src/Verify.Bunit.Tests/ModuleInitializer.cs#L1-L10' title='Snippet source file'>snippet source</a> | <a href='#snippet-ModuleInitializer.cs-1' title='Start of snippet'>anchor</a></sup>
-<!-- endSnippet -->
-
-
 #### Render using ParameterView
 
 This test:
