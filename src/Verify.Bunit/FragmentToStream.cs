@@ -8,7 +8,7 @@ static class FragmentToStream
 
         var instance = ComponentReader.GetInstance(fragment);
         var all = fragment.FindAll("*");
-        FragmentInfo info = new(
+        var info = new FragmentInfo(
             instance,
             fragment.RenderCount,
             all.Count,

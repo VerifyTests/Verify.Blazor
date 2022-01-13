@@ -22,7 +22,7 @@ static class Htmlizer
     public static StringBuilder GetHtml(TestRenderer renderer, int componentId)
     {
         var frames = renderer.GetCurrentRenderTreeFrames(componentId);
-        HtmlRenderingContext context = new(renderer);
+        var context = new HtmlRenderingContext(renderer);
         RenderFrames(context, frames, 0, frames.Count);
         return context.Result;
     }
