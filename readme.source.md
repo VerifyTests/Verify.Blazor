@@ -29,11 +29,6 @@ Verify.Blazor uses the Blazor APIs to take a snapshot (metadata and html) of the
 
 ### Usage
 
-Enable at startup:
-
-snippet: ModuleInitializer.cs
-
-
 #### Render using ParameterView
 
 This test:
