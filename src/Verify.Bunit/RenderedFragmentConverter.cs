@@ -8,10 +8,9 @@ class RenderedFragmentConverter :
     {
         writer.WriteStartObject();
 
-        writer.WritePropertyName("Instance");
-        serializer.Serialize(writer, ComponentReader.GetInstance(fragment));
+        writer.WriteProperty(fragment, ComponentReader.GetInstance(fragment), "Instance");
 
-        writer.WriteProperty(fragment, _ => _.Markup);
+        writer.WriteProperty(fragment, fragment.Markup, "Markup");
 
         writer.WriteEndObject();
     }
