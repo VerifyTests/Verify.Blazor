@@ -1,10 +1,9 @@
 ﻿using Bunit;
-using Newtonsoft.Json;
 
 class RenderedFragmentConverter :
     WriteOnlyJsonConverter<IRenderedFragment>
 {
-    public override void Write(VerifyJsonWriter writer, IRenderedFragment fragment, JsonSerializer serializer)
+    public override void Write(VerifyJsonWriter writer, IRenderedFragment fragment)
     {
         writer.WriteStartObject();
 
