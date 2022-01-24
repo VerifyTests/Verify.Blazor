@@ -1,10 +1,18 @@
 ﻿using BlazorApp;
+using BlazorServerApp.Pages;
 using Microsoft.AspNetCore.Components;
 using VerifyTests.Blazor;
 
 [UsesVerify]
 public class Samples
 {
+    [Fact]
+    public Task BlazorServer()
+    {
+        var target = Render.Component<Counter>();
+
+        return Verify(target);
+    }
     #region BlazorComponentTestWithParameters
 
     [Fact]
