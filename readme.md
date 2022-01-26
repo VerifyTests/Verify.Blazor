@@ -76,7 +76,7 @@ public Task PassingParameters()
     return Verify(target);
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L8-L25' title='Snippet source file'>snippet source</a> | <a href='#snippet-blazorcomponenttestwithparameters' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L16-L33' title='Snippet source file'>snippet source</a> | <a href='#snippet-blazorcomponenttestwithparameters' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -104,7 +104,7 @@ public Task PassingTemplateInstance()
     return Verify(target);
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L27-L46' title='Snippet source file'>snippet source</a> | <a href='#snippet-blazorcomponenttestwithtemplateinstance' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L35-L54' title='Snippet source file'>snippet source</a> | <a href='#snippet-blazorcomponenttestwithtemplateinstance' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
