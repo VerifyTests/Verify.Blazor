@@ -12,8 +12,8 @@
     <PackageReference Include="Verify.Playwright" Version="1.6.0" />
     <PackageReference Include="Xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3" />
-    <PackageReference Include="ProjectDefaults" Version="1.0.63" PrivateAssets="all" />
-    <PackageReference Include="Verify.Xunit" Version="15.1.1" />
+    <PackageReference Include="ProjectDefaults" Version="1.0.64" PrivateAssets="all" />
+    <PackageReference Include="Verify.Xunit" Version="15.2.0" />
     <ProjectReference Include="..\BlazorApp\BlazorApp.csproj" />
     <ProjectReference Include="..\BlazorServerApp\BlazorServerApp.csproj" />
     <ProjectReference Include="..\Verify.Blazor\Verify.Blazor.csproj" />

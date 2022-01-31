@@ -10,8 +10,8 @@
     <Content Include="../build.targets" PackagePath="build\Verify.Bunit.targets" />
     <PackageReference Include="bunit.core" Version="1.4.15" />
     <PackageReference Include="bunit.web" Version="1.4.15" />
-    <PackageReference Include="ProjectDefaults" Version="1.0.63" PrivateAssets="all" />
+    <PackageReference Include="ProjectDefaults" Version="1.0.64" PrivateAssets="all" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" Condition="$(Configuration) == 'Release'" />
-    <PackageReference Include="Verify" Version="15.1.1" />
+    <PackageReference Include="Verify" Version="15.2.0" />
   </ItemGroup>
 </Project>
