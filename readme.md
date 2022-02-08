@@ -13,8 +13,6 @@ To change this file edit the source file and then run MarkdownSnippets.
 
 Support for rendering a [Blazor Component](https://docs.microsoft.com/en-us/aspnet/core/blazor/#components) to a verified file via [bunit](https://bunit.egilhansen.com) or via raw Blazor rendering.
 
-<a href='https://dotnetfoundation.org' alt='Part of the .NET Foundation'><img src='https://raw.githubusercontent.com/VerifyTests/Verify/master/docs/dotNetFoundation.svg' height='30px'></a><br>
-Part of the [.NET Foundation](https://dotnetfoundation.org)
 
 
 ## Component
