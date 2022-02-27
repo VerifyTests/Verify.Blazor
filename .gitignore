@@ -13,3 +13,4 @@ nugets/
 # Approval Tests
 *.received.*
 *.user
+src/.idea/
