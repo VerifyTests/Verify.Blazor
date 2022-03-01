@@ -194,10 +194,18 @@ public class PlaywrightUsageTest :
     </div>
     <script src="_framework/blazor.webassembly.js"></script>
     <script>var Module; window.__wasmmodulecallback__(); delete window.__wasmmodulecallback__;</script>
+    <style>
+          * { caret-color: transparent !important; }
+          * > * { caret-color: transparent !important; }
+          * > * > * { caret-color: transparent !important; }
+          * > * > * > * { caret-color: transparent !important; }
+          * > * > * > * > * { caret-color: transparent !important; }
+    
+    </style>
   </body>
 </html>
 ```
-<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/PlaywrightUsageTest.PageUsage.00.verified.html#L1-L70' title='Snippet source file'>snippet source</a> | <a href='#snippet-PlaywrightUsageTest.PageUsage.00.verified.html' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/PlaywrightUsageTest.PageUsage.00.verified.html#L1-L78' title='Snippet source file'>snippet source</a> | <a href='#snippet-PlaywrightUsageTest.PageUsage.00.verified.html' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 [PlaywrightUsageTest.PageUsage.01.verified.png](/src/Verify.Blazor.Tests/IntegrationTest/PlaywrightUsageTest.PageUsage.01.verified.png):
