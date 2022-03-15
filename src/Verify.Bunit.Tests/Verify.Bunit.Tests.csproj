@@ -2,7 +2,6 @@
   <PropertyGroup>
     <TargetFrameworks>net6</TargetFrameworks>
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
-    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="MarkdownSnippets.MsBuild" Version="24.3.0" PrivateAssets="all" />
