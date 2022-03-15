@@ -163,13 +163,11 @@ Enable at startup:
 public static class ModuleInitializer
 {
     [ModuleInitializer]
-    public static void Initialize()
-    {
+    public static void Initialize() =>
         VerifyBunit.Initialize();
-    }
 }
 ```
-<sup><a href='/src/Verify.Bunit.Tests/ModuleInitializer.cs#L1-L12' title='Snippet source file'>snippet source</a> | <a href='#snippet-bunitenable' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.Tests/ModuleInitializer.cs#L1-L10' title='Snippet source file'>snippet source</a> | <a href='#snippet-bunitenable' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 This test:
