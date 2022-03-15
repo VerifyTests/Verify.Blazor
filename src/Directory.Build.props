@@ -4,7 +4,6 @@
     <NoWarn>CS1591;CS0649;BL0006</NoWarn>
     <Version>7.4.0</Version>
     <AssemblyVersion>1.0.0</AssemblyVersion>
-    <SignAssembly>false</SignAssembly>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
   </PropertyGroup>
 </Project>
