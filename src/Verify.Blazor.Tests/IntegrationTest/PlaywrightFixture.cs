@@ -7,10 +7,7 @@ public class PlaywrightFixture :
     Process? process;
     IBrowser? browser;
 
-    public IBrowser Browser
-    {
-        get => browser!;
-    }
+    public IBrowser Browser => browser!;
 
     public async Task InitializeAsync()
     {

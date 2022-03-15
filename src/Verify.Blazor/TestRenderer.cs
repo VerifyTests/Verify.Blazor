@@ -23,10 +23,8 @@ class TestRenderer :
 
     public override Dispatcher Dispatcher { get; } = Dispatcher.CreateDefault();
 
-    protected override void HandleException(Exception exception)
-    {
+    protected override void HandleException(Exception exception) =>
         unhandledException = exception;
-    }
 
     protected override Task UpdateDisplayAsync(in RenderBatch batch)
     {

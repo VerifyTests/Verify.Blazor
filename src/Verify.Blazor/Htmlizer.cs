@@ -131,20 +131,18 @@ static class Htmlizer
             result.Append(">");
             return afterElement;
         }
+
+        if (SelfClosingElements.Contains(frame.ElementName))
+        {
+            result.Append(" />");
+        }
         else
         {
-            if (SelfClosingElements.Contains(frame.ElementName))
-            {
-                result.Append(" />");
-            }
-            else
-            {
-                result.Append("></");
-                result.Append(frame.ElementName);
-                result.Append(">");
-            }
-            return afterAttributes;
+            result.Append("></");
+            result.Append(frame.ElementName);
+            result.Append(">");
         }
+        return afterAttributes;
     }
 
     static int RenderChildren(HtmlRenderingContext context, ArrayRange<RenderTreeFrame> frames, int position, int maxElements)
@@ -243,10 +241,8 @@ static class Htmlizer
     {
         public TestRenderer Renderer { get; }
 
-        public HtmlRenderingContext(TestRenderer renderer)
-        {
+        public HtmlRenderingContext(TestRenderer renderer) =>
             Renderer = renderer;
-        }
 
         public StringBuilder Result { get; } = new();
 
