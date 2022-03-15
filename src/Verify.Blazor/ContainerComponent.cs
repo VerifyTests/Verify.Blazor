@@ -22,15 +22,11 @@ class ContainerComponent :
         componentId = renderer.AttachTestRootComponent(this);
     }
 
-    public void Attach(RenderHandle renderHandle)
-    {
+    public void Attach(RenderHandle renderHandle) =>
         RenderHandle = renderHandle;
-    }
 
-    public Task SetParametersAsync(ParameterView parameters)
-    {
+    public Task SetParametersAsync(ParameterView parameters) =>
         throw new($"{nameof(ContainerComponent)} shouldn't receive any parameters");
-    }
 
     public (int componentId, ComponentBase component) FindComponentUnderTest()
     {
@@ -44,11 +40,9 @@ class ContainerComponent :
         return (frame.ComponentId, (ComponentBase)frame.Component);
     }
 
-    public Task RenderComponentUnderTest(Type type, ParameterView parameters)
-    {
-        return renderer.DispatchAndAssertNoSynchronousErrors(
+    public Task RenderComponentUnderTest(Type type, ParameterView parameters) =>
+        renderer.DispatchAndAssertNoSynchronousErrors(
             () => { RenderHandle.Render(builder => { Render(type, parameters, builder); }); });
-    }
 
     static void Render(Type type, ParameterView parameters, RenderTreeBuilder builder)
     {

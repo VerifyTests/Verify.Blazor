@@ -28,10 +28,7 @@ public class PlaywrightFixture :
     Process? process;
     IBrowser? browser;
 
-    public IBrowser Browser
-    {
-        get => browser!;
-    }
+    public IBrowser Browser => browser!;
 
     public async Task InitializeAsync()
     {
@@ -69,7 +66,7 @@ public class PlaywrightFixture :
     }
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/PlaywrightFixture.cs#L1-L49' title='Snippet source file'>snippet source</a> | <a href='#snippet-PlaywrightFixture.cs' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/PlaywrightFixture.cs#L1-L46' title='Snippet source file'>snippet source</a> | <a href='#snippet-PlaywrightFixture.cs' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -88,10 +85,8 @@ public class PlaywrightUsageTest :
 {
     IBrowser browser;
 
-    public PlaywrightUsageTest(PlaywrightFixture fixture)
-    {
+    public PlaywrightUsageTest(PlaywrightFixture fixture) =>
         browser = fixture.Browser;
-    }
 
     [Fact]
     public async Task PageUsage()
@@ -117,7 +112,7 @@ public class PlaywrightUsageTest :
     }
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/PlaywrightUsageTest.cs#L1-L36' title='Snippet source file'>snippet source</a> | <a href='#snippet-PlaywrightUsageTest.cs' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/IntegrationTest/PlaywrightUsageTest.cs#L1-L34' title='Snippet source file'>snippet source</a> | <a href='#snippet-PlaywrightUsageTest.cs' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 

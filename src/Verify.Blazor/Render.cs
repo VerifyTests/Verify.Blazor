@@ -6,10 +6,8 @@ namespace VerifyTests.Blazor;
 
 public class Render
 {
-    static Render()
-    {
+    static Render() =>
         VerifyBlazor.Initialize();
-    }
 
     internal Action<ComponentBase>? Callback { get; }
     internal ServiceProvider? Provider { get; }

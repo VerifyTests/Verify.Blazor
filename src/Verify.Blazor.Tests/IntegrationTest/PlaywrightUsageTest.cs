@@ -6,10 +6,8 @@ public class PlaywrightUsageTest :
 {
     IBrowser browser;
 
-    public PlaywrightUsageTest(PlaywrightFixture fixture)
-    {
+    public PlaywrightUsageTest(PlaywrightFixture fixture) =>
         browser = fixture.Browser;
-    }
 
     [Fact]
     public async Task PageUsage()
