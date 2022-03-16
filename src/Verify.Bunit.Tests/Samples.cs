@@ -19,6 +19,7 @@ public class Samples :
                 builder.Add(_ => _.Title, "New Title");
                 builder.Add(_ => _.Person, new() { Name = "Sam" });
             });
+
         return Verify(component);
     }
 
@@ -40,6 +41,13 @@ public class Samples :
                 OtherProp = "Foo",
                 Component = component
             });
+    }
+    [Fact]
+    public async Task WaitForState()
+    {
+        var component = RenderComponent<TestComponent>();
+        await component.WaitForStateAsync(() => component.Instance.Intitialized);
+        await Verify(component);
     }
 }
 #endif

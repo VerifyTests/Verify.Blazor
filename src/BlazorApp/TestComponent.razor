@@ -10,4 +10,13 @@
 
     [Parameter]
     public Person Person { get; set; }
+
+    public bool Intitialized { get; set; }
+
+    protected override Task OnInitializedAsync()
+    {
+        Intitialized = true;
+        return Task.CompletedTask;
+    }
+
 }
