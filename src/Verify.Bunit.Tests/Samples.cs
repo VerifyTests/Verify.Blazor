@@ -17,7 +17,10 @@ public class Samples :
             builder =>
             {
                 builder.Add(_ => _.Title, "New Title");
-                builder.Add(_ => _.Person, new() { Name = "Sam" });
+                builder.Add(_ => _.Person, new()
+                {
+                    Name = "Sam"
+                });
             });
 
         return Verify(component);
@@ -32,7 +35,10 @@ public class Samples :
             builder =>
             {
                 builder.Add(_ => _.Title, "New Title");
-                builder.Add(_ => _.Person, new() { Name = "Sam" });
+                builder.Add(_ => _.Person, new()
+                {
+                    Name = "Sam"
+                });
             });
 
         return Verify(
@@ -42,10 +48,19 @@ public class Samples :
                 Component = component
             });
     }
+
     [Fact]
     public async Task WaitForState()
     {
-        var component = RenderComponent<TestComponent>();
+        var component = RenderComponent<TestComponent>(
+            builder =>
+            {
+                builder.Add(_ => _.Title, "New Title");
+                builder.Add(_ => _.Person, new()
+                {
+                    Name = "Sam"
+                });
+            });
         await component.WaitForStateAsync(() => component.Instance.Intitialized);
         await Verify(component);
     }

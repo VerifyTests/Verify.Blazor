@@ -192,13 +192,16 @@ public Task Component()
         builder =>
         {
             builder.Add(_ => _.Title, "New Title");
-            builder.Add(_ => _.Person, new() { Name = "Sam" });
+            builder.Add(_ => _.Person, new()
+            {
+                Name = "Sam"
+            });
         });
 
     return Verify(component);
 }
 ```
-<sup><a href='/src/Verify.Bunit.Tests/Samples.cs#L11-L26' title='Snippet source file'>snippet source</a> | <a href='#snippet-bunitcomponenttest' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.Tests/Samples.cs#L11-L29' title='Snippet source file'>snippet source</a> | <a href='#snippet-bunitcomponenttest' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 Will produce:
