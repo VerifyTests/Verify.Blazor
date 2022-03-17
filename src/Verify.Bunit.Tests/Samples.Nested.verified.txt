@@ -5,7 +5,8 @@
       Title: New Title,
       Person: {
         Name: Sam
-      }
+      },
+      Intitialized: true
     },
     Markup:
 <div><h1>New Title</h1>

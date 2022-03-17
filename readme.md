@@ -34,9 +34,18 @@ The below samples use the following Component:
 
     [Parameter]
     public Person Person { get; set; }
+
+    public bool Intitialized { get; set; }
+
+    protected override Task OnInitializedAsync()
+    {
+        Intitialized = true;
+        return Task.CompletedTask;
+    }
+
 }
 ```
-<sup><a href='/src/BlazorApp/TestComponent.razor#L1-L13' title='Snippet source file'>snippet source</a> | <a href='#snippet-BlazorApp/TestComponent.razor' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/BlazorApp/TestComponent.razor#L1-L22' title='Snippet source file'>snippet source</a> | <a href='#snippet-BlazorApp/TestComponent.razor' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -134,12 +143,13 @@ And the current model rendered as txt `...00.verified.txt`:
     Title: The Title,
     Person: {
       Name: Sam
-    }
+    },
+    Intitialized: true
   },
   Bytes: 74
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.PassingParameters.00.verified.txt#L1-L9' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.PassingParameters.00.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.PassingParameters.00.verified.txt#L1-L10' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.PassingParameters.00.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -184,10 +194,11 @@ public Task Component()
             builder.Add(_ => _.Title, "New Title");
             builder.Add(_ => _.Person, new() { Name = "Sam" });
         });
+
     return Verify(component);
 }
 ```
-<sup><a href='/src/Verify.Bunit.Tests/Samples.cs#L11-L25' title='Snippet source file'>snippet source</a> | <a href='#snippet-bunitcomponenttest' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.Tests/Samples.cs#L11-L26' title='Snippet source file'>snippet source</a> | <a href='#snippet-bunitcomponenttest' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 Will produce:
@@ -214,14 +225,15 @@ And the current model rendered as txt `...Component.00.verified.txt`:
     Title: New Title,
     Person: {
       Name: Sam
-    }
+    },
+    Intitialized: true
   },
   RenderCount: 1,
   NodeCount: 4,
   Bytes: 74
 }
 ```
-<sup><a href='/src/Verify.Bunit.Tests/Samples.Component.00.verified.txt#L1-L11' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Bunit.Tests/Samples.Component.00.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.Tests/Samples.Component.00.verified.txt#L1-L12' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Bunit.Tests/Samples.Component.00.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
