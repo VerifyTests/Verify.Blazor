@@ -140,11 +140,11 @@ And the current model rendered as txt `...00.verified.txt`:
 ```txt
 {
   Instance: {
+    Intitialized: true,
     Title: The Title,
     Person: {
       Name: Sam
-    },
-    Intitialized: true
+    }
   },
   Bytes: 74
 }
@@ -225,11 +225,11 @@ And the current model rendered as txt `...Component.00.verified.txt`:
 ```txt
 {
   Instance: {
+    Intitialized: true,
     Title: New Title,
     Person: {
       Name: Sam
-    },
-    Intitialized: true
+    }
   },
   RenderCount: 1,
   NodeCount: 4,
