@@ -35,7 +35,7 @@ The below samples use the following Component:
     [Parameter]
     public Person Person { get; set; }
 
-    public bool Intitialized { get; set; }
+    public bool Intitialized;
 
     protected override Task OnInitializedAsync()
     {

@@ -1,10 +1,10 @@
 ﻿{
   Instance: {
+    Intitialized: true,
     Title: New Title,
     Person: {
       Name: Sam
-    },
-    Intitialized: true
+    }
   },
   RenderCount: 1,
   NodeCount: 4,

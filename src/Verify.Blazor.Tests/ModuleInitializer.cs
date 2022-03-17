@@ -16,7 +16,6 @@ public static class ModuleInitializer
 
         #endregion
 
-        VerifyPlaywright.Enable(installPlaywright: true);
         VerifyImageMagick.RegisterComparers(
             threshold: .01,
             metric: ErrorMetric.MeanAbsolute);

@@ -1,5 +1,6 @@
 ﻿{
   Instance: {
+    Intitialized: true,
     Title: The Title,
     Person: {
       Name: Sam

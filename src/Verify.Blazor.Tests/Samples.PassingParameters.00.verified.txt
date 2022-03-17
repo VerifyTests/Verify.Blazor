@@ -1,10 +1,10 @@
 ﻿{
   Instance: {
+    Intitialized: true,
     Title: The Title,
     Person: {
       Name: Sam
-    },
-    Intitialized: true
+    }
   },
   Bytes: 74
 }
