@@ -29,7 +29,7 @@ public static class VerifyBunit
     /// <param name="predicate">The predicate to invoke after each render, which must returns <c>true</c> when the desired state has been reached.</param>
     /// <param name="timeout">The maximum time to wait for the desired state.</param>
     /// <exception cref="WaitForFailedException">Thrown if the <paramref name="predicate"/> throw an exception during invocation, or if the timeout has been reached. See the inner exception for details.</exception>
-    public static async Task WaitForStateAsync(this IRenderedFragmentBase fragment, Func<bool> predicate, TimeSpan? timeout = null)
+    public static async Task WaitFor(this IRenderedFragmentBase fragment, Func<bool> predicate, TimeSpan? timeout = null)
     {
         using var waiter = new WaitForStateHelper(fragment, predicate, timeout);
         await waiter.WaitTask;

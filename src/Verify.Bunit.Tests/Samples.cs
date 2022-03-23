@@ -61,7 +61,7 @@ public class Samples :
                     Name = "Sam"
                 });
             });
-        await component.WaitForStateAsync(() => component.Instance.Intitialized);
+        await component.WaitFor(() => component.Instance.Intitialized);
         await Verify(component);
     }
 }
