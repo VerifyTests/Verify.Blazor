@@ -10,7 +10,6 @@ static class FragmentToStream
         var all = fragment.FindAll("*");
         var info = new FragmentInfo(
             instance,
-            fragment.RenderCount,
             all.Count,
             markup.Length.ToString("N0"));
         return new(info, "html", markup);

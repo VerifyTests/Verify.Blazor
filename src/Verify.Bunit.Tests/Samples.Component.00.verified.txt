@@ -6,7 +6,6 @@
       Name: Sam
     }
   },
-  RenderCount: 1,
   NodeCount: 4,
   Bytes: 74
 }
