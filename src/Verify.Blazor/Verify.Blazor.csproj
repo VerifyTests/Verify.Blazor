@@ -9,7 +9,7 @@
     <Content Include="../build.targets" PackagePath="build\Verify.Blazor.targets" />
     <PackageReference Include="ProjectDefaults" Version="1.0.78" PrivateAssets="all" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" Condition="$(Configuration) == 'Release'" />
-    <PackageReference Include="Verify" Version="16.5.4" />
+    <PackageReference Include="Verify" Version="16.6.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components" Version="6.0.4" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
   </ItemGroup>
