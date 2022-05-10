@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net6</TargetFrameworks>
+    <TargetFramework>net6.0</TargetFramework>
     <PackageTags>BUnit, Verify, Blazor</PackageTags>
     <Description>Extends Verify (https://github.com/VerifyTests/Verify) to allow Blazor component verification via BUnit.</Description>
   </PropertyGroup>
