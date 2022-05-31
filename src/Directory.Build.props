@@ -2,7 +2,7 @@
 <Project>
   <PropertyGroup>
     <NoWarn>CS1591;CS0649;BL0006</NoWarn>
-    <Version>7.6.0</Version>
+    <Version>7.7.0-beta.1</Version>
     <AssemblyVersion>1.0.0</AssemblyVersion>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
   </PropertyGroup>
