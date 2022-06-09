@@ -10,8 +10,8 @@
     <PackageReference Include="Xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5" PrivateAssets="all" />
     <PackageReference Include="ProjectDefaults" Version="1.0.78" PrivateAssets="all" />
-    <PackageReference Include="bunit" Version="1.8.15" />
-    <PackageReference Include="Verify.Xunit" Version="17.1.1" />
+    <PackageReference Include="bunit" Version="1.9.8" />
+    <PackageReference Include="Verify.Xunit" Version="17.1.4" />
     <ProjectReference Include="..\BlazorApp\BlazorApp.csproj" />
     <ProjectReference Include="..\Verify.Bunit\Verify.Bunit.csproj" />
   </ItemGroup>
