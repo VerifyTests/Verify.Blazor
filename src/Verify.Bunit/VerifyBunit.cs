@@ -1,4 +1,5 @@
-﻿using Bunit;
+﻿using AngleSharp.Dom;
+using Bunit;
 using Bunit.Extensions.WaitForHelpers;
 
 namespace VerifyTests;
@@ -28,4 +29,22 @@ public static class VerifyBunit
         using var waiter = new WaitForStateHelper(fragment, predicate, timeout);
         await waiter.WaitTask;
     }
+
+    public static Task ClickAsync(this IElement element, long detail = 1, double screenX = default, double screenY = default, double clientX = default, double clientY = default, long button = default, long buttons = default, bool ctrlKey = default, bool shiftKey = default, bool altKey = default, bool metaKey = default, string? type = default) =>
+        MouseEventDispatchExtensions.ClickAsync(element,
+            new()
+            {
+                Detail = detail,
+                ScreenX = screenX,
+                ScreenY = screenY,
+                ClientX = clientX,
+                ClientY = clientY,
+                Button = button,
+                Buttons = buttons,
+                CtrlKey = ctrlKey,
+                ShiftKey = shiftKey,
+                AltKey = altKey,
+                MetaKey = metaKey,
+                Type = type!
+            });
 }
