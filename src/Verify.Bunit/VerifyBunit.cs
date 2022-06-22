@@ -1,6 +1,7 @@
 ﻿using AngleSharp.Dom;
 using Bunit;
 using Bunit.Extensions.WaitForHelpers;
+using Microsoft.AspNetCore.Components;
 
 namespace VerifyTests;
 
@@ -47,4 +48,49 @@ public static class VerifyBunit
                 MetaKey = metaKey,
                 Type = type!
             });
+
+    public static Task ChangeAsync<T>(this IElement element, T value) =>
+        InputEventDispatchExtensions.ChangeAsync(element, CreateFrom(value));
+
+    static ChangeEventArgs CreateFrom<T>(T value) =>
+        new()
+        {
+            Value = FormatValue(value)
+        };
+
+    static object? FormatValue<T>(T value)
+        => value switch
+        {
+            null => null,
+            bool _ => value,
+            String _ => value,
+            ICollection values => FormatValues(values),
+            IEnumerable values => FormatValues(values),
+            _ => BindConverter.FormatValue(value)
+        };
+
+    static object?[] FormatValues(ICollection values)
+    {
+        var result = new object?[values.Count];
+
+        var index = 0;
+        foreach (var value in values)
+        {
+            result[index++] = FormatValue(value);
+        }
+
+        return result;
+    }
+
+    static object?[] FormatValues(IEnumerable values)
+    {
+        var result = new List<object?>();
+
+        foreach (var value in values)
+        {
+            result.Add(FormatValue(value));
+        }
+
+        return result.ToArray();
+    }
 }
