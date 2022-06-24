@@ -98,6 +98,7 @@ public static class VerifyBunit
     /// Instantiates and performs a first render of a component of type <typeparamref name="TComponent"/>.
     /// </summary>
     /// <typeparam name="TComponent">Type of the component to render.</typeparam>
+    /// <param name="context">The <see cref="TestContext"/> to extend.</param>
     /// <param name="parameters">Parameters to pass to the component when it is rendered.</param>
     /// <returns>The rendered <typeparamref name="TComponent"/>.</returns>
     public static IRenderedComponent<TComponent> RenderComponentAndWait<TComponent>(this TestContext context, params ComponentParameter[] parameters)
@@ -108,6 +109,7 @@ public static class VerifyBunit
     /// Instantiates and performs a first render of a component of type <typeparamref name="TComponent"/>.
     /// </summary>
     /// <typeparam name="TComponent">Type of the component to render.</typeparam>
+    /// <param name="context">The <see cref="TestContext"/> to extend.</param>
     /// <param name="parameterBuilder">The ComponentParameterBuilder action to add type safe parameters to pass to the component when it is rendered.</param>
     /// <returns>The rendered <typeparamref name="TComponent"/>.</returns>
     public static IRenderedComponent<TComponent> RenderComponentAndWait<TComponent>(this TestContext context, Action<ComponentParameterCollectionBuilder<TComponent>> parameterBuilder)
@@ -122,6 +124,7 @@ public static class VerifyBunit
     /// </remarks>
     /// <typeparam name="TComponent">The type of component to find in the render tree.</typeparam>
     /// <param name="fragment">The render fragment to render.</param>
+    /// <param name="context">The <see cref="TestContext"/> to extend.</param>
     /// <returns>The <see cref="IRenderedComponent{TComponent}"/>.</returns>
     public static IRenderedComponent<TComponent> RenderAndWait<TComponent>(this TestContext context, RenderFragment fragment)
         where TComponent : IComponent =>
@@ -132,6 +135,7 @@ public static class VerifyBunit
     /// Renders the <paramref name="fragment"/> and returns it as a <see cref="IRenderedFragment"/>.
     /// </summary>
     /// <param name="fragment">The render fragment to render.</param>
+    /// <param name="context">The <see cref="TestContext"/> to extend.</param>
     /// <returns>The <see cref="IRenderedFragment"/>.</returns>
     public static IRenderedFragment Render(this TestContext context, RenderFragment fragment) =>
         RenderAndWait(() => context.Render(fragment));
