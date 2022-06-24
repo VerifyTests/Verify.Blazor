@@ -144,10 +144,7 @@ public static class VerifyBunit
         where T : IRenderedFragmentBase
     {
         using var wait = new ManualResetEventSlim(false);
-        EventHandler handler = (_, _) =>
-        {
-            wait?.Set();
-        };
+        EventHandler handler = (_, _) => wait?.Set();
         var target = render();
         target.OnAfterRender += handler;
         wait.WaitHandle.WaitOne(TimeSpan.FromSeconds(10));
