@@ -188,7 +188,8 @@ This test:
 [Fact]
 public Task Component()
 {
-    var component = RenderComponent<TestComponent>(
+    using var testContext = new TestContext();
+    var component = testContext.RenderComponentAndWait<TestComponent>(
         builder =>
         {
             builder.Add(_ => _.Title, "New Title");
@@ -197,11 +198,10 @@ public Task Component()
                 Name = "Sam"
             });
         });
-
     return Verify(component);
 }
 ```
-<sup><a href='/src/Verify.Bunit.Tests/Samples.cs#L11-L29' title='Snippet source file'>snippet source</a> | <a href='#snippet-bunitcomponenttest' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.Tests/Samples.cs#L9-L27' title='Snippet source file'>snippet source</a> | <a href='#snippet-bunitcomponenttest' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 Will produce:

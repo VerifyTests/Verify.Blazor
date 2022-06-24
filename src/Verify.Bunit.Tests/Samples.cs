@@ -1,19 +1,18 @@
-﻿#if(DEBUG)
-using BlazorApp;
+﻿using BlazorApp;
 using Bunit;
 
 // Non-nullable field is uninitialized
 #pragma warning disable CS8618
 [UsesVerify]
-public class Samples :
-    TestContext
+public class Samples
 {
     #region BunitComponentTest
 
     [Fact]
     public Task Component()
     {
-        var component = RenderComponent<TestComponent>(
+        using var testContext = new TestContext();
+        var component = testContext.RenderComponentAndWait<TestComponent>(
             builder =>
             {
                 builder.Add(_ => _.Title, "New Title");
@@ -22,7 +21,6 @@ public class Samples :
                     Name = "Sam"
                 });
             });
-
         return Verify(component);
     }
 
@@ -31,7 +29,8 @@ public class Samples :
     [Fact]
     public Task Nested()
     {
-        var component = RenderComponent<TestComponent>(
+        using var testContext = new TestContext();
+        var component = testContext.RenderComponentAndWait<TestComponent>(
             builder =>
             {
                 builder.Add(_ => _.Title, "New Title");
@@ -52,7 +51,8 @@ public class Samples :
     [Fact]
     public async Task WaitForState()
     {
-        var component = RenderComponent<TestComponent>(
+        using var testContext = new TestContext();
+        var component = testContext.RenderComponentAndWait<TestComponent>(
             builder =>
             {
                 builder.Add(_ => _.Title, "New Title");
@@ -65,4 +65,3 @@ public class Samples :
         await Verify(component);
     }
 }
-#endif
