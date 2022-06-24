@@ -93,4 +93,61 @@ public static class VerifyBunit
 
         return result.ToArray();
     }
+
+    /// <summary>
+    /// Instantiates and performs a first render of a component of type <typeparamref name="TComponent"/>.
+    /// </summary>
+    /// <typeparam name="TComponent">Type of the component to render.</typeparam>
+    /// <param name="parameters">Parameters to pass to the component when it is rendered.</param>
+    /// <returns>The rendered <typeparamref name="TComponent"/>.</returns>
+    public static IRenderedComponent<TComponent> RenderComponentAndWait<TComponent>(this TestContext context, params ComponentParameter[] parameters)
+        where TComponent : IComponent =>
+        RenderAndWait(() => context.RenderComponent<TComponent>(parameters));
+
+    /// <summary>
+    /// Instantiates and performs a first render of a component of type <typeparamref name="TComponent"/>.
+    /// </summary>
+    /// <typeparam name="TComponent">Type of the component to render.</typeparam>
+    /// <param name="parameterBuilder">The ComponentParameterBuilder action to add type safe parameters to pass to the component when it is rendered.</param>
+    /// <returns>The rendered <typeparamref name="TComponent"/>.</returns>
+    public static IRenderedComponent<TComponent> RenderComponentAndWait<TComponent>(this TestContext context, Action<ComponentParameterCollectionBuilder<TComponent>> parameterBuilder)
+        where TComponent : IComponent =>
+        RenderAndWait(() => context.RenderComponent(parameterBuilder));
+
+    /// <summary>
+    /// Renders the <paramref name="fragment"/> and returns the first <typeparamref name="TComponent"/> in the resulting render tree.
+    /// </summary>
+    /// <remarks>
+    /// Calling this method is equivalent to calling <c>Render(renderFragment).FindComponent&lt;TComponent&gt;()</c>.
+    /// </remarks>
+    /// <typeparam name="TComponent">The type of component to find in the render tree.</typeparam>
+    /// <param name="fragment">The render fragment to render.</param>
+    /// <returns>The <see cref="IRenderedComponent{TComponent}"/>.</returns>
+    public static IRenderedComponent<TComponent> RenderAndWait<TComponent>(this TestContext context, RenderFragment fragment)
+        where TComponent : IComponent =>
+        RenderAndWait(() => context.Render<TComponent>(fragment));
+
+
+    /// <summary>
+    /// Renders the <paramref name="fragment"/> and returns it as a <see cref="IRenderedFragment"/>.
+    /// </summary>
+    /// <param name="fragment">The render fragment to render.</param>
+    /// <returns>The <see cref="IRenderedFragment"/>.</returns>
+    public static IRenderedFragment Render(this TestContext context, RenderFragment fragment) =>
+        RenderAndWait(() => context.Render(fragment));
+
+    static T RenderAndWait<T>(Func<T> render)
+        where T : IRenderedFragmentBase
+    {
+        using var wait = new ManualResetEventSlim(false);
+        EventHandler handler = (_, _) =>
+        {
+            wait?.Set();
+        };
+        var target = render();
+        target.OnAfterRender += handler;
+        wait.WaitHandle.WaitOne(TimeSpan.FromSeconds(10));
+        target.OnAfterRender -= handler;
+        return target;
+    }
 }
