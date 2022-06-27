@@ -101,9 +101,10 @@ public static class VerifyBunit
     /// <param name="context">The <see cref="TestContext"/> to extend.</param>
     /// <param name="parameters">Parameters to pass to the component when it is rendered.</param>
     /// <returns>The rendered <typeparamref name="TComponent"/>.</returns>
-    public static IRenderedComponent<TComponent> RenderComponentAndWait<TComponent>(this TestContext context, params ComponentParameter[] parameters)
+    public static IRenderedComponent<TComponent> RenderComponentAndWait<TComponent>(
+        this TestContext context, params ComponentParameter[] parameters)
         where TComponent : IComponent =>
-        RenderAndWait(() => context.RenderComponent<TComponent>(parameters));
+        RenderAndWait(() => context.RenderComponent<TComponent>(parameters), null);
 
     /// <summary>
     /// Instantiates and performs a first render of a component of type <typeparamref name="TComponent"/>.
@@ -111,10 +112,14 @@ public static class VerifyBunit
     /// <typeparam name="TComponent">Type of the component to render.</typeparam>
     /// <param name="context">The <see cref="TestContext"/> to extend.</param>
     /// <param name="parameterBuilder">The ComponentParameterBuilder action to add type safe parameters to pass to the component when it is rendered.</param>
+    /// <param name="timeout">A TimeSpan that represents the to wait, or null to use 10 seconds.</param>
     /// <returns>The rendered <typeparamref name="TComponent"/>.</returns>
-    public static IRenderedComponent<TComponent> RenderComponentAndWait<TComponent>(this TestContext context, Action<ComponentParameterCollectionBuilder<TComponent>> parameterBuilder)
+    public static IRenderedComponent<TComponent> RenderComponentAndWait<TComponent>(
+        this TestContext context,
+        Action<ComponentParameterCollectionBuilder<TComponent>> parameterBuilder,
+        TimeSpan? timeout = null)
         where TComponent : IComponent =>
-        RenderAndWait(() => context.RenderComponent(parameterBuilder));
+        RenderAndWait(() => context.RenderComponent(parameterBuilder), timeout);
 
     /// <summary>
     /// Renders the <paramref name="fragment"/> and returns the first <typeparamref name="TComponent"/> in the resulting render tree.
@@ -125,10 +130,14 @@ public static class VerifyBunit
     /// <typeparam name="TComponent">The type of component to find in the render tree.</typeparam>
     /// <param name="fragment">The render fragment to render.</param>
     /// <param name="context">The <see cref="TestContext"/> to extend.</param>
+    /// <param name="timeout">A TimeSpan that represents the to wait, or null to use 10 seconds.</param>
     /// <returns>The <see cref="IRenderedComponent{TComponent}"/>.</returns>
-    public static IRenderedComponent<TComponent> RenderAndWait<TComponent>(this TestContext context, RenderFragment fragment)
+    public static IRenderedComponent<TComponent> RenderAndWait<TComponent>(
+        this TestContext context,
+        RenderFragment fragment,
+        TimeSpan? timeout = null)
         where TComponent : IComponent =>
-        RenderAndWait(() => context.Render<TComponent>(fragment));
+        RenderAndWait(() => context.Render<TComponent>(fragment), timeout);
 
 
     /// <summary>
@@ -136,18 +145,19 @@ public static class VerifyBunit
     /// </summary>
     /// <param name="fragment">The render fragment to render.</param>
     /// <param name="context">The <see cref="TestContext"/> to extend.</param>
+    /// <param name="timeout">A TimeSpan that represents the to wait, or null to use 10 seconds.</param>
     /// <returns>The <see cref="IRenderedFragment"/>.</returns>
-    public static IRenderedFragment Render(this TestContext context, RenderFragment fragment) =>
-        RenderAndWait(() => context.Render(fragment));
+    public static IRenderedFragment Render(this TestContext context, RenderFragment fragment, TimeSpan? timeout = null) =>
+        RenderAndWait(() => context.Render(fragment), timeout);
 
-    static T RenderAndWait<T>(Func<T> render)
+    static T RenderAndWait<T>(Func<T> render, TimeSpan? timeout)
         where T : IRenderedFragmentBase
     {
         using var wait = new ManualResetEventSlim(false);
         EventHandler handler = (_, _) => wait?.Set();
         var target = render();
         target.OnAfterRender += handler;
-        wait.WaitHandle.WaitOne(TimeSpan.FromSeconds(10));
+        wait.WaitHandle.WaitOne(timeout ?? TimeSpan.FromSeconds(10));
         target.OnAfterRender -= handler;
         return target;
     }
