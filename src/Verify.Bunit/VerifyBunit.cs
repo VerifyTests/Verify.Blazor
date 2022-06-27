@@ -147,7 +147,7 @@ public static class VerifyBunit
     /// <param name="context">The <see cref="TestContext"/> to extend.</param>
     /// <param name="timeout">A TimeSpan that represents the to wait, or null to use 10 seconds.</param>
     /// <returns>The <see cref="IRenderedFragment"/>.</returns>
-    public static IRenderedFragment Render(this TestContext context, RenderFragment fragment, TimeSpan? timeout = null) =>
+    public static IRenderedFragment RenderAndWait(this TestContext context, RenderFragment fragment, TimeSpan? timeout = null) =>
         RenderAndWait(() => context.Render(fragment), timeout);
 
     static T RenderAndWait<T>(Func<T> render, TimeSpan? timeout)
