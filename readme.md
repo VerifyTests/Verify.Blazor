@@ -189,7 +189,7 @@ This test:
 public Task Component()
 {
     using var testContext = new TestContext();
-    var component = testContext.RenderComponentAndWait<TestComponent>(
+    var component = testContext.RenderComponent<TestComponent>(
         builder =>
         {
             builder.Add(_ => _.Title, "New Title");
