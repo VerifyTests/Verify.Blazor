@@ -12,7 +12,7 @@ public class Samples
     public Task Component()
     {
         using var testContext = new TestContext();
-        var component = testContext.RenderComponentAndWait<TestComponent>(
+        var component = testContext.RenderComponent<TestComponent>(
             builder =>
             {
                 builder.Add(_ => _.Title, "New Title");
@@ -30,7 +30,7 @@ public class Samples
     public Task Nested()
     {
         using var testContext = new TestContext();
-        var component = testContext.RenderComponentAndWait<TestComponent>(
+        var component = testContext.RenderComponent<TestComponent>(
             builder =>
             {
                 builder.Add(_ => _.Title, "New Title");
@@ -52,7 +52,7 @@ public class Samples
     public async Task WaitForState()
     {
         using var testContext = new TestContext();
-        var component = testContext.RenderComponentAndWait<TestComponent>(
+        var component = testContext.RenderComponent<TestComponent>(
             builder =>
             {
                 builder.Add(_ => _.Title, "New Title");
