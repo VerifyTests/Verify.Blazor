@@ -5,6 +5,5 @@
     Person: {
       Name: Sam
     }
-  },
-  Bytes: 74
+  }
 }
