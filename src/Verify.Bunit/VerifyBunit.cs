@@ -1,4 +1,5 @@
-﻿using AngleSharp.Dom;
+﻿using System.Linq.Expressions;
+using AngleSharp.Dom;
 using Bunit;
 using Bunit.Extensions.WaitForHelpers;
 using Microsoft.AspNetCore.Components;
@@ -100,11 +101,14 @@ public static class VerifyBunit
     /// <typeparam name="TComponent">Type of the component to render.</typeparam>
     /// <param name="context">The <see cref="TestContext"/> to extend.</param>
     /// <param name="parameters">Parameters to pass to the component when it is rendered.</param>
+    /// <param name="property">Checks if rendered has finished.</param>
     /// <returns>The rendered <typeparamref name="TComponent"/>.</returns>
-    public static IRenderedComponent<TComponent> RenderComponentAndWait<TComponent>(
-        this TestContext context, params ComponentParameter[] parameters)
+    public static Task<IRenderedComponent<TComponent>> RenderComponentAndWait<TComponent>(
+        this TestContext context,
+        Func<TComponent, bool> property,
+        params ComponentParameter[] parameters)
         where TComponent : IComponent =>
-        RenderAndWait(() => context.RenderComponent<TComponent>(parameters), null);
+        Inner(() => context.RenderComponent<TComponent>(parameters), null, property);
 
     /// <summary>
     /// Instantiates and performs a first render of a component of type <typeparamref name="TComponent"/>.
@@ -113,13 +117,15 @@ public static class VerifyBunit
     /// <param name="context">The <see cref="TestContext"/> to extend.</param>
     /// <param name="parameterBuilder">The ComponentParameterBuilder action to add type safe parameters to pass to the component when it is rendered.</param>
     /// <param name="timeout">A TimeSpan that represents the to wait, or null to use 10 seconds.</param>
+    /// <param name="property">Checks if rendered has finished.</param>
     /// <returns>The rendered <typeparamref name="TComponent"/>.</returns>
-    public static IRenderedComponent<TComponent> RenderComponentAndWait<TComponent>(
+    public static Task<IRenderedComponent<TComponent>> RenderComponentAndWait<TComponent>(
         this TestContext context,
         Action<ComponentParameterCollectionBuilder<TComponent>> parameterBuilder,
+        Func<TComponent, bool> property,
         TimeSpan? timeout = null)
         where TComponent : IComponent =>
-        RenderAndWait(() => context.RenderComponent(parameterBuilder), timeout);
+        Inner(() => context.RenderComponent(parameterBuilder), timeout, property);
 
     /// <summary>
     /// Renders the <paramref name="fragment"/> and returns the first <typeparamref name="TComponent"/> in the resulting render tree.
@@ -130,40 +136,47 @@ public static class VerifyBunit
     /// <typeparam name="TComponent">The type of component to find in the render tree.</typeparam>
     /// <param name="fragment">The render fragment to render.</param>
     /// <param name="context">The <see cref="TestContext"/> to extend.</param>
+    /// <param name="property">Checks if rendered has finished.</param>
     /// <param name="timeout">A TimeSpan that represents the to wait, or null to use 10 seconds.</param>
     /// <returns>The <see cref="IRenderedComponent{TComponent}"/>.</returns>
-    public static IRenderedComponent<TComponent> RenderAndWait<TComponent>(
+    public static Task<IRenderedComponent<TComponent>> RenderAndWait<TComponent>(
         this TestContext context,
         RenderFragment fragment,
+        Func<TComponent, bool> property,
         TimeSpan? timeout = null)
         where TComponent : IComponent =>
-        RenderAndWait(() => context.Render<TComponent>(fragment), timeout);
+        Inner(() => context.Render<TComponent>(fragment), timeout, property);
 
+    // /// <summary>
+    // /// Renders the <paramref name="fragment"/> and returns it as a <see cref="IRenderedFragment"/>.
+    // /// </summary>
+    // /// <param name="fragment">The render fragment to render.</param>
+    // /// <param name="context">The <see cref="TestContext"/> to extend.</param>
+    // /// <param name="timeout">A TimeSpan that represents the to wait, or null to use 10 seconds.</param>
+    // /// <returns>The <see cref="IRenderedFragment"/>.</returns>
+    // public static IRenderedFragment RenderAndWait(this TestContext context, RenderFragment fragment, TimeSpan? timeout = null) =>
+    //     RenderAndWait(() => context.Render(fragment), timeout);
 
-    /// <summary>
-    /// Renders the <paramref name="fragment"/> and returns it as a <see cref="IRenderedFragment"/>.
-    /// </summary>
-    /// <param name="fragment">The render fragment to render.</param>
-    /// <param name="context">The <see cref="TestContext"/> to extend.</param>
-    /// <param name="timeout">A TimeSpan that represents the to wait, or null to use 10 seconds.</param>
-    /// <returns>The <see cref="IRenderedFragment"/>.</returns>
-    public static IRenderedFragment RenderAndWait(this TestContext context, RenderFragment fragment, TimeSpan? timeout = null) =>
-        RenderAndWait(() => context.Render(fragment), timeout);
-
-    static T RenderAndWait<T>(Func<T> render, TimeSpan? timeout)
-        where T : IRenderedFragmentBase
+    static async Task<IRenderedComponent<TComponent>> Inner<TComponent>(
+        Func<IRenderedComponent<TComponent>> render,
+        TimeSpan? timeout,
+        Func<TComponent, bool> rendered)
+        where TComponent : IComponent
     {
-        using var wait = new ManualResetEventSlim(false);
-        EventHandler handler = (_, _) => wait?.Set();
+        var iterations = timeout?.Milliseconds / 10 ?? 100;
         var target = render();
-        target.OnAfterRender += handler;
-        if (target.RenderCount > 0)
+
+        var instance = target.Instance;
+        while (!rendered(instance))
         {
-            return target;
+            if (iterations-- == 0)
+            {
+                throw new TimeoutException("Timeout waiting for component to render");
+            }
+
+            await Task.Delay(10);
         }
 
-        wait.WaitHandle.WaitOne(timeout ?? TimeSpan.FromSeconds(10));
-        target.OnAfterRender -= handler;
         return target;
     }
 }

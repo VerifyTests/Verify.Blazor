@@ -52,7 +52,7 @@ public class Samples
     public async Task WaitForState()
     {
         using var testContext = new TestContext();
-        var component = testContext.RenderComponent<TestComponent>(
+        var component = await testContext.RenderComponentAndWait<TestComponent>(
             builder =>
             {
                 builder.Add(_ => _.Title, "New Title");
@@ -60,8 +60,8 @@ public class Samples
                 {
                     Name = "Sam"
                 });
-            });
-        await component.WaitFor(() => component.Instance.Intitialized);
+            },
+            _ => _.Intitialized);
         await Verify(component);
     }
 }
