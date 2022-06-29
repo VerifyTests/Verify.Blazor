@@ -6,6 +6,5 @@
       Name: Sam
     }
   },
-  NodeCount: 4,
-  Bytes: 74
+  NodeCount: 4
 }

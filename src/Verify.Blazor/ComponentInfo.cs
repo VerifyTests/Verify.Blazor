@@ -3,11 +3,7 @@
 class ComponentInfo
 {
     public ComponentBase Instance { get; }
-    public string Bytes { get; }
 
-    public ComponentInfo(ComponentBase instance, string bytes)
-    {
+    public ComponentInfo(ComponentBase instance) =>
         Instance = instance;
-        Bytes = bytes;
-    }
 }

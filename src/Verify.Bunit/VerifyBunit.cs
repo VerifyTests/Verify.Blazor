@@ -157,6 +157,11 @@ public static class VerifyBunit
         EventHandler handler = (_, _) => wait?.Set();
         var target = render();
         target.OnAfterRender += handler;
+        if (target.RenderCount > 0)
+        {
+            return target;
+        }
+
         wait.WaitHandle.WaitOne(timeout ?? TimeSpan.FromSeconds(10));
         target.OnAfterRender -= handler;
         return target;

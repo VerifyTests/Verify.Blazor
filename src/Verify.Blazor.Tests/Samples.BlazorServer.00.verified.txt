@@ -1,4 +1,3 @@
 ﻿{
-  Instance: {},
-  Bytes: 127
+  Instance: {}
 }

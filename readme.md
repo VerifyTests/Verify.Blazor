@@ -145,11 +145,10 @@ And the current model rendered as txt `...00.verified.txt`:
     Person: {
       Name: Sam
     }
-  },
-  Bytes: 74
+  }
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.PassingParameters.00.verified.txt#L1-L10' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.PassingParameters.00.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.PassingParameters.00.verified.txt#L1-L9' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.PassingParameters.00.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -231,11 +230,10 @@ And the current model rendered as txt `...Component.00.verified.txt`:
       Name: Sam
     }
   },
-  NodeCount: 4,
-  Bytes: 74
+  NodeCount: 4
 }
 ```
-<sup><a href='/src/Verify.Bunit.Tests/Samples.Component.00.verified.txt#L1-L11' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Bunit.Tests/Samples.Component.00.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.Tests/Samples.Component.00.verified.txt#L1-L10' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Bunit.Tests/Samples.Component.00.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 

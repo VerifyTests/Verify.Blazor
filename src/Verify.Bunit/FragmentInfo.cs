@@ -2,12 +2,10 @@
 {
     public object? Instance { get; }
     public int NodeCount { get; }
-    public string Bytes { get; }
 
-    public FragmentInfo(object? instance, int nodeCount, string bytes)
+    public FragmentInfo(object? instance, int nodeCount)
     {
         Instance = instance;
         NodeCount = nodeCount;
-        Bytes = bytes;
     }
 }
