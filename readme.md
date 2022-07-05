@@ -268,11 +268,21 @@ Blazor uses `<!--!-->` to delineate components in the resulting html. Some empty
 ```cs
 // remove some noise from the html snapshot
 VerifierSettings.ScrubEmptyLines();
-VerifierSettings.ScrubLinesWithReplace(s => s.Replace("<!--!-->", ""));
+BlazorScrubber.ScrubCommentLines();
+VerifierSettings.ScrubLinesWithReplace(s =>
+{
+    var scrubbed = s.Replace("<!--!-->", "");
+    if (string.IsNullOrWhiteSpace(scrubbed))
+    {
+        return null;
+    }
+
+    return scrubbed;
+});
 HtmlPrettyPrint.All();
 VerifierSettings.ScrubLinesContaining("<script src=\"_framework/dotnet.");
 ```
-<sup><a href='/src/Verify.Blazor.Tests/ModuleInitializer.cs#L9-L17' title='Snippet source file'>snippet source</a> | <a href='#snippet-scrubbers' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/ModuleInitializer.cs#L10-L28' title='Snippet source file'>snippet source</a> | <a href='#snippet-scrubbers' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 

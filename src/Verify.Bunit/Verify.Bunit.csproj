@@ -13,4 +13,9 @@
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" Condition="$(Configuration) == 'Release'" />
     <PackageReference Include="Verify" Version="17.2.1" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Verify.Blazor\InnerBlazorScrubber.cs">
+      <Link>InnerBlazorScrubber.cs</Link>
+    </Compile>
+  </ItemGroup>
 </Project>

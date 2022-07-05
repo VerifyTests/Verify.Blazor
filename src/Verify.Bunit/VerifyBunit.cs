@@ -7,8 +7,13 @@ namespace VerifyTests;
 
 public static class VerifyBunit
 {
-    public static void Initialize()
+    public static void Initialize(bool scrubCommentLines = true)
     {
+        if (scrubCommentLines)
+        {
+            InnerBlazorScrubber.ScrubCommentLines();
+        }
+
         VerifierSettings.RegisterFileConverter<IRenderedFragment>(FragmentToStream.Convert);
         VerifierSettings.AddExtraSettings(
             _ => _.Converters.Add(new RenderedFragmentConverter()));

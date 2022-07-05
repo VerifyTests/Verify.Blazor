@@ -1,5 +1,6 @@
 ﻿using ImageMagick;
 using VerifyTests.AngleSharp;
+using VerifyTests.Blazor;
 
 public static class ModuleInitializer
 {
@@ -10,7 +11,17 @@ public static class ModuleInitializer
 
         // remove some noise from the html snapshot
         VerifierSettings.ScrubEmptyLines();
-        VerifierSettings.ScrubLinesWithReplace(s => s.Replace("<!--!-->", ""));
+        BlazorScrubber.ScrubCommentLines();
+        VerifierSettings.ScrubLinesWithReplace(s =>
+        {
+            var scrubbed = s.Replace("<!--!-->", "");
+            if (string.IsNullOrWhiteSpace(scrubbed))
+            {
+                return null;
+            }
+
+            return scrubbed;
+        });
         HtmlPrettyPrint.All();
         VerifierSettings.ScrubLinesContaining("<script src=\"_framework/dotnet.");
 
