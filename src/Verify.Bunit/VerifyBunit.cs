@@ -105,14 +105,14 @@ public static class VerifyBunit
     /// <typeparam name="TComponent">Type of the component to render.</typeparam>
     /// <param name="context">The <see cref="TestContext"/> to extend.</param>
     /// <param name="parameters">Parameters to pass to the component when it is rendered.</param>
-    /// <param name="property">Checks if rendered has finished.</param>
+    /// <param name="renderedCheck">Checks if rendered has finished.</param>
     /// <returns>The rendered <typeparamref name="TComponent"/>.</returns>
     public static Task<IRenderedComponent<TComponent>> RenderComponentAndWait<TComponent>(
         this TestContext context,
-        Func<TComponent, bool> property,
+        Func<TComponent, bool> renderedCheck,
         params ComponentParameter[] parameters)
         where TComponent : IComponent =>
-        Inner(() => context.RenderComponent<TComponent>(parameters), null, property);
+        Inner(() => context.RenderComponent<TComponent>(parameters), null, renderedCheck);
 
     /// <summary>
     /// Instantiates and performs a first render of a component of type <typeparamref name="TComponent"/>.
@@ -121,15 +121,15 @@ public static class VerifyBunit
     /// <param name="context">The <see cref="TestContext"/> to extend.</param>
     /// <param name="parameterBuilder">The ComponentParameterBuilder action to add type safe parameters to pass to the component when it is rendered.</param>
     /// <param name="timeout">A TimeSpan that represents the to wait, or null to use 10 seconds.</param>
-    /// <param name="property">Checks if rendered has finished.</param>
+    /// <param name="renderedCheck">Checks if rendered has finished.</param>
     /// <returns>The rendered <typeparamref name="TComponent"/>.</returns>
     public static Task<IRenderedComponent<TComponent>> RenderComponentAndWait<TComponent>(
         this TestContext context,
         Action<ComponentParameterCollectionBuilder<TComponent>> parameterBuilder,
-        Func<TComponent, bool> property,
+        Func<TComponent, bool> renderedCheck,
         TimeSpan? timeout = null)
         where TComponent : IComponent =>
-        Inner(() => context.RenderComponent(parameterBuilder), timeout, property);
+        Inner(() => context.RenderComponent(parameterBuilder), timeout, renderedCheck);
 
     /// <summary>
     /// Renders the <paramref name="fragment"/> and returns the first <typeparamref name="TComponent"/> in the resulting render tree.
@@ -140,16 +140,16 @@ public static class VerifyBunit
     /// <typeparam name="TComponent">The type of component to find in the render tree.</typeparam>
     /// <param name="fragment">The render fragment to render.</param>
     /// <param name="context">The <see cref="TestContext"/> to extend.</param>
-    /// <param name="property">Checks if rendered has finished.</param>
+    /// <param name="renderedCheck">Checks if rendered has finished.</param>
     /// <param name="timeout">A TimeSpan that represents the to wait, or null to use 10 seconds.</param>
     /// <returns>The <see cref="IRenderedComponent{TComponent}"/>.</returns>
     public static Task<IRenderedComponent<TComponent>> RenderAndWait<TComponent>(
         this TestContext context,
         RenderFragment fragment,
-        Func<TComponent, bool> property,
+        Func<TComponent, bool> renderedCheck,
         TimeSpan? timeout = null)
         where TComponent : IComponent =>
-        Inner(() => context.Render<TComponent>(fragment), timeout, property);
+        Inner(() => context.Render<TComponent>(fragment), timeout, renderedCheck);
 
     // /// <summary>
     // /// Renders the <paramref name="fragment"/> and returns it as a <see cref="IRenderedFragment"/>.
@@ -164,14 +164,14 @@ public static class VerifyBunit
     static async Task<IRenderedComponent<TComponent>> Inner<TComponent>(
         Func<IRenderedComponent<TComponent>> render,
         TimeSpan? timeout,
-        Func<TComponent, bool> rendered)
+        Func<TComponent, bool> renderedCheck)
         where TComponent : IComponent
     {
         var iterations = timeout?.Milliseconds / 10 ?? 100;
         var target = render();
 
         var instance = target.Instance;
-        while (!rendered(instance))
+        while (!renderedCheck(instance))
         {
             if (iterations-- == 0)
             {
