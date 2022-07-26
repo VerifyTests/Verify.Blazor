@@ -7,9 +7,9 @@ class RenderedFragmentConverter :
     {
         writer.WriteStartObject();
 
-        writer.WriteProperty(fragment, ComponentReader.GetInstance(fragment), "Instance");
+        writer.WriteMember(fragment, ComponentReader.GetInstance(fragment), "Instance");
 
-        writer.WriteProperty(fragment, fragment.Markup, "Markup");
+        writer.WriteMember(fragment, fragment.Markup, "Markup");
 
         writer.WriteEndObject();
     }
