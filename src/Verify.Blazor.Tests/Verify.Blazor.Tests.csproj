@@ -10,8 +10,8 @@
     <PackageReference Include="Verify.ImageMagick" Version="2.15.0" />
     <PackageReference Include="Xunit" Version="2.4.2" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5" PrivateAssets="all" />
-    <PackageReference Include="ProjectDefaults" Version="1.0.78" PrivateAssets="all" />
-    <PackageReference Include="Verify.Xunit" Version="17.6.0" />
+    <PackageReference Include="ProjectDefaults" Version="1.0.79" PrivateAssets="all" />
+    <PackageReference Include="Verify.Xunit" Version="17.7.0" />
     <ProjectReference Include="..\BlazorApp\BlazorApp.csproj" />
     <ProjectReference Include="..\BlazorServerApp\BlazorServerApp.csproj" />
     <ProjectReference Include="..\Verify.Blazor\Verify.Blazor.csproj" />
