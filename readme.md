@@ -130,7 +130,7 @@ The component rendered as html `...01.verified.html`:
   <button>MyButton</button>
 </div>
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.PassingParameters.01.verified.html#L1-L6' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.PassingParameters.01.verified.html' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.PassingParameters.01.verified.html#L1-L5' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.PassingParameters.01.verified.html' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 And the current model rendered as txt `...00.verified.txt`:
