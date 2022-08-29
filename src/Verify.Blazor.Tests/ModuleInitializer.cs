@@ -30,5 +30,7 @@ public static class ModuleInitializer
         VerifyImageMagick.RegisterComparers(
             threshold: .01,
             metric: ErrorMetric.MeanAbsolute);
+
+        VerifyDiffPlex.Initialize();
     }
 }
