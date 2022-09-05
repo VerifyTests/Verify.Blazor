@@ -119,10 +119,10 @@ public Task PassingTemplateInstance()
 
 Both will produce:
 
-The component rendered as html `...01.verified.html`:
+The component rendered as html `...verified.html`:
 
-<!-- snippet: Verify.Blazor.Tests/Samples.PassingParameters.01.verified.html -->
-<a id='snippet-Verify.Blazor.Tests/Samples.PassingParameters.01.verified.html'></a>
+<!-- snippet: Verify.Blazor.Tests/Samples.PassingParameters.verified.html -->
+<a id='snippet-Verify.Blazor.Tests/Samples.PassingParameters.verified.html'></a>
 ```html
 <div>
   <h1>The Title</h1>
@@ -130,13 +130,13 @@ The component rendered as html `...01.verified.html`:
   <button>MyButton</button>
 </div>
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.PassingParameters.01.verified.html#L1-L5' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.PassingParameters.01.verified.html' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.PassingParameters.verified.html#L1-L5' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.PassingParameters.verified.html' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
-And the current model rendered as txt `...00.verified.txt`:
+And the current model rendered as txt `...verified.txt`:
 
-<!-- snippet: Verify.Blazor.Tests/Samples.PassingParameters.00.verified.txt -->
-<a id='snippet-Verify.Blazor.Tests/Samples.PassingParameters.00.verified.txt'></a>
+<!-- snippet: Verify.Blazor.Tests/Samples.PassingParameters.verified.txt -->
+<a id='snippet-Verify.Blazor.Tests/Samples.PassingParameters.verified.txt'></a>
 ```txt
 {
   Instance: {
@@ -148,7 +148,7 @@ And the current model rendered as txt `...00.verified.txt`:
   }
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.PassingParameters.00.verified.txt#L1-L9' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.PassingParameters.00.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.PassingParameters.verified.txt#L1-L9' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.PassingParameters.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -203,22 +203,22 @@ public Task Component()
 
 Will produce:
 
-The component rendered as html `...Component.01.verified.html`:
+The component rendered as html `...Component.verified.html`:
 
-<!-- snippet: Verify.Bunit.Tests/Samples.Component.01.verified.html -->
-<a id='snippet-Verify.Bunit.Tests/Samples.Component.01.verified.html'></a>
+<!-- snippet: Verify.Bunit.Tests/Samples.Component.verified.html -->
+<a id='snippet-Verify.Bunit.Tests/Samples.Component.verified.html'></a>
 ```html
 <div><h1>New Title</h1>
     <p>Sam</p>
     <button>MyButton</button></div>
 ```
-<sup><a href='/src/Verify.Bunit.Tests/Samples.Component.01.verified.html#L1-L3' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Bunit.Tests/Samples.Component.01.verified.html' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.Tests/Samples.Component.verified.html#L1-L3' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Bunit.Tests/Samples.Component.verified.html' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
-And the current model rendered as txt `...Component.00.verified.txt`:
+And the current model rendered as txt `...Component.verified.txt`:
 
-<!-- snippet: Verify.Bunit.Tests/Samples.Component.00.verified.txt -->
-<a id='snippet-Verify.Bunit.Tests/Samples.Component.00.verified.txt'></a>
+<!-- snippet: Verify.Bunit.Tests/Samples.Component.verified.txt -->
+<a id='snippet-Verify.Bunit.Tests/Samples.Component.verified.txt'></a>
 ```txt
 {
   Instance: {
@@ -231,7 +231,7 @@ And the current model rendered as txt `...Component.00.verified.txt`:
   NodeCount: 4
 }
 ```
-<sup><a href='/src/Verify.Bunit.Tests/Samples.Component.00.verified.txt#L1-L10' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Bunit.Tests/Samples.Component.00.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.Tests/Samples.Component.verified.txt#L1-L10' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Bunit.Tests/Samples.Component.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
