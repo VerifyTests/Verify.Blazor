@@ -45,13 +45,13 @@ snippet: BlazorComponentTestWithTemplateInstance
 
 Both will produce:
 
-The component rendered as html `...01.verified.html`:
+The component rendered as html `...verified.html`:
 
-snippet: Verify.Blazor.Tests/Samples.PassingParameters.01.verified.html
+snippet: Verify.Blazor.Tests/Samples.PassingParameters.verified.html
 
-And the current model rendered as txt `...00.verified.txt`:
+And the current model rendered as txt `...verified.txt`:
 
-snippet: Verify.Blazor.Tests/Samples.PassingParameters.00.verified.txt
+snippet: Verify.Blazor.Tests/Samples.PassingParameters.verified.txt
 
 
 ## Verify.Bunit
@@ -76,13 +76,13 @@ snippet: BunitComponentTest
 
 Will produce:
 
-The component rendered as html `...Component.01.verified.html`:
+The component rendered as html `...Component.verified.html`:
 
-snippet: Verify.Bunit.Tests/Samples.Component.01.verified.html
+snippet: Verify.Bunit.Tests/Samples.Component.verified.html
 
-And the current model rendered as txt `...Component.00.verified.txt`:
+And the current model rendered as txt `...Component.verified.txt`:
 
-snippet: Verify.Bunit.Tests/Samples.Component.00.verified.txt
+snippet: Verify.Bunit.Tests/Samples.Component.verified.txt
 
 
 ## Scrubbing
