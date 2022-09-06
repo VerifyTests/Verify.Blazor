@@ -12,7 +12,7 @@
     <PackageReference Include="Xunit" Version="2.4.2" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5" PrivateAssets="all" />
     <PackageReference Include="ProjectDefaults" Version="1.0.80" PrivateAssets="all" />
-    <PackageReference Include="Verify.Xunit" Version="18.0.0-beta.12" />
+    <PackageReference Include="Verify.Xunit" Version="18.0.0-beta.13" />
     <ProjectReference Include="..\BlazorApp\BlazorApp.csproj" />
     <ProjectReference Include="..\BlazorServerApp\BlazorServerApp.csproj" />
     <ProjectReference Include="..\Verify.Blazor\Verify.Blazor.csproj" />
