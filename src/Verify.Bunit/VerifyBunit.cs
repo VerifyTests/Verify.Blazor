@@ -9,6 +9,7 @@ public static class VerifyBunit
 {
     public static void Initialize(bool scrubCommentLines = true)
     {
+        InnerVerifier.ThrowIfVerifyHasBeenRun();
         if (scrubCommentLines)
         {
             InnerBlazorScrubber.ScrubCommentLines();

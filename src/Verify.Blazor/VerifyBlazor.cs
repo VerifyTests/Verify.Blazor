@@ -8,9 +8,12 @@ static class VerifyBlazor
     static MethodInfo stateHasChanged = typeof(ComponentBase)
         .GetMethod("StateHasChanged", BindingFlags.Instance | BindingFlags.NonPublic)!;
 
-    public static void Initialize() =>
+    public static void Initialize()
+    {
+        InnerVerifier.ThrowIfVerifyHasBeenRun();
         VerifierSettings.RegisterFileConverter<Render>(
             (target, _) => RenderToResult(target));
+    }
 
     static async Task<ConversionResult> RenderToResult(Render target)
     {
