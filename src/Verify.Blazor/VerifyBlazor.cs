@@ -5,11 +5,20 @@ using VerifyTests.Blazor;
 
 static class VerifyBlazor
 {
+    public static bool Initialized { get; private set; }
+
     static MethodInfo stateHasChanged = typeof(ComponentBase)
         .GetMethod("StateHasChanged", BindingFlags.Instance | BindingFlags.NonPublic)!;
 
     public static void Initialize()
     {
+        if (Initialized)
+        {
+            throw new("Already Initialized");
+        }
+
+        Initialized = true;
+
         InnerVerifier.ThrowIfVerifyHasBeenRun();
         VerifierSettings.RegisterFileConverter<Render>(
             (target, _) => RenderToResult(target));
