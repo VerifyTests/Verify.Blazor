@@ -15,7 +15,6 @@ To change this file edit the source file and then run MarkdownSnippets.
 Support for rendering a [Blazor Component](https://docs.microsoft.com/en-us/aspnet/core/blazor/#components) to a verified file via [bunit](https://bunit.egilhansen.com) or via raw Blazor rendering.
 
 
-
 ## Component
 
 The below samples use the following Component:
@@ -288,7 +287,6 @@ VerifierSettings.ScrubLinesContaining("<script src=\"_framework/dotnet.");
 
  * [Unit testing Blazor components - a prototype - Steven Sanderson](https://blog.stevensanderson.com/2019/08/29/blazor-unit-testing-prototype/)
  * [Bunit - Egil Hansen](https://bunit.egilhansen.com)
-
 
 
 ## Icon
