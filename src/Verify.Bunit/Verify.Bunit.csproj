@@ -9,9 +9,9 @@
     <Content Include="../build.targets" PackagePath="build\Verify.Bunit.targets" />
     <PackageReference Include="bunit.core" Version="1.16.2" />
     <PackageReference Include="bunit.web" Version="1.16.2" />
-    <PackageReference Include="ProjectDefaults" Version="1.0.84" PrivateAssets="all" />
+    <PackageReference Include="ProjectDefaults" Version="1.0.87" PrivateAssets="all" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" Condition="$(Configuration) == 'Release'" />
-    <PackageReference Include="Verify" Version="19.9.3" />
+    <PackageReference Include="Verify" Version="19.10.0" />
 
     <Compile Include="..\Verify.Blazor\InnerBlazorScrubber.cs">
       <Link>InnerBlazorScrubber.cs</Link>
