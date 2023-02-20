@@ -78,7 +78,7 @@ public static class VerifyBunit
         {
             null => null,
             bool _ => value,
-            String _ => value,
+            string _ => value,
             ICollection values => FormatValues(values),
             IEnumerable values => FormatValues(values),
             _ => BindConverter.FormatValue(value)

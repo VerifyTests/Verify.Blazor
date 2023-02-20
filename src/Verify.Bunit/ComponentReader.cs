@@ -13,15 +13,16 @@ static class ComponentReader
 
         var renderComponentInterface = type
             .GetInterfaces()
-            .SingleOrDefault(x =>
-                x.IsGenericType &&
-                x.GetGenericTypeDefinition() == typeof(IRenderedComponentBase<>));
+            .SingleOrDefault(_ =>
+                _.IsGenericType &&
+                _.GetGenericTypeDefinition() == typeof(IRenderedComponentBase<>));
+
         if (renderComponentInterface == null)
         {
             return null;
         }
 
         var instanceProperty = renderComponentInterface.GetProperty("Instance")!;
-        return (IComponent)instanceProperty.GetValue(fragment)!;
+        return (IComponent) instanceProperty.GetValue(fragment)!;
     }
 }

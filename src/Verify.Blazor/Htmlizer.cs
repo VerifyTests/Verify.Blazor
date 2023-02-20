@@ -92,7 +92,7 @@ static class Htmlizer
     {
         ref var frame = ref frames.Array[position];
         var result = context.Result;
-        result.Append("<");
+        result.Append('<');
         result.Append(frame.ElementName);
         var afterAttributes = RenderAttributes(context, frames, position + 1, frame.ElementSubtreeLength - 1, out var capturedValueAttribute);
 
@@ -128,7 +128,7 @@ static class Htmlizer
 
             result.Append("</");
             result.Append(frame.ElementName);
-            result.Append(">");
+            result.Append('>');
             return afterElement;
         }
 
@@ -140,7 +140,7 @@ static class Htmlizer
         {
             result.Append("></");
             result.Append(frame.ElementName);
-            result.Append(">");
+            result.Append('>');
         }
         return afterAttributes;
     }
@@ -196,12 +196,12 @@ static class Htmlizer
                 //       to the following to make it more obvious
                 //       that this is a generated/special blazor attribute
                 //       used for tracking event handler id's
-                result.Append(" ");
+                result.Append(' ');
                 result.Append(BLAZOR_ATTR_PREFIX);
                 result.Append(frame.AttributeName);
                 result.Append("=\"");
                 result.Append(frame.AttributeEventHandlerId.ToString(CultureInfo.InvariantCulture));
-                result.Append("\"");
+                result.Append('"');
                 continue;
             }
 
@@ -212,24 +212,24 @@ static class Htmlizer
                     //       that this is a generated/special blazor attribute
                     //	     for internal usage
                     var nameParts = frame.AttributeName.Split('_', StringSplitOptions.RemoveEmptyEntries);
-                    result.Append(" ");
+                    result.Append(' ');
                     result.Append(BLAZOR_ATTR_PREFIX);
                     result.Append(BLAZOR_ATTR_PREFIX);
                     result.Append(frame.AttributeName);
                     result.Append(nameParts[2]);
-                    result.Append(":");
+                    result.Append(':');
                     result.Append(nameParts[1]);
                     break;
                 case true:
-                    result.Append(" ");
+                    result.Append(' ');
                     result.Append(frame.AttributeName);
                     break;
                 case string value:
-                    result.Append(" ");
+                    result.Append(' ');
                     result.Append(frame.AttributeName);
                     result.Append("=\"");
                     result.Append(HtmlEncoder.Encode(value));
-                    result.Append("\"");
+                    result.Append('"');
                     break;
             }
         }
