@@ -8,7 +8,7 @@
     <PackageReference Include="Verify.AngleSharp" Version="4.3.1" />
     <PackageReference Include="Verify.DiffPlex" Version="2.2.1" />
     <PackageReference Include="Verify.ImageMagick" Version="3.2.2" />
-    <PackageReference Include="Xunit" Version="2.4.2" />
+    <PackageReference Include="Xunit" Version="2.5.0" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.5.0" PrivateAssets="all" />
     <PackageReference Include="ProjectDefaults" Version="1.0.91" PrivateAssets="all" />
     <PackageReference Include="Verify.Xunit" Version="20.4.0" />
