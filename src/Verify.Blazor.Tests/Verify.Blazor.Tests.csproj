@@ -3,7 +3,7 @@
     <TargetFramework>net7.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.7.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.7.2" />
     <PackageReference Include="Argon" Version="0.7.2" />
     <PackageReference Include="Verify.AngleSharp" Version="4.3.1" />
     <PackageReference Include="Verify.DiffPlex" Version="2.2.1" />
