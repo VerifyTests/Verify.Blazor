@@ -14,6 +14,8 @@ To change this file edit the source file and then run MarkdownSnippets.
 
 Support for rendering a [Blazor Component](https://docs.microsoft.com/en-us/aspnet/core/blazor/#components) to a verified file via [bunit](https://bunit.egilhansen.com) or via raw Blazor rendering.
 
+**See [Milestones](../../milestones?state=closed) for release notes.**
+
 
 ## Component
 
