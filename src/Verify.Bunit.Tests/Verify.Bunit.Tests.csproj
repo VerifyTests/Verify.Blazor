@@ -6,13 +6,13 @@
   <ItemGroup>
     <PackageReference Include="MarkdownSnippets.MsBuild" Version="25.1.0" PrivateAssets="all" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.7.2" />
-    <PackageReference Include="Argon" Version="0.9.0" />
+    <PackageReference Include="Argon" Version="0.10.0" />
     <PackageReference Include="Verify.DiffPlex" Version="2.2.1" />
     <PackageReference Include="Xunit" Version="2.5.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.5.1" PrivateAssets="all" />
     <PackageReference Include="ProjectDefaults" Version="1.0.97" PrivateAssets="all" />
     <PackageReference Include="bunit" Version="1.23.9" />
-    <PackageReference Include="Verify.Xunit" Version="21.1.4" />
+    <PackageReference Include="Verify.Xunit" Version="21.1.5" />
     <ProjectReference Include="..\BlazorApp\BlazorApp.csproj" />
     <ProjectReference Include="..\Verify.Bunit\Verify.Bunit.csproj" />
   </ItemGroup>
