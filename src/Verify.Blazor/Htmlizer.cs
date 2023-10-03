@@ -210,7 +210,7 @@ static class Htmlizer
                 case true when frame.AttributeName.StartsWith(BLAZOR_INTERNAL_ATTR_PREFIX, StringComparison.Ordinal):
                     // NOTE: This was added to make it more obvious
                     //       that this is a generated/special blazor attribute
-                    //	     for internal usage
+                    //       for internal usage
                     var nameParts = frame.AttributeName.Split('_', StringSplitOptions.RemoveEmptyEntries);
                     result.Append(' ');
                     result.Append(BLAZOR_ATTR_PREFIX);
