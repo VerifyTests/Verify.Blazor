@@ -34,10 +34,12 @@ public class Samples
             builder =>
             {
                 builder.Add(_ => _.Title, "New Title");
-                builder.Add(_ => _.Person, new()
-                {
-                    Name = "Sam"
-                });
+                builder.Add(
+                    _ => _.Person,
+                    new()
+                    {
+                        Name = "Sam"
+                    });
             });
 
         return Verify(
@@ -56,10 +58,12 @@ public class Samples
             builder =>
             {
                 builder.Add(_ => _.Title, "New Title");
-                builder.Add(_ => _.Person, new()
-                {
-                    Name = "Sam"
-                });
+                builder.Add(
+                    _ => _.Person,
+                    new()
+                    {
+                        Name = "Sam"
+                    });
             },
             _ => _.Intitialized);
         await Verify(component);

@@ -1,9 +1,4 @@
-﻿using Microsoft.AspNetCore.Components;
-
-class ComponentInfo
+﻿class ComponentInfo(ComponentBase instance)
 {
-    public ComponentBase Instance { get; }
-
-    public ComponentInfo(ComponentBase instance) =>
-        Instance = instance;
+    public ComponentBase Instance { get; } = instance;
 }

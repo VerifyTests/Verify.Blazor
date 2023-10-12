@@ -1,6 +1,4 @@
-﻿using Bunit;
-
-static class FragmentToStream
+﻿static class FragmentToStream
 {
     public static ConversionResult Convert(IRenderedFragment fragment, IReadOnlyDictionary<string, object> context)
     {

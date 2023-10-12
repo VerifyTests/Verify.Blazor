@@ -1,6 +1,4 @@
-﻿using Bunit;
-
-class RenderedFragmentConverter :
+﻿class RenderedFragmentConverter :
     WriteOnlyJsonConverter<IRenderedFragment>
 {
     public override void Write(VerifyJsonWriter writer, IRenderedFragment fragment)

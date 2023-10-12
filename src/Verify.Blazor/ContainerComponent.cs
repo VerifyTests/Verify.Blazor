@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Rendering;
+﻿using Microsoft.AspNetCore.Components.Rendering;
 
 // This provides the ability for test code to trigger rendering at arbitrary times,
 // and to supply arbitrary parameters to the component being tested (including ones
