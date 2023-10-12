@@ -45,7 +45,20 @@ public static class VerifyBunit
         await waiter.WaitTask;
     }
 
-    public static Task ClickAsync(this IElement element, long detail = 1, double screenX = default, double screenY = default, double clientX = default, double clientY = default, long button = default, long buttons = default, bool ctrlKey = default, bool shiftKey = default, bool altKey = default, bool metaKey = default, string? type = default) =>
+    public static Task ClickAsync(
+        this IElement element,
+        long detail = 1,
+        double screenX = default,
+        double screenY = default,
+        double clientX = default,
+        double clientY = default,
+        long button = default,
+        long buttons = default,
+        bool ctrlKey = default,
+        bool shiftKey = default,
+        bool altKey = default,
+        bool metaKey = default,
+        string? type = default) =>
         MouseEventDispatchExtensions.ClickAsync(element,
             new()
             {
