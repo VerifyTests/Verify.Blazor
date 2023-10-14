@@ -5,7 +5,7 @@ public static class ModuleInitializer
 
     [ModuleInitializer]
     public static void Initialize() =>
-        VerifyBunit.Initialize();
+        VerifyBunit.Initialize(false);
 
     #endregion
 

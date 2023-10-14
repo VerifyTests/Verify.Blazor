@@ -173,7 +173,7 @@ Enable at startup:
 ```cs
 [ModuleInitializer]
 public static void Initialize() =>
-    VerifyBunit.Initialize();
+    VerifyBunit.Initialize(false);
 ```
 <sup><a href='/src/Verify.Bunit.Tests/ModuleInitializer.cs#L4-L10' title='Snippet source file'>snippet source</a> | <a href='#snippet-bunitenable' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
@@ -209,11 +209,13 @@ The component rendered as html `...Component.verified.html`:
 <!-- snippet: Verify.Bunit.Tests/Samples.Component.verified.html -->
 <a id='snippet-Verify.Bunit.Tests/Samples.Component.verified.html'></a>
 ```html
-<div><h1>New Title</h1>
-    <p>Sam</p>
-    <button>MyButton</button></div>
+<div>
+  <h1>New Title</h1>
+  <p>Sam</p>
+  <button>MyButton</button>
+</div
 ```
-<sup><a href='/src/Verify.Bunit.Tests/Samples.Component.verified.html#L1-L3' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Bunit.Tests/Samples.Component.verified.html' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.Tests/Samples.Component.verified.html#L1-L5' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Bunit.Tests/Samples.Component.verified.html' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 And the current model rendered as txt `...Component.verified.txt`:
@@ -229,7 +231,7 @@ And the current model rendered as txt `...Component.verified.txt`:
       Name: Sam
     }
   },
-  NodeCount: 4
+  NodeCount: 9
 }
 ```
 <sup><a href='/src/Verify.Bunit.Tests/Samples.Component.verified.txt#L1-L10' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Bunit.Tests/Samples.Component.verified.txt' title='Start of snippet'>anchor</a></sup>
