@@ -1,4 +1,4 @@
-﻿using BlazorApp;
+using BlazorApp;
 using Bunit;
 
 // Non-nullable field is uninitialized
@@ -24,6 +24,38 @@ public class Samples
         return Verify(component);
     }
 
+    [Fact]
+    public Task MarkupFormattable_NodeList()
+    {
+        using var testContext = new TestContext();
+        var component = testContext.RenderComponent<TestComponent>(
+    builder =>
+            {
+                builder.Add(_ => _.Title, "New Title");
+                builder.Add(_ => _.Person, new()
+                {
+                    Name = "Sam"
+                });
+            });
+        return Verify(component.Nodes);
+    }
+
+    [Fact]
+    public Task MarkupFormattable_single_Element()
+    {
+        using var testContext = new TestContext();
+        var component = testContext.RenderComponent<TestComponent>(
+    builder =>
+            {
+                builder.Add(_ => _.Title, "New Title");
+                builder.Add(_ => _.Person, new()
+                {
+                    Name = "Sam"
+                });
+            });
+        return Verify(component.Nodes.First().FirstChild);
+    }
+
     #endregion
 
     [Fact]
@@ -47,6 +79,26 @@ public class Samples
             {
                 OtherProp = "Foo",
                 Component = component
+            });
+    }
+
+    [Fact]
+    public Task MarkupFormattable_Nested()
+    {
+        using var testContext = new TestContext();
+        var component = testContext.RenderComponent<TestComponent>(
+            builder =>
+            {
+                builder.Add(_ => _.Title, "New Title");
+                builder.Add(_ => _.Person, new()
+                {
+                    Name = "Sam"
+                });
+            });
+        return Verify(
+            new
+            {
+                Nodes = component.Nodes
             });
     }
 

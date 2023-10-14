@@ -23,9 +23,10 @@ public static class VerifyBunit
         VerifierSettings.RegisterFileConverter<IRenderedFragment>(verifyMarkupOnly
             ? RenderedFragmentMarkupToString.Convert
             : RenderedFragmentToString.Convert);
+        VerifierSettings.RegisterFileConverter<IMarkupFormattable>(MarkupFormattableToString.Convert);
 
         VerifierSettings.AddExtraSettings(settings => settings.Converters.Add(new RenderedFragmentConverter()));
-
+        VerifierSettings.AddExtraSettings(settings => settings.Converters.Add(new MarkupFormattableConverter()));
         VerifierSettings.RegisterStringComparer("html", BunitMarkupComparer.Compare);
     }
 
