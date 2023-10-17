@@ -1,10 +1,10 @@
 ﻿public static class ModuleInitializer
 {
-    #region BunitEnable
+    #region BunitEnableExcludeComponent
 
     [ModuleInitializer]
     public static void Initialize() =>
-        VerifyBunit.Initialize();
+        VerifyBunit.Initialize(excludeComponent: true);
 
     #endregion
 

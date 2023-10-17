@@ -29,6 +29,7 @@ Verify.Blazor uses the Blazor APIs to take a snapshot (metadata and html) of the
 
 ### Usage
 
+
 #### Render using ParameterView
 
 This test:
@@ -87,6 +88,13 @@ And the current model rendered as txt `...Component.verified.txt`:
 snippet: Verify.Bunit.Tests/Samples.Component.verified.txt
 
 
+### Exclude Component
+
+Rendering of the Component state (Samples.Component.verified.txt from above) can be excluded by using `excludeComponent`.
+
+snippet: BunitEnableExcludeComponent
+
+
 ## Scrubbing
 
 
@@ -99,11 +107,6 @@ In Blazor an integrity check is applied to the `dotnet.*.js` file.
 ```
 
 This line will change when the dotnet SDK is updated.
-
-
-### Pretty print
-
-For readability it is useful to pretty print html using [Verify.AngleSharp](https://github.com/VerifyTests/Verify.AngleSharp#pretty-print).
 
 
 ### Noise in rendered template

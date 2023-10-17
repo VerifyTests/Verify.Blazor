@@ -7,7 +7,7 @@ public static class VerifyBunit
 {
     public static bool Initialized { get; private set; }
 
-    public static void Initialize(bool verifyMarkupOnly = true)
+    public static void Initialize(bool excludeComponent = false)
     {
         if (Initialized)
         {
@@ -18,7 +18,7 @@ public static class VerifyBunit
 
         InnerVerifier.ThrowIfVerifyHasBeenRun();
 
-        if (verifyMarkupOnly)
+        if (excludeComponent)
         {
             VerifierSettings.RegisterFileConverter<IRenderedFragment>(RenderedFragmentMarkupToString.Convert);
         }
