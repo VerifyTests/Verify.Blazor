@@ -1,7 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-
-namespace VerifyTests.Blazor;
+﻿namespace VerifyTests.Blazor;
 
 public class Render
 {

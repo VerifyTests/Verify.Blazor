@@ -1,6 +1,4 @@
-﻿using System.Globalization;
-using System.Text.Encodings.Web;
-using Microsoft.AspNetCore.Components.RenderTree;
+﻿using System.Text.Encodings.Web;
 
 /// <summary>
 /// This file is based on
@@ -237,12 +235,9 @@ static class Htmlizer
         return position + maxElements;
     }
 
-    class HtmlRenderingContext
+    class HtmlRenderingContext(TestRenderer renderer)
     {
-        public TestRenderer Renderer { get; }
-
-        public HtmlRenderingContext(TestRenderer renderer) =>
-            Renderer = renderer;
+        public TestRenderer Renderer { get; } = renderer;
 
         public StringBuilder Result { get; } = new();
 

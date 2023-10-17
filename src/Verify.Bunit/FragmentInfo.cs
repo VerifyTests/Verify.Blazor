@@ -1,12 +1,5 @@
-﻿class FragmentInfo
+﻿class FragmentInfo(object? instance, int nodeCount)
 {
-    public object? Instance { get; }
-
-    public int NodeCount { get; }
-
-    public FragmentInfo(object? instance, int nodeCount)
-    {
-        Instance = instance;
-        NodeCount = nodeCount;
-    }
+    public object? Instance { get; } = instance;
+    public int NodeCount { get; } = nodeCount;
 }
