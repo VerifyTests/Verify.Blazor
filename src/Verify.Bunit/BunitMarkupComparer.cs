@@ -1,11 +1,6 @@
-using AngleSharp;
 using AngleSharp.Diffing.Core;
-using AngleSharp.Dom;
 using AngleSharp.Text;
-using Bunit.Diffing;
 using Bunit.Rendering;
-using Microsoft.AspNetCore.Components;
-using System.Runtime.CompilerServices;
 
 static class BunitMarkupComparer
 {
@@ -23,21 +18,20 @@ static class BunitMarkupComparer
         return Task.FromResult(result);
     }
 
-    private static string CreateDiffMessage(string received, string verified, IReadOnlyList<IDiff> diffs)
+    static string CreateDiffMessage(string received, string verified, IReadOnlyList<IDiff> diffs)
     {
         var builder = StringBuilderPool.Obtain();
         builder.AppendLine();
         builder.AppendLine("HTML comparison failed. The following errors were found:");
 
-        for (int i = 0; i < diffs.Count; i++)
+        for (var i = 0; i < diffs.Count; i++)
         {
             builder.Append($"  {i + 1}: ");
             builder.AppendLine(diffs[i] switch
             {
-                NodeDiff diff when diff.Target == DiffTarget.Text && diff.Control.Path.Equals(diff.Test.Path, StringComparison.Ordinal)
+                NodeDiff {Target: DiffTarget.Text} diff when diff.Control.Path.Equals(diff.Test.Path, StringComparison.Ordinal)
                     => $"The text in {diff.Control.Path} is different.",
-                NodeDiff diff when diff.Target == DiffTarget.Text
-                    => $"The expected {NodeName(diff.Control)} at {diff.Control.Path} and the actual {NodeName(diff.Test)} at {diff.Test.Path} is different.",
+                NodeDiff {Target: DiffTarget.Text} diff => $"The expected {NodeName(diff.Control)} at {diff.Control.Path} and the actual {NodeName(diff.Test)} at {diff.Test.Path} is different.",
                 NodeDiff diff when diff.Control.Path.Equals(diff.Test.Path, StringComparison.Ordinal)
                     => $"The {NodeName(diff.Control)}s at {diff.Control.Path} are different.",
                 NodeDiff diff => $"The expected {NodeName(diff.Control)} at {diff.Control.Path} and the actual {NodeName(diff.Test)} at {diff.Test.Path} are different.",
@@ -52,17 +46,21 @@ static class BunitMarkupComparer
             });
         }
 
-        builder.AppendLine();
-        builder.AppendLine("Actual HTML:");
-        builder.AppendLine();
-        builder.AppendLine(received);
-        builder.AppendLine();
-        builder.AppendLine("Expected HTML:");
-        builder.AppendLine();
-        builder.AppendLine(verified);
+        builder.AppendLine(
+            $"""
+
+             Actual HTML:
+
+             {received}
+
+             Expected HTML:
+
+             {verified}
+             """);
 
         return builder.ToPool();
 
-        static string NodeName(ComparisonSource source) => source.Node.NodeType.ToString().ToLowerInvariant();
+        static string NodeName(ComparisonSource source) =>
+            source.Node.NodeType.ToString().ToLowerInvariant();
     }
 }

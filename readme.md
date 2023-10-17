@@ -186,15 +186,19 @@ This test:
 [Fact]
 public Task Component()
 {
-    using var testContext = new TestContext();
-    var component = testContext.RenderComponent<TestComponent>(
+    using var context = new TestContext();
+    var component = context.RenderComponent<TestComponent>(
         builder =>
         {
-            builder.Add(_ => _.Title, "New Title");
-            builder.Add(_ => _.Person, new()
-            {
-                Name = "Sam"
-            });
+            builder.Add(
+                _ => _.Title,
+                "New Title");
+            builder.Add(
+                _ => _.Person,
+                new()
+                {
+                    Name = "Sam"
+                });
         });
     return Verify(component);
 }
@@ -202,15 +206,19 @@ public Task Component()
 [Fact]
 public Task MarkupFormattable_NodeList()
 {
-    using var testContext = new TestContext();
-    var component = testContext.RenderComponent<TestComponent>(
-builder =>
+    using var context = new TestContext();
+    var component = context.RenderComponent<TestComponent>(
+        builder =>
         {
-            builder.Add(_ => _.Title, "New Title");
-            builder.Add(_ => _.Person, new()
-            {
-                Name = "Sam"
-            });
+            builder.Add(
+                _ => _.Title,
+                "New Title");
+            builder.Add(
+                _ => _.Person,
+                new()
+                {
+                    Name = "Sam"
+                });
         });
     return Verify(component.Nodes);
 }
@@ -218,20 +226,24 @@ builder =>
 [Fact]
 public Task MarkupFormattable_single_Element()
 {
-    using var testContext = new TestContext();
-    var component = testContext.RenderComponent<TestComponent>(
-builder =>
+    using var context = new TestContext();
+    var component = context.RenderComponent<TestComponent>(
+        builder =>
         {
-            builder.Add(_ => _.Title, "New Title");
-            builder.Add(_ => _.Person, new()
-            {
-                Name = "Sam"
-            });
+            builder.Add(
+                _ => _.Title,
+                "New Title");
+            builder.Add(
+                _ => _.Person,
+                new()
+                {
+                    Name = "Sam"
+                });
         });
     return Verify(component.Nodes.First().FirstChild);
 }
 ```
-<sup><a href='/src/Verify.Bunit.Tests/Samples.cs#L9-L59' title='Snippet source file'>snippet source</a> | <a href='#snippet-bunitcomponenttest' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.Tests/Samples.cs#L9-L71' title='Snippet source file'>snippet source</a> | <a href='#snippet-bunitcomponenttest' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 Will produce:

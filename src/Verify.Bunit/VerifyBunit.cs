@@ -1,5 +1,3 @@
-using AngleSharp;
-using AngleSharp.Dom;
 using Bunit.Extensions.WaitForHelpers;
 using Microsoft.AspNetCore.Components;
 
@@ -20,13 +18,14 @@ public static class VerifyBunit
 
         InnerVerifier.ThrowIfVerifyHasBeenRun();
 
-        VerifierSettings.RegisterFileConverter<IRenderedFragment>(verifyMarkupOnly
-            ? RenderedFragmentMarkupToString.Convert
-            : RenderedFragmentToString.Convert);
+        VerifierSettings.RegisterFileConverter<IRenderedFragment>(
+            verifyMarkupOnly
+                ? RenderedFragmentMarkupToString.Convert
+                : RenderedFragmentToString.Convert);
         VerifierSettings.RegisterFileConverter<IMarkupFormattable>(MarkupFormattableToString.Convert);
 
-        VerifierSettings.AddExtraSettings(settings => settings.Converters.Add(new RenderedFragmentConverter()));
-        VerifierSettings.AddExtraSettings(settings => settings.Converters.Add(new MarkupFormattableConverter()));
+        VerifierSettings.AddExtraSettings(_ => _.Converters.Add(new RenderedFragmentConverter()));
+        VerifierSettings.AddExtraSettings(_ => _.Converters.Add(new MarkupFormattableConverter()));
         VerifierSettings.RegisterStringComparer("html", BunitMarkupComparer.Compare);
     }
 

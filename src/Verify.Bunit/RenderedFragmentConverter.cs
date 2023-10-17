@@ -1,7 +1,5 @@
-using AngleSharp;
-using Bunit.Diffing;
-
-class RenderedFragmentConverter : WriteOnlyJsonConverter<IRenderedFragment>
+class RenderedFragmentConverter :
+    WriteOnlyJsonConverter<IRenderedFragment>
 {
     public override void Write(VerifyJsonWriter writer, IRenderedFragment fragment)
     {
@@ -12,7 +10,7 @@ class RenderedFragmentConverter : WriteOnlyJsonConverter<IRenderedFragment>
         writer.WriteEndObject();
     }
 
-    private static string PrettyName(Type type)
+    static string PrettyName(Type type)
     {
         if (type.GetGenericArguments().Length == 0)
         {
@@ -21,7 +19,7 @@ class RenderedFragmentConverter : WriteOnlyJsonConverter<IRenderedFragment>
 
         var genericArguments = type.GetGenericArguments();
         var typeDefinition = type.Name;
-        var unmangledName = typeDefinition.Substring(0, typeDefinition.IndexOf("`"));
-        return unmangledName + "<" + String.Join(",", genericArguments.Select(PrettyName)) + ">";
+        var unmangledName = typeDefinition[..typeDefinition.IndexOf("`")];
+        return $"{unmangledName}<{string.Join(",", genericArguments.Select(PrettyName))}>";
     }
 }

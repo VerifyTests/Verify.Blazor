@@ -11,15 +11,19 @@ public class Samples
     [Fact]
     public Task Component()
     {
-        using var testContext = new TestContext();
-        var component = testContext.RenderComponent<TestComponent>(
+        using var context = new TestContext();
+        var component = context.RenderComponent<TestComponent>(
             builder =>
             {
-                builder.Add(_ => _.Title, "New Title");
-                builder.Add(_ => _.Person, new()
-                {
-                    Name = "Sam"
-                });
+                builder.Add(
+                    _ => _.Title,
+                    "New Title");
+                builder.Add(
+                    _ => _.Person,
+                    new()
+                    {
+                        Name = "Sam"
+                    });
             });
         return Verify(component);
     }
@@ -27,15 +31,19 @@ public class Samples
     [Fact]
     public Task MarkupFormattable_NodeList()
     {
-        using var testContext = new TestContext();
-        var component = testContext.RenderComponent<TestComponent>(
-    builder =>
+        using var context = new TestContext();
+        var component = context.RenderComponent<TestComponent>(
+            builder =>
             {
-                builder.Add(_ => _.Title, "New Title");
-                builder.Add(_ => _.Person, new()
-                {
-                    Name = "Sam"
-                });
+                builder.Add(
+                    _ => _.Title,
+                    "New Title");
+                builder.Add(
+                    _ => _.Person,
+                    new()
+                    {
+                        Name = "Sam"
+                    });
             });
         return Verify(component.Nodes);
     }
@@ -43,15 +51,19 @@ public class Samples
     [Fact]
     public Task MarkupFormattable_single_Element()
     {
-        using var testContext = new TestContext();
-        var component = testContext.RenderComponent<TestComponent>(
-    builder =>
+        using var context = new TestContext();
+        var component = context.RenderComponent<TestComponent>(
+            builder =>
             {
-                builder.Add(_ => _.Title, "New Title");
-                builder.Add(_ => _.Person, new()
-                {
-                    Name = "Sam"
-                });
+                builder.Add(
+                    _ => _.Title,
+                    "New Title");
+                builder.Add(
+                    _ => _.Person,
+                    new()
+                    {
+                        Name = "Sam"
+                    });
             });
         return Verify(component.Nodes.First().FirstChild);
     }
@@ -61,11 +73,13 @@ public class Samples
     [Fact]
     public Task Nested()
     {
-        using var testContext = new TestContext();
-        var component = testContext.RenderComponent<TestComponent>(
+        using var context = new TestContext();
+        var component = context.RenderComponent<TestComponent>(
             builder =>
             {
-                builder.Add(_ => _.Title, "New Title");
+                builder.Add(
+                    _ => _.Title,
+                    "New Title");
                 builder.Add(
                     _ => _.Person,
                     new()
@@ -85,31 +99,37 @@ public class Samples
     [Fact]
     public Task MarkupFormattable_Nested()
     {
-        using var testContext = new TestContext();
-        var component = testContext.RenderComponent<TestComponent>(
+        using var context = new TestContext();
+        var component = context.RenderComponent<TestComponent>(
             builder =>
             {
-                builder.Add(_ => _.Title, "New Title");
-                builder.Add(_ => _.Person, new()
-                {
-                    Name = "Sam"
-                });
+                builder.Add(
+                    _ => _.Title,
+                    "New Title");
+                builder.Add(
+                    _ => _.Person,
+                    new()
+                    {
+                        Name = "Sam"
+                    });
             });
         return Verify(
             new
             {
-                Nodes = component.Nodes
+                component.Nodes
             });
     }
 
     [Fact]
     public async Task WaitForState()
     {
-        using var testContext = new TestContext();
-        var component = await testContext.RenderComponentAndWait<TestComponent>(
+        using var context = new TestContext();
+        var component = await context.RenderComponentAndWait<TestComponent>(
             builder =>
             {
-                builder.Add(_ => _.Title, "New Title");
+                builder.Add(
+                    _ => _.Title,
+                    "New Title");
                 builder.Add(
                     _ => _.Person,
                     new()
