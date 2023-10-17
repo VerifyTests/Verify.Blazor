@@ -1,7 +1,7 @@
 ﻿{
   OtherProp: Foo,
   Component: {
-    Instance: {
+    TestComponent: {
       Intitialized: true,
       Title: New Title,
       Person: {
@@ -9,8 +9,10 @@
       }
     },
     Markup:
-<div><h1>New Title</h1>
-    <p>Sam</p>
-    <button>MyButton</button></div>
+<div>
+  <h1>New Title</h1>
+  <p>Sam</p>
+  <button>MyButton</button>
+</div>
   }
 }

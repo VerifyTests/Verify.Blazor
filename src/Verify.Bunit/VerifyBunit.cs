@@ -1,4 +1,3 @@
-﻿using AngleSharp.Dom;
 using Bunit.Extensions.WaitForHelpers;
 using Microsoft.AspNetCore.Components;
 
@@ -8,7 +7,7 @@ public static class VerifyBunit
 {
     public static bool Initialized { get; private set; }
 
-    public static void Initialize(bool scrubCommentLines = true)
+    public static void Initialize(bool excludeComponent = false)
     {
         if (Initialized)
         {
@@ -18,14 +17,21 @@ public static class VerifyBunit
         Initialized = true;
 
         InnerVerifier.ThrowIfVerifyHasBeenRun();
-        if (scrubCommentLines)
+
+        if (excludeComponent)
         {
-            InnerBlazorScrubber.ScrubCommentLines();
+            VerifierSettings.RegisterFileConverter<IRenderedFragment>(RenderedFragmentMarkupToString.Convert);
+        }
+        else
+        {
+            VerifierSettings.RegisterFileConverter<IRenderedFragment>(RenderedFragmentToString.Convert);
         }
 
-        VerifierSettings.RegisterFileConverter<IRenderedFragment>(FragmentToStream.Convert);
-        VerifierSettings.AddExtraSettings(
-            _ => _.Converters.Add(new RenderedFragmentConverter()));
+        VerifierSettings.RegisterFileConverter<IMarkupFormattable>(MarkupFormattableToString.Convert);
+
+        VerifierSettings.AddExtraSettings(_ => _.Converters.Add(new RenderedFragmentConverter()));
+        VerifierSettings.AddExtraSettings(_ => _.Converters.Add(new MarkupFormattableConverter()));
+        VerifierSettings.RegisterStringComparer("html", BunitMarkupComparer.Compare);
     }
 
     /// <summary>

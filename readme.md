@@ -63,6 +63,7 @@ Verify.Blazor uses the Blazor APIs to take a snapshot (metadata and html) of the
 
 ### Usage
 
+
 #### Render using ParameterView
 
 This test:
@@ -175,7 +176,7 @@ Enable at startup:
 public static void Initialize() =>
     VerifyBunit.Initialize();
 ```
-<sup><a href='/src/Verify.Bunit.Tests/ModuleInitializer.cs#L4-L10' title='Snippet source file'>snippet source</a> | <a href='#snippet-bunitenable' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.Tests/ModuleInitializer.cs#L3-L9' title='Snippet source file'>snippet source</a> | <a href='#snippet-bunitenable' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 This test:
@@ -186,20 +187,64 @@ This test:
 [Fact]
 public Task Component()
 {
-    using var testContext = new TestContext();
-    var component = testContext.RenderComponent<TestComponent>(
+    using var context = new TestContext();
+    var component = context.RenderComponent<TestComponent>(
         builder =>
         {
-            builder.Add(_ => _.Title, "New Title");
-            builder.Add(_ => _.Person, new()
-            {
-                Name = "Sam"
-            });
+            builder.Add(
+                _ => _.Title,
+                "New Title");
+            builder.Add(
+                _ => _.Person,
+                new()
+                {
+                    Name = "Sam"
+                });
         });
     return Verify(component);
 }
+
+[Fact]
+public Task MarkupFormattable_NodeList()
+{
+    using var context = new TestContext();
+    var component = context.RenderComponent<TestComponent>(
+        builder =>
+        {
+            builder.Add(
+                _ => _.Title,
+                "New Title");
+            builder.Add(
+                _ => _.Person,
+                new()
+                {
+                    Name = "Sam"
+                });
+        });
+    return Verify(component.Nodes);
+}
+
+[Fact]
+public Task MarkupFormattable_single_Element()
+{
+    using var context = new TestContext();
+    var component = context.RenderComponent<TestComponent>(
+        builder =>
+        {
+            builder.Add(
+                _ => _.Title,
+                "New Title");
+            builder.Add(
+                _ => _.Person,
+                new()
+                {
+                    Name = "Sam"
+                });
+        });
+    return Verify(component.Nodes.First().FirstChild);
+}
 ```
-<sup><a href='/src/Verify.Bunit.Tests/Samples.cs#L9-L27' title='Snippet source file'>snippet source</a> | <a href='#snippet-bunitcomponenttest' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.Tests/Samples.cs#L4-L66' title='Snippet source file'>snippet source</a> | <a href='#snippet-bunitcomponenttest' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 Will produce:
@@ -209,11 +254,13 @@ The component rendered as html `...Component.verified.html`:
 <!-- snippet: Verify.Bunit.Tests/Samples.Component.verified.html -->
 <a id='snippet-Verify.Bunit.Tests/Samples.Component.verified.html'></a>
 ```html
-<div><h1>New Title</h1>
-    <p>Sam</p>
-    <button>MyButton</button></div>
+<div>
+  <h1>New Title</h1>
+  <p>Sam</p>
+  <button>MyButton</button>
+</div
 ```
-<sup><a href='/src/Verify.Bunit.Tests/Samples.Component.verified.html#L1-L3' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Bunit.Tests/Samples.Component.verified.html' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.Tests/Samples.Component.verified.html#L1-L5' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Bunit.Tests/Samples.Component.verified.html' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 And the current model rendered as txt `...Component.verified.txt`:
@@ -229,10 +276,25 @@ And the current model rendered as txt `...Component.verified.txt`:
       Name: Sam
     }
   },
-  NodeCount: 4
+  NodeCount: 9
 }
 ```
 <sup><a href='/src/Verify.Bunit.Tests/Samples.Component.verified.txt#L1-L10' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Bunit.Tests/Samples.Component.verified.txt' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+
+### Exclude Component
+
+Rendering of the Component state (Samples.Component.verified.txt from above) can be excluded by using `excludeComponent`.
+
+<!-- snippet: BunitEnableExcludeComponent -->
+<a id='snippet-bunitenableexcludecomponent'></a>
+```cs
+[ModuleInitializer]
+public static void Initialize() =>
+    VerifyBunit.Initialize(excludeComponent: true);
+```
+<sup><a href='/src/Verify.Bunit.ExcludeComponentTests/ModuleInitializer.cs#L3-L9' title='Snippet source file'>snippet source</a> | <a href='#snippet-bunitenableexcludecomponent' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -248,11 +310,6 @@ In Blazor an integrity check is applied to the `dotnet.*.js` file.
 ```
 
 This line will change when the dotnet SDK is updated.
-
-
-### Pretty print
-
-For readability it is useful to pretty print html using [Verify.AngleSharp](https://github.com/VerifyTests/Verify.AngleSharp#pretty-print).
 
 
 ### Noise in rendered template
