@@ -3,23 +3,28 @@ class RenderedFragmentConverter :
 {
     public override void Write(VerifyJsonWriter writer, IRenderedFragment fragment)
     {
-        var instance = ComponentReader.GetInstance(fragment);
         writer.WriteStartObject();
-        writer.WriteMember(fragment, instance, instance is not null ? PrettyName(instance.GetType()) : "Instance");
+
+        var instance = ComponentReader.GetInstance(fragment);
+        if (instance != null)
+        {
+            writer.WriteMember(fragment, instance, PrettyName(instance.GetType()));
+        }
+
         writer.WriteMember(fragment, fragment.Nodes.ToHtml(new DiffMarkupFormatter()).Trim(), "Markup");
         writer.WriteEndObject();
     }
 
     static string PrettyName(Type type)
     {
-        if (type.GetGenericArguments().Length == 0)
+        var genericArguments = type.GetGenericArguments();
+        if (genericArguments.Length == 0)
         {
             return type.Name;
         }
 
-        var genericArguments = type.GetGenericArguments();
-        var typeDefinition = type.Name;
-        var unmangledName = typeDefinition[..typeDefinition.IndexOf("`")];
+        var typeName = type.Name;
+        var unmangledName = typeName[..typeName.IndexOf('`')];
         return $"{unmangledName}<{string.Join(",", genericArguments.Select(PrettyName))}>";
     }
 }

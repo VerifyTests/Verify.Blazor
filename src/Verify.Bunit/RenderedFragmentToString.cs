@@ -2,9 +2,10 @@ static class RenderedFragmentToString
 {
     public static ConversionResult Convert(IRenderedFragment fragment, IReadOnlyDictionary<string, object> context)
     {
-        var markup = fragment.Nodes.ToHtml(new DiffMarkupFormatter()).Trim();
-        var allNodes = fragment.Nodes.Select(_ => _.GetDescendantsAndSelf().Count()).Sum();
-        var info = new FragmentInfo(ComponentReader.GetInstance(fragment), allNodes);
+        var nodes = fragment.Nodes;
+        var markup = nodes.ToHtml(new DiffMarkupFormatter()).Trim();
+        var nodeCount = nodes.Sum(_ => _.GetDescendantsAndSelf().Count());
+        var info = new FragmentInfo(ComponentReader.GetInstance(fragment), nodeCount);
         return new(info, "html", markup);
     }
 }

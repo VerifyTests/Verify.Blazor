@@ -10,18 +10,18 @@ static class ComponentReader
             return null;
         }
 
-        var renderComponentInterface = type
+        var componentInterface = type
             .GetInterfaces()
             .SingleOrDefault(_ =>
                 _.IsGenericType &&
                 _.GetGenericTypeDefinition() == typeof(IRenderedComponentBase<>));
 
-        if (renderComponentInterface == null)
+        if (componentInterface == null)
         {
             return null;
         }
 
-        var instanceProperty = renderComponentInterface.GetProperty("Instance")!;
+        var instanceProperty = componentInterface.GetProperty("Instance")!;
         return (IComponent) instanceProperty.GetValue(fragment)!;
     }
 }
