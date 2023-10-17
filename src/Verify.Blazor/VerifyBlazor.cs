@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.Logging.Abstractions;
-using VerifyTests.Blazor;
+﻿using VerifyTests.Blazor;
 
 static class VerifyBlazor
 {
