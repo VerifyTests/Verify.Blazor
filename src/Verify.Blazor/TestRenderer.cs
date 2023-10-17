@@ -1,18 +1,9 @@
-﻿using System.Runtime.ExceptionServices;
-using Microsoft.AspNetCore.Components.RenderTree;
-using Microsoft.Extensions.Logging;
-
-class TestRenderer :
-    Renderer
+﻿class TestRenderer(IServiceProvider services, ILoggerFactory logger) :
+    Renderer(services, logger)
 {
     Exception? unhandledException;
 
     TaskCompletionSource<object?> nextRenderCompletion = new();
-
-    public TestRenderer(IServiceProvider services, ILoggerFactory logger)
-        : base(services, logger)
-    {
-    }
 
     public new ArrayRange<RenderTreeFrame> GetCurrentRenderTreeFrames(int id)
         => base.GetCurrentRenderTreeFrames(id);
