@@ -18,10 +18,15 @@ public static class VerifyBunit
 
         InnerVerifier.ThrowIfVerifyHasBeenRun();
 
-        VerifierSettings.RegisterFileConverter<IRenderedFragment>(
-            verifyMarkupOnly
-                ? RenderedFragmentMarkupToString.Convert
-                : RenderedFragmentToString.Convert);
+        if (verifyMarkupOnly)
+        {
+            VerifierSettings.RegisterFileConverter<IRenderedFragment>(RenderedFragmentMarkupToString.Convert);
+        }
+        else
+        {
+            VerifierSettings.RegisterFileConverter<IRenderedFragment>(RenderedFragmentToString.Convert);
+        }
+
         VerifierSettings.RegisterFileConverter<IMarkupFormattable>(MarkupFormattableToString.Convert);
 
         VerifierSettings.AddExtraSettings(_ => _.Converters.Add(new RenderedFragmentConverter()));

@@ -1,11 +1,10 @@
-﻿
-public static class ModuleInitializer
+﻿public static class ModuleInitializer
 {
     #region BunitEnable
 
     [ModuleInitializer]
     public static void Initialize() =>
-        VerifyBunit.Initialize(false);
+        VerifyBunit.Initialize(verifyMarkupOnly: false);
 
     #endregion
 
