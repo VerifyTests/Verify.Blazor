@@ -173,16 +173,6 @@ public static class VerifyBunit
         where TComponent : IComponent =>
         Inner(() => context.Render<TComponent>(fragment), timeout, renderedCheck);
 
-    // /// <summary>
-    // /// Renders the <paramref name="fragment"/> and returns it as a <see cref="IRenderedFragment"/>.
-    // /// </summary>
-    // /// <param name="fragment">The render fragment to render.</param>
-    // /// <param name="context">The <see cref="TestContext"/> to extend.</param>
-    // /// <param name="timeout">A TimeSpan that represents the to wait, or null to use 10 seconds.</param>
-    // /// <returns>The <see cref="IRenderedFragment"/>.</returns>
-    // public static IRenderedFragment RenderAndWait(this TestContext context, RenderFragment fragment, TimeSpan? timeout = null) =>
-    //     RenderAndWait(() => context.Render(fragment), timeout);
-
     static async Task<IRenderedComponent<TComponent>> Inner<TComponent>(
         Func<IRenderedComponent<TComponent>> render,
         TimeSpan? timeout,
