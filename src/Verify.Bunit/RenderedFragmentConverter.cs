@@ -25,6 +25,6 @@ class RenderedFragmentConverter :
 
         var typeName = type.Name;
         var unmangledName = typeName[..typeName.IndexOf('`')];
-        return $"{unmangledName}<{string.Join(",", genericArguments.Select(PrettyName))}>";
+        return $"{unmangledName}<{string.Join(',', genericArguments.Select(PrettyName))}>";
     }
 }
