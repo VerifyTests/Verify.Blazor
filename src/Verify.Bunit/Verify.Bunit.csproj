@@ -10,7 +10,7 @@
     <PackageReference Include="bunit.core" Version="1.24.10" />
     <PackageReference Include="bunit.web" Version="1.24.10" />
     <PackageReference Include="ProjectDefaults" Version="1.0.101" PrivateAssets="all" />
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" Condition="$(Configuration) == 'Release'" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" Condition="$(Configuration) == 'Release'" />
     <PackageReference Include="Verify" Version="22.4.1" />
 
     <Compile Include="..\Verify.Blazor\InnerBlazorScrubber.cs">
