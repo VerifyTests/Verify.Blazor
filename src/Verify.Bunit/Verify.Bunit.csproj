@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <PackageTags>BUnit, Verify, Blazor</PackageTags>
     <Description>Extends Verify (https://github.com/VerifyTests/Verify) to allow Blazor component verification via BUnit.</Description>
   </PropertyGroup>
@@ -9,7 +9,7 @@
     <Content Include="../build.targets" PackagePath="build\Verify.Bunit.targets" />
     <PackageReference Include="bunit.core" Version="1.25.3" />
     <PackageReference Include="bunit.web" Version="1.25.3" />
-    <PackageReference Include="ProjectDefaults" Version="1.0.101" PrivateAssets="all" />
+    <PackageReference Include="ProjectDefaults" Version="1.0.102" PrivateAssets="all" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" Condition="$(Configuration) == 'Release'" />
     <PackageReference Include="Verify" Version="22.4.1" />
 
