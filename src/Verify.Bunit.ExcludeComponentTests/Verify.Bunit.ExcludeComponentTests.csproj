@@ -4,13 +4,13 @@
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="MarkdownSnippets.MsBuild" Version="25.1.0" PrivateAssets="all" />
+    <PackageReference Include="MarkdownSnippets.MsBuild" Version="26.0.0" PrivateAssets="all" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
-    <PackageReference Include="Argon" Version="0.13.0" />
+    <PackageReference Include="Argon" Version="0.14.0" />
     <PackageReference Include="Verify.DiffPlex" Version="2.3.0" />
     <PackageReference Include="Xunit" Version="2.6.2" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.5.4" PrivateAssets="all" />
-    <PackageReference Include="ProjectDefaults" Version="1.0.102" PrivateAssets="all" />
+    <PackageReference Include="ProjectDefaults" Version="1.0.106" PrivateAssets="all" />
     <PackageReference Include="bunit" Version="1.25.3" />
     <PackageReference Include="Verify.Xunit" Version="22.5.0" />
     <ProjectReference Include="..\BlazorApp\BlazorApp.csproj" />
