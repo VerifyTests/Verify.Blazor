@@ -10,7 +10,20 @@ static class Htmlizer
 
     static readonly HashSet<string> SelfClosingElements = new(StringComparer.OrdinalIgnoreCase)
     {
-        "area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"
+        "area",
+        "base",
+        "br",
+        "col",
+        "embed",
+        "hr",
+        "img",
+        "input",
+        "link",
+        "meta",
+        "param",
+        "source",
+        "track",
+        "wbr"
     };
 
     const string BLAZOR_INTERNAL_ATTR_PREFIX = "__internal_";
@@ -36,6 +49,7 @@ static class Htmlizer
             {
                 throw new("We didn't consume any input.");
             }
+
             position = nextPosition;
         }
 
@@ -140,6 +154,7 @@ static class Htmlizer
             result.Append(frame.ElementName);
             result.Append('>');
         }
+
         return afterAttributes;
     }
 

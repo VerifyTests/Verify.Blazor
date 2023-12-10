@@ -35,7 +35,9 @@
     {
         if (unhandledException != null)
         {
-            ExceptionDispatchInfo.Capture(unhandledException).Throw();
+            ExceptionDispatchInfo
+                .Capture(unhandledException)
+                .Throw();
         }
     }
 }

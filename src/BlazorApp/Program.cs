@@ -12,4 +12,6 @@ builder.Services.AddScoped(
         BaseAddress = new(builder.HostEnvironment.BaseAddress)
     });
 
-await builder.Build().RunAsync();
+await builder
+    .Build()
+    .RunAsync();

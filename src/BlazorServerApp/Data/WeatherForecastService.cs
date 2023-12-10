@@ -4,12 +4,22 @@ public class WeatherForecastService
 {
     static string[] Summaries =
     {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+        "Freezing",
+        "Bracing",
+        "Chilly",
+        "Cool",
+        "Mild",
+        "Warm",
+        "Balmy",
+        "Hot",
+        "Sweltering",
+        "Scorching"
     };
 
     public Task<WeatherForecast[]> GetForecastAsync(DateTime startDate) =>
         Task.FromResult(
-            Enumerable.Range(1, 5)
+            Enumerable
+                .Range(1, 5)
                 .Select(index => new WeatherForecast
                 {
                     Date = startDate.AddDays(index),

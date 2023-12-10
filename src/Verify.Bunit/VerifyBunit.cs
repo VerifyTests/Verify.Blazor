@@ -35,16 +35,15 @@ public static class VerifyBunit
     }
 
     /// <summary>
-    /// Wait until the provided <paramref name="predicate"/> action returns true,
-    /// or the <paramref name="timeout"/> is reached (default is one second).
-    ///
-    /// The <paramref name="predicate"/> is evaluated initially, and then each time
-    /// the <paramref name="fragment"/> renders.
+    /// Wait until the provided <paramref name="predicate" /> action returns true,
+    /// or the <paramref name="timeout" /> is reached (default is one second).
+    /// The <paramref name="predicate" /> is evaluated initially, and then each time
+    /// the <paramref name="fragment" /> renders.
     /// </summary>
     /// <param name="fragment">The render fragment or component to attempt to verify state against.</param>
     /// <param name="predicate">The predicate to invoke after each render, which must returns <c>true</c> when the desired state has been reached.</param>
     /// <param name="timeout">The maximum time to wait for the desired state.</param>
-    /// <exception cref="WaitForFailedException">Thrown if the <paramref name="predicate"/> throw an exception during invocation, or if the timeout has been reached. See the inner exception for details.</exception>
+    /// <exception cref="WaitForFailedException">Thrown if the <paramref name="predicate" /> throw an exception during invocation, or if the timeout has been reached. See the inner exception for details.</exception>
     public static async Task WaitFor(this IRenderedFragmentBase fragment, Func<bool> predicate, TimeSpan? timeout = null)
     {
         using var waiter = new WaitForStateHelper(fragment, predicate, timeout);
@@ -128,13 +127,13 @@ public static class VerifyBunit
     }
 
     /// <summary>
-    /// Instantiates and performs a first render of a component of type <typeparamref name="TComponent"/>.
+    /// Instantiates and performs a first render of a component of type <typeparamref name="TComponent" />.
     /// </summary>
     /// <typeparam name="TComponent">Type of the component to render.</typeparam>
-    /// <param name="context">The <see cref="TestContext"/> to extend.</param>
+    /// <param name="context">The <see cref="TestContext" /> to extend.</param>
     /// <param name="parameters">Parameters to pass to the component when it is rendered.</param>
     /// <param name="renderedCheck">Checks if rendered has finished.</param>
-    /// <returns>The rendered <typeparamref name="TComponent"/>.</returns>
+    /// <returns>The rendered <typeparamref name="TComponent" />.</returns>
     public static Task<IRenderedComponent<TComponent>> RenderComponentAndWait<TComponent>(
         this TestContext context,
         Func<TComponent, bool> renderedCheck,
@@ -143,14 +142,14 @@ public static class VerifyBunit
         Inner(() => context.RenderComponent<TComponent>(parameters), null, renderedCheck);
 
     /// <summary>
-    /// Instantiates and performs a first render of a component of type <typeparamref name="TComponent"/>.
+    /// Instantiates and performs a first render of a component of type <typeparamref name="TComponent" />.
     /// </summary>
     /// <typeparam name="TComponent">Type of the component to render.</typeparam>
-    /// <param name="context">The <see cref="TestContext"/> to extend.</param>
+    /// <param name="context">The <see cref="TestContext" /> to extend.</param>
     /// <param name="parameterBuilder">The ComponentParameterBuilder action to add type safe parameters to pass to the component when it is rendered.</param>
     /// <param name="timeout">A TimeSpan that represents the to wait, or null to use 10 seconds.</param>
     /// <param name="renderedCheck">Checks if rendered has finished.</param>
-    /// <returns>The rendered <typeparamref name="TComponent"/>.</returns>
+    /// <returns>The rendered <typeparamref name="TComponent" />.</returns>
     public static Task<IRenderedComponent<TComponent>> RenderComponentAndWait<TComponent>(
         this TestContext context,
         Action<ComponentParameterCollectionBuilder<TComponent>> parameterBuilder,
@@ -160,17 +159,17 @@ public static class VerifyBunit
         Inner(() => context.RenderComponent(parameterBuilder), timeout, renderedCheck);
 
     /// <summary>
-    /// Renders the <paramref name="fragment"/> and returns the first <typeparamref name="TComponent"/> in the resulting render tree.
+    /// Renders the <paramref name="fragment" /> and returns the first <typeparamref name="TComponent" /> in the resulting render tree.
     /// </summary>
     /// <remarks>
     /// Calling this method is equivalent to calling <c>Render(renderFragment).FindComponent&lt;TComponent&gt;()</c>.
     /// </remarks>
     /// <typeparam name="TComponent">The type of component to find in the render tree.</typeparam>
     /// <param name="fragment">The render fragment to render.</param>
-    /// <param name="context">The <see cref="TestContext"/> to extend.</param>
+    /// <param name="context">The <see cref="TestContext" /> to extend.</param>
     /// <param name="renderedCheck">Checks if rendered has finished.</param>
     /// <param name="timeout">A TimeSpan that represents the to wait, or null to use 10 seconds.</param>
-    /// <returns>The <see cref="IRenderedComponent{TComponent}"/>.</returns>
+    /// <returns>The <see cref="IRenderedComponent{TComponent}" />.</returns>
     public static Task<IRenderedComponent<TComponent>> RenderAndWait<TComponent>(
         this TestContext context,
         RenderFragment fragment,

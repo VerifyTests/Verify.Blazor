@@ -38,7 +38,9 @@ static class VerifyBlazor
             await dispatcher.InvokeAsync(() => stateHasChanged.Invoke(component, null));
         }
 
-        var html = Htmlizer.GetHtml(renderer, componentId).Replace("\r\n", "\n");
+        var html = Htmlizer
+            .GetHtml(renderer, componentId)
+            .Replace("\r\n", "\n");
         var info = new ComponentInfo(component);
         return new(info, "html", html);
     }

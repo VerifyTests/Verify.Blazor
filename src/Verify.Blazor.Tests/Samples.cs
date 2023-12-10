@@ -1,7 +1,7 @@
 ﻿using BlazorApp;
-using Counter = BlazorServerApp.Pages.Counter;
 using Microsoft.AspNetCore.Components;
 using VerifyTests.Blazor;
+using Counter = BlazorServerApp.Pages.Counter;
 
 [UsesVerify]
 public class Samples
@@ -13,6 +13,7 @@ public class Samples
 
         return Verify(target);
     }
+
     #region BlazorComponentTestWithParameters
 
     [Fact]
@@ -21,8 +22,15 @@ public class Samples
         var parameters = ParameterView.FromDictionary(
             new Dictionary<string, object?>
             {
-                { "Title", "The Title" },
-                { "Person", new Person { Name = "Sam" } }
+                {
+                    "Title", "The Title"
+                },
+                {
+                    "Person", new Person
+                    {
+                        Name = "Sam"
+                    }
+                }
             });
 
         var target = Render.Component<TestComponent>(parameters: parameters);

@@ -60,7 +60,8 @@ public class Samples
                         Name = "Sam"
                     });
             });
-        return Verify(component.Nodes.First().FirstChild);
+        return Verify(component.Nodes.First()
+            .FirstChild);
     }
 
     #endregion

@@ -38,7 +38,7 @@ public class Render
         {
             render = component =>
             {
-                callback.Invoke((T)component);
+                callback.Invoke((T) component);
             };
         }
 

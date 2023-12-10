@@ -1,10 +1,11 @@
 using AngleSharp.Diffing.Core;
 using AngleSharp.Text;
 using Bunit.Rendering;
+using CompareResult = VerifyTests.CompareResult;
 
 static class BunitMarkupComparer
 {
-    public static Task<VerifyTests.CompareResult> Compare(string received, string verified, IReadOnlyDictionary<string, object> context)
+    public static Task<CompareResult> Compare(string received, string verified, IReadOnlyDictionary<string, object> context)
     {
         using var parser = new BunitHtmlParser();
         var receivedNodes = parser.Parse(received);
@@ -12,8 +13,8 @@ static class BunitMarkupComparer
         var diffs = receivedNodes.CompareTo(verifiedNodes);
 
         var result = diffs.Count == 0
-            ? VerifyTests.CompareResult.Equal
-            : VerifyTests.CompareResult.NotEqual(CreateDiffMessage(received, verified, diffs));
+            ? CompareResult.Equal
+            : CompareResult.NotEqual(CreateDiffMessage(received, verified, diffs));
 
         return Task.FromResult(result);
     }
@@ -42,7 +43,7 @@ static class BunitMarkupComparer
                 MissingAttrDiff diff => $"The attribute at {diff.Control.Path} is missing.",
                 UnexpectedNodeDiff diff => $"The {NodeName(diff.Test)} at {diff.Test.Path} was not expected.",
                 UnexpectedAttrDiff diff => $"The attribute at {diff.Test.Path} was not expected.",
-                _ => throw new SwitchExpressionException($"Unknown diff type detected: {diffs[i].GetType()}"),
+                _ => throw new SwitchExpressionException($"Unknown diff type detected: {diffs[i].GetType()}")
             });
         }
 
@@ -61,6 +62,8 @@ static class BunitMarkupComparer
         return builder.ToPool();
 
         static string NodeName(ComparisonSource source) =>
-            source.Node.NodeType.ToString().ToLowerInvariant();
+            source
+                .Node.NodeType.ToString()
+                .ToLowerInvariant();
     }
 }

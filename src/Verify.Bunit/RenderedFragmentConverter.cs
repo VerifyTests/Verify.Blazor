@@ -11,7 +11,9 @@ class RenderedFragmentConverter :
             writer.WriteMember(fragment, instance, PrettyName(instance.GetType()));
         }
 
-        writer.WriteMember(fragment, fragment.Nodes.ToHtml(new DiffMarkupFormatter()).Trim(), "Markup");
+        writer.WriteMember(fragment, fragment
+            .Nodes.ToHtml(new DiffMarkupFormatter())
+            .Trim(), "Markup");
         writer.WriteEndObject();
     }
 
