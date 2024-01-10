@@ -3,7 +3,7 @@ namespace BlazorServerApp.Data;
 public class WeatherForecastService
 {
     static string[] Summaries =
-    {
+    [
         "Freezing",
         "Bracing",
         "Chilly",
@@ -14,7 +14,7 @@ public class WeatherForecastService
         "Hot",
         "Sweltering",
         "Scorching"
-    };
+    ];
 
     public Task<WeatherForecast[]> GetForecastAsync(DateTime startDate) =>
         Task.FromResult(
