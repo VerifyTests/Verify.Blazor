@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Components;
 using VerifyTests.Blazor;
 using Counter = BlazorServerApp.Pages.Counter;
 
-[UsesVerify]
 public class Samples
 {
     [Fact]
