@@ -121,7 +121,7 @@ static class Htmlizer
         var remainingElements = frame.ElementSubtreeLength + position - afterAttributes;
         if (remainingElements > 0)
         {
-            result.Append(">");
+            result.Append('>');
 
             var isSelect = string.Equals(frame.ElementName, "select", StringComparison.OrdinalIgnoreCase);
             if (isSelect)
