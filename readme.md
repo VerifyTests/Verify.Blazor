@@ -69,7 +69,7 @@ example [trigger event handlers](https://bunit.egilhansen.com/docs/interaction/t
 This test:
 
 <!-- snippet: BlazorComponentTestWithParameters -->
-<a id='snippet-blazorcomponenttestwithparameters'></a>
+<a id='snippet-BlazorComponentTestWithParameters'></a>
 ```cs
 [Fact]
 public Task PassingParameters()
@@ -93,7 +93,7 @@ public Task PassingParameters()
     return Verify(target);
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L16-L40' title='Snippet source file'>snippet source</a> | <a href='#snippet-blazorcomponenttestwithparameters' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L16-L40' title='Snippet source file'>snippet source</a> | <a href='#snippet-BlazorComponentTestWithParameters' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 #### Render using template instance
@@ -101,7 +101,7 @@ public Task PassingParameters()
 This test:
 
 <!-- snippet: BlazorComponentTestWithTemplateInstance -->
-<a id='snippet-blazorcomponenttestwithtemplateinstance'></a>
+<a id='snippet-BlazorComponentTestWithTemplateInstance'></a>
 ```cs
 [Fact]
 public Task PassingTemplateInstance()
@@ -120,7 +120,7 @@ public Task PassingTemplateInstance()
     return Verify(target);
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L42-L61' title='Snippet source file'>snippet source</a> | <a href='#snippet-blazorcomponenttestwithtemplateinstance' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L42-L61' title='Snippet source file'>snippet source</a> | <a href='#snippet-BlazorComponentTestWithTemplateInstance' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 #### Result
@@ -174,19 +174,19 @@ set, for example [trigger event handlers](https://bunit.egilhansen.com/docs/inte
 Enable at startup:
 
 <!-- snippet: BunitEnable -->
-<a id='snippet-bunitenable'></a>
+<a id='snippet-BunitEnable'></a>
 ```cs
 [ModuleInitializer]
 public static void Initialize() =>
     VerifyBunit.Initialize();
 ```
-<sup><a href='/src/Verify.Bunit.Tests/ModuleInitializer.cs#L3-L9' title='Snippet source file'>snippet source</a> | <a href='#snippet-bunitenable' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.Tests/ModuleInitializer.cs#L3-L9' title='Snippet source file'>snippet source</a> | <a href='#snippet-BunitEnable' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 This test:
 
 <!-- snippet: BunitComponentTest -->
-<a id='snippet-bunitcomponenttest'></a>
+<a id='snippet-BunitComponentTest'></a>
 ```cs
 [Fact]
 public Task Component()
@@ -249,7 +249,7 @@ public Task MarkupFormattable_single_Element()
         .FirstChild);
 }
 ```
-<sup><a href='/src/Verify.Bunit.Tests/Samples.cs#L3-L66' title='Snippet source file'>snippet source</a> | <a href='#snippet-bunitcomponenttest' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.Tests/Samples.cs#L3-L66' title='Snippet source file'>snippet source</a> | <a href='#snippet-BunitComponentTest' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 Will produce:
@@ -293,13 +293,13 @@ Rendering of the Component state (Samples.Component.verified.txt from above) can
 using `excludeComponent`.
 
 <!-- snippet: BunitEnableExcludeComponent -->
-<a id='snippet-bunitenableexcludecomponent'></a>
+<a id='snippet-BunitEnableExcludeComponent'></a>
 ```cs
 [ModuleInitializer]
 public static void Initialize() =>
     VerifyBunit.Initialize(excludeComponent: true);
 ```
-<sup><a href='/src/Verify.Bunit.ExcludeComponentTests/ModuleInitializer.cs#L3-L9' title='Snippet source file'>snippet source</a> | <a href='#snippet-bunitenableexcludecomponent' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Verify.Bunit.ExcludeComponentTests/ModuleInitializer.cs#L3-L9' title='Snippet source file'>snippet source</a> | <a href='#snippet-BunitEnableExcludeComponent' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 ## Scrubbing
