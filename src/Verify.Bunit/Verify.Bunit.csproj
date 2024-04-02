@@ -9,7 +9,7 @@
     <Content Include="../build.targets" PackagePath="build\Verify.Bunit.targets" />
     <PackageReference Include="bunit.core" Version="1.27.17" />
     <PackageReference Include="bunit.web" Version="1.27.17" />
-    <PackageReference Include="ProjectDefaults" Version="1.0.125" PrivateAssets="all" />
+    <PackageReference Include="ProjectDefaults" Version="1.0.126" PrivateAssets="all" />
     <PackageReference Include="Verify" Version="23.6.0" />
 
     <Compile Include="..\Verify.Blazor\InnerBlazorScrubber.cs">

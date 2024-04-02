@@ -1,4 +1,2 @@
-﻿// Global using directives
-
-global using BlazorApp;
+﻿global using BlazorApp;
 global using Bunit;
