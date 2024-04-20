@@ -7,8 +7,8 @@
   <ItemGroup>
     <Content Include="../build.targets" PackagePath="buildMultiTargeting\Verify.Bunit.targets" />
     <Content Include="../build.targets" PackagePath="build\Verify.Bunit.targets" />
-    <PackageReference Include="bunit.core" Version="1.27.17" />
-    <PackageReference Include="bunit.web" Version="1.27.17" />
+    <PackageReference Include="bunit.core" Version="1.28.9" />
+    <PackageReference Include="bunit.web" Version="1.28.9" />
     <PackageReference Include="ProjectDefaults" Version="1.0.126" PrivateAssets="all" />
     <PackageReference Include="Verify" Version="24.1.0" />
 
