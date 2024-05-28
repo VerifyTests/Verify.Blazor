@@ -7,9 +7,9 @@
   <ItemGroup>
     <Content Include="../build.targets" PackagePath="buildMultiTargeting\Verify.Blazor.targets" />
     <Content Include="../build.targets" PackagePath="build\Verify.Blazor.targets" />
-    <PackageReference Include="ProjectDefaults" Version="1.0.127" PrivateAssets="all" />
-    <PackageReference Include="Verify" Version="24.2.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Components" Version="8.0.5" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="ProjectDefaults" PrivateAssets="all" />
+    <PackageReference Include="Verify" />
+    <PackageReference Include="Microsoft.AspNetCore.Components" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
   </ItemGroup>
 </Project>

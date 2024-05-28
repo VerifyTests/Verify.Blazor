@@ -7,10 +7,10 @@
   <ItemGroup>
     <Content Include="../build.targets" PackagePath="buildMultiTargeting\Verify.Bunit.targets" />
     <Content Include="../build.targets" PackagePath="build\Verify.Bunit.targets" />
-    <PackageReference Include="bunit.core" Version="1.28.9" />
-    <PackageReference Include="bunit.web" Version="1.28.9" />
-    <PackageReference Include="ProjectDefaults" Version="1.0.127" PrivateAssets="all" />
-    <PackageReference Include="Verify" Version="24.2.0" />
+    <PackageReference Include="bunit.core" />
+    <PackageReference Include="bunit.web" />
+    <PackageReference Include="ProjectDefaults" PrivateAssets="all" />
+    <PackageReference Include="Verify" />
 
     <Compile Include="..\Verify.Blazor\InnerBlazorScrubber.cs">
       <Link>InnerBlazorScrubber.cs</Link>
