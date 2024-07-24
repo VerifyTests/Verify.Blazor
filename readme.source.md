@@ -11,17 +11,21 @@ Verify.Blazor uses the Blazor APIs to take a snapshot (metadata and html) of the
 
 **See [Milestones](../../milestones?state=closed) for release notes.**
 
+
 ## Component
 
 The below samples use the following Component:
 
 snippet: BlazorApp/TestComponent.razor
 
+
 ## NuGet package
 
-* https://nuget.org/packages/Verify.Blazor/
+https://nuget.org/packages/Verify.Blazor/
+
 
 ## Usage
+
 
 ### Render using ParameterView
 
@@ -29,11 +33,13 @@ This test:
 
 snippet: BlazorComponentTestWithParameters
 
+
 ### Render using template instance
 
 This test:
 
 snippet: BlazorComponentTestWithTemplateInstance
+
 
 ### Result
 
@@ -41,11 +47,11 @@ Both will produce:
 
 The component rendered as html `...verified.html`:
 
-snippet: Verify.Blazor.Tests/Samples.PassingParameters.verified.html
+snippet: Tests/Samples.PassingParameters.verified.html
 
 And the current model rendered as txt `...verified.txt`:
 
-snippet: Verify.Blazor.Tests/Samples.PassingParameters.verified.txt
+snippet: Tests/Samples.PassingParameters.verified.txt
 
 
 ## Scrubbing
