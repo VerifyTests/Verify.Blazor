@@ -31,6 +31,6 @@ public static class ModuleInitializer
             threshold: .01,
             metric: ErrorMetric.MeanAbsolute);
 
-        VerifyDiffPlex.Initialize();
+        VerifierSettings.InitializePlugins();
     }
 }
