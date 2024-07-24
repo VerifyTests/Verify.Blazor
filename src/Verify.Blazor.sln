@@ -19,7 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Verify.Blazor", "Verify.Blazor\Verify.Blazor.csproj", "{C1EC4448-5555-4459-859F-328349D9B0AB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Verify.Blazor.Tests", "Verify.Blazor.Tests\Verify.Blazor.Tests.csproj", "{49262472-580E-47C9-80E1-ADC4D747CE98}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{49262472-580E-47C9-80E1-ADC4D747CE98}"
 	ProjectSection(ProjectDependencies) = postProject
 		{59D2C827-982E-4459-930E-4689BF6EEF44} = {59D2C827-982E-4459-930E-4689BF6EEF44}
 	EndProjectSection
