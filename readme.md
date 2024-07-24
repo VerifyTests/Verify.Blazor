@@ -18,6 +18,7 @@ Verify.Blazor uses the Blazor APIs to take a snapshot (metadata and html) of the
 
 **See [Milestones](../../milestones?state=closed) for release notes.**
 
+
 ## Component
 
 The below samples use the following Component:
@@ -52,11 +53,14 @@ The below samples use the following Component:
 <sup><a href='/src/BlazorApp/TestComponent.razor#L1-L23' title='Snippet source file'>snippet source</a> | <a href='#snippet-BlazorApp/TestComponent.razor' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
+
 ## NuGet package
 
-* https://nuget.org/packages/Verify.Blazor/
+https://nuget.org/packages/Verify.Blazor/
+
 
 ## Usage
+
 
 ### Render using ParameterView
 
@@ -87,8 +91,9 @@ public Task PassingParameters()
     return Verify(target);
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L16-L40' title='Snippet source file'>snippet source</a> | <a href='#snippet-BlazorComponentTestWithParameters' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L16-L40' title='Snippet source file'>snippet source</a> | <a href='#snippet-BlazorComponentTestWithParameters' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
+
 
 ### Render using template instance
 
@@ -114,8 +119,9 @@ public Task PassingTemplateInstance()
     return Verify(target);
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.cs#L42-L61' title='Snippet source file'>snippet source</a> | <a href='#snippet-BlazorComponentTestWithTemplateInstance' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L42-L61' title='Snippet source file'>snippet source</a> | <a href='#snippet-BlazorComponentTestWithTemplateInstance' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
+
 
 ### Result
 
@@ -123,8 +129,8 @@ Both will produce:
 
 The component rendered as html `...verified.html`:
 
-<!-- snippet: Verify.Blazor.Tests/Samples.PassingParameters.verified.html -->
-<a id='snippet-Verify.Blazor.Tests/Samples.PassingParameters.verified.html'></a>
+<!-- snippet: Tests/Samples.PassingParameters.verified.html -->
+<a id='snippet-Tests/Samples.PassingParameters.verified.html'></a>
 ```html
 <div>
   <h1>The Title</h1>
@@ -132,13 +138,13 @@ The component rendered as html `...verified.html`:
   <button>MyButton</button>
 </div>
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.PassingParameters.verified.html#L1-L5' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.PassingParameters.verified.html' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.PassingParameters.verified.html#L1-L5' title='Snippet source file'>snippet source</a> | <a href='#snippet-Tests/Samples.PassingParameters.verified.html' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 And the current model rendered as txt `...verified.txt`:
 
-<!-- snippet: Verify.Blazor.Tests/Samples.PassingParameters.verified.txt -->
-<a id='snippet-Verify.Blazor.Tests/Samples.PassingParameters.verified.txt'></a>
+<!-- snippet: Tests/Samples.PassingParameters.verified.txt -->
+<a id='snippet-Tests/Samples.PassingParameters.verified.txt'></a>
 ```txt
 {
   Instance: {
@@ -150,7 +156,7 @@ And the current model rendered as txt `...verified.txt`:
   }
 }
 ```
-<sup><a href='/src/Verify.Blazor.Tests/Samples.PassingParameters.verified.txt#L1-L9' title='Snippet source file'>snippet source</a> | <a href='#snippet-Verify.Blazor.Tests/Samples.PassingParameters.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.PassingParameters.verified.txt#L1-L9' title='Snippet source file'>snippet source</a> | <a href='#snippet-Tests/Samples.PassingParameters.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -194,7 +200,7 @@ VerifierSettings.ScrubLinesWithReplace(s =>
 HtmlPrettyPrint.All();
 VerifierSettings.ScrubLinesContaining("<script src=\"_framework/dotnet.");
 ```
-<sup><a href='/src/Verify.Blazor.Tests/ModuleInitializer.cs#L10-L28' title='Snippet source file'>snippet source</a> | <a href='#snippet-scrubbers' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/ModuleInitializer.cs#L10-L28' title='Snippet source file'>snippet source</a> | <a href='#snippet-scrubbers' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
