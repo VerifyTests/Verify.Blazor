@@ -12,16 +12,17 @@ public static class ModuleInitializer
         // remove some noise from the html snapshot
         VerifierSettings.ScrubEmptyLines();
         BlazorScrubber.ScrubCommentLines();
-        VerifierSettings.ScrubLinesWithReplace(s =>
-        {
-            var scrubbed = s.Replace("<!--!-->", "");
-            if (string.IsNullOrWhiteSpace(scrubbed))
+        VerifierSettings.ScrubLinesWithReplace(
+            line =>
             {
-                return null;
-            }
+                var scrubbed = line.Replace("<!--!-->", "");
+                if (string.IsNullOrWhiteSpace(scrubbed))
+                {
+                    return null;
+                }
 
-            return scrubbed;
-        });
+                return scrubbed;
+            });
         HtmlPrettyPrint.All();
         VerifierSettings.ScrubLinesContaining("<script src=\"_framework/dotnet.");
 
