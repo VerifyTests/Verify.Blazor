@@ -13,7 +13,7 @@
     <PackageVersion Include="ProjectDefaults" Version="1.0.141" />
     <!-- explicit to avoid cve -->
     <PackageVersion Include="System.Text.Json" Version="8.0.5" />
-    <PackageVersion Include="Verify" Version="28.1.3" />
+    <PackageVersion Include="Verify" Version="28.2.0" />
     <PackageVersion Include="Verify.AngleSharp" Version="4.4.0" />
     <PackageVersion Include="Verify.DiffPlex" Version="3.1.2" />
     <PackageVersion Include="Verify.ImageMagick" Version="3.6.0" />
