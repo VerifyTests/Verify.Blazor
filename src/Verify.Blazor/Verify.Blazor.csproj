@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <PackageTags>Blazor, Verify</PackageTags>
     <Description>Extends Verify (https://github.com/VerifyTests/Verify) to allow Blazor component verification.</Description>
   </PropertyGroup>
