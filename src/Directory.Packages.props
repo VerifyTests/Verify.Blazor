@@ -9,7 +9,7 @@
     <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly" Version="9.0.5" />
     <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="9.0.5" />
     <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="9.0.5" />
-    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.13.0" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.14.0" />
     <PackageVersion Include="ProjectDefaults" Version="1.0.152" />
     <PackageVersion Include="Verify" Version="30.1.0" />
     <PackageVersion Include="Verify.AngleSharp" Version="4.5.0" />
