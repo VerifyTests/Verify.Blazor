@@ -56,7 +56,7 @@ The below samples use the following Component:
 
 ## NuGet
 
- * https://nuget.org/packages/Verify.Blazor/
+ * https://nuget.org/packages/Verify.Blazor
 
 
 ## Usage
