@@ -19,9 +19,9 @@ The below samples use the following Component:
 snippet: BlazorApp/TestComponent.razor
 
 
-## NuGet package
+## NuGet
 
-https://nuget.org/packages/Verify.Blazor/
+ * https://nuget.org/packages/Verify.Blazor
 
 
 ## Usage
