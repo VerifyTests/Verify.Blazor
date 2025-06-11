@@ -19,6 +19,23 @@ Verify.Blazor uses the Blazor APIs to take a snapshot (metadata and html) of the
 **See [Milestones](../../milestones?state=closed) for release notes.**
 
 
+## Sponsors
+
+### Entity Framework Extensions<!-- include: zzz. path: /docs/zzz.include.md -->
+
+[Entity Framework Extensions](https://entityframework-extensions.net/) is a major sponsor and is proud to contribute to the development this project.
+
+[![Entity Framework Extensions](docs/zzz.png)](https://entityframework-extensions.net)<!-- endInclude -->
+
+
+## NuGet
+
+ * https://nuget.org/packages/Verify.Blazor
+
+
+## Usage
+
+
 ## Component
 
 The below samples use the following Component:
@@ -52,14 +69,6 @@ The below samples use the following Component:
 ```
 <sup><a href='/src/BlazorApp/TestComponent.razor#L1-L23' title='Snippet source file'>snippet source</a> | <a href='#snippet-BlazorApp/TestComponent.razor' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
-
-
-## NuGet
-
- * https://nuget.org/packages/Verify.Blazor
-
-
-## Usage
 
 
 ### Render using ParameterView
