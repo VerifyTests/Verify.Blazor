@@ -12,11 +12,9 @@ Verify.Blazor uses the Blazor APIs to take a snapshot (metadata and html) of the
 **See [Milestones](../../milestones?state=closed) for release notes.**
 
 
-## Component
+## Sponsors
 
-The below samples use the following Component:
-
-snippet: BlazorApp/TestComponent.razor
+include: zzz
 
 
 ## NuGet
@@ -25,6 +23,13 @@ snippet: BlazorApp/TestComponent.razor
 
 
 ## Usage
+
+
+## Component
+
+The below samples use the following Component:
+
+snippet: BlazorApp/TestComponent.razor
 
 
 ### Render using ParameterView
