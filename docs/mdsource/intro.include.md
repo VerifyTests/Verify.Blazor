@@ -1,0 +1,1 @@
+Support for rendering a [Blazor Component](https://docs.microsoft.com/en-us/aspnet/core/blazor/#components) to a verified file via Blazor rendering.

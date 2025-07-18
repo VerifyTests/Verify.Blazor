@@ -15,6 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		mdsnippets.json = mdsnippets.json
 		..\readme.source.md = ..\readme.source.md
 		global.json = global.json
+		nuget.source.md = nuget.source.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Verify.Blazor", "Verify.Blazor\Verify.Blazor.csproj", "{C1EC4448-5555-4459-859F-328349D9B0AB}"
