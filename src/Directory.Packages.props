@@ -11,7 +11,7 @@
     <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="9.0.9" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
     <PackageVersion Include="ProjectDefaults" Version="1.0.158" />
-    <PackageVersion Include="Verify" Version="30.17.0" />
+    <PackageVersion Include="Verify" Version="30.18.0" />
     <PackageVersion Include="Verify.AngleSharp" Version="4.7.0" />
     <PackageVersion Include="Verify.DiffPlex" Version="3.1.2" />
     <PackageVersion Include="Verify.ImageMagick" Version="3.7.3" />
