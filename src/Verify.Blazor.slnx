@@ -1,0 +1,21 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="../.gitignore" />
+    <File Path="../readme.source.md" />
+    <File Path=".editorconfig" />
+    <File Path=".gitattributes" />
+    <File Path="appveyor.yml" />
+    <File Path="build.targets" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+    <File Path="global.json" />
+    <File Path="mdsnippets.json" />
+    <File Path="nuget.source.md" />
+  </Folder>
+  <Project Path="BlazorApp/BlazorApp.csproj" />
+  <Project Path="BlazorServerApp/BlazorServerApp.csproj" />
+  <Project Path="Tests/Tests.csproj">
+    <BuildDependency Project="BlazorApp/BlazorApp.csproj" />
+  </Project>
+  <Project Path="Verify.Blazor/Verify.Blazor.csproj" />
+</Solution>
