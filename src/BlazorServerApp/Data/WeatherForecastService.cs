@@ -16,7 +16,7 @@ public class WeatherForecastService
         "Scorching"
     ];
 
-    public Task<WeatherForecast[]> GetForecastAsync(DateTime startDate) =>
+    public static Task<WeatherForecast[]> GetForecastAsync(DateTime startDate) =>
         Task.FromResult(
             Enumerable
                 .Range(1, 5)
