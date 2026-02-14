@@ -12,6 +12,11 @@
     <PackageReference Include="xunit.runner.visualstudio" PrivateAssets="all" />
     <PackageReference Include="ProjectDefaults" PrivateAssets="all" />
     <PackageReference Include="Verify.XunitV3" />
+    <PackageReference Include="Argon" />
+    <PackageReference Include="DiffEngine" />
+    <PackageReference Include="EmptyFiles" />
+    <PackageReference Include="SimpleInfoName" />
+    <PackageReference Include="Verify" />
     <ProjectReference Include="..\BlazorApp\BlazorApp.csproj" />
     <ProjectReference Include="..\BlazorServerApp\BlazorServerApp.csproj" />
     <ProjectReference Include="..\Verify.Blazor\Verify.Blazor.csproj" />
