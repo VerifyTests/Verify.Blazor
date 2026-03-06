@@ -14,7 +14,7 @@ Verify.Blazor uses the Blazor APIs to take a snapshot (metadata and html) of the
 
 ## Sponsors
 
-include: zzz
+include: sponsors
 
 
 ## NuGet
