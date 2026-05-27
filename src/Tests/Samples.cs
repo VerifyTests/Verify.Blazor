@@ -1,6 +1,5 @@
 ﻿using BlazorApp;
 using Microsoft.AspNetCore.Components;
-using VerifyTests.Blazor;
 using Counter = BlazorServerApp.Pages.Counter;
 
 public class Samples

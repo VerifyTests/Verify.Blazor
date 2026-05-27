@@ -1,8 +1,4 @@
-﻿using ImageMagick;
-using VerifyTests.AngleSharp;
-using VerifyTests.Blazor;
-
-public static class ModuleInitializer
+﻿public static class ModuleInitializer
 {
     [ModuleInitializer]
     public static void Initialize()
@@ -28,9 +24,7 @@ public static class ModuleInitializer
 
         #endregion
 
-        VerifyImageMagick.RegisterComparers(
-            threshold: .01,
-            metric: ErrorMetric.MeanAbsolute);
+        VerifierSettings.UseSsimForPng();
 
         VerifierSettings.InitializePlugins();
     }
