@@ -11,7 +11,7 @@ To change this file edit the source file and then run MarkdownSnippets.
 [![Build status](https://img.shields.io/appveyor/build/SimonCropp/Verify-Blazor)](https://ci.appveyor.com/project/SimonCropp/Verify-Blazor)
 [![NuGet Status](https://img.shields.io/nuget/v/Verify.Blazor.svg?label=Verify.Blazor)](https://www.nuget.org/packages/Verify.Blazor/)
 
-Support for rendering a [Blazor Component](https://docs.microsoft.com/en-us/aspnet/core/blazor/#components) to a verified file via Blazor rendering.
+Support for rendering a [Blazor Component](https://docs.microsoft.com/en-us/aspnet/core/blazor/#components) to a verified file via Blazor rendering.<!-- singleLineInclude: intro. path: /docs/mdsource/intro.include.md -->
 
 
 Verify.Blazor uses the Blazor APIs to take a snapshot (metadata and html) of the current state of a Blazor component. It has fewer dependencies and is a simpler API than [Verify.Bunit approach](https://github.com/VerifyTests/Verify.Bunit), however it does not provide many of the other features, for example [trigger event handlers](https://bunit.egilhansen.com/docs/interaction/trigger-event-handlers.html).
@@ -21,11 +21,15 @@ Verify.Blazor uses the Blazor APIs to take a snapshot (metadata and html) of the
 
 ## Sponsors
 
-### Entity Framework Extensions<!-- include: sponsors. path: /docs/sponsors.include.md -->
+### Entity Framework Extensions<!-- include: sponsors. path: /docs/mdsource/sponsors.include.md -->
 
-[Entity Framework Extensions](https://entityframework-extensions.net/) is a major sponsor and is proud to contribute to the development this project.
+[Entity Framework Extensions](https://entityframework-extensions.net/?utm_source=simoncropp&utm_medium=Verify.Blazor) is a major sponsor and is proud to contribute to the development this project.
 
-[![Entity Framework Extensions](docs/zzz.png)](https://entityframework-extensions.net)<!-- endInclude -->
+[![Entity Framework Extensions](https://raw.githubusercontent.com/VerifyTests/Verify.Blazor/refs/heads/main/docs/zzz.png)](https://entityframework-extensions.net/?utm_source=simoncropp&utm_medium=Verify.Blazor)
+
+### Developed using JetBrains IDEs
+
+[![JetBrains logo.](https://raw.githubusercontent.com/VerifyTests/Verify.Blazor/main/docs/jetbrains.png)](https://jb.gg/OpenSourceSupport)<!-- endInclude -->
 
 
 ## NuGet
@@ -100,7 +104,7 @@ public Task PassingParameters()
     return Verify(target);
 }
 ```
-<sup><a href='/src/Tests/Samples.cs#L16-L40' title='Snippet source file'>snippet source</a> | <a href='#snippet-BlazorComponentTestWithParameters' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L15-L39' title='Snippet source file'>snippet source</a> | <a href='#snippet-BlazorComponentTestWithParameters' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -128,7 +132,7 @@ public Task PassingTemplateInstance()
     return Verify(target);
 }
 ```
-<sup><a href='/src/Tests/Samples.cs#L42-L61' title='Snippet source file'>snippet source</a> | <a href='#snippet-BlazorComponentTestWithTemplateInstance' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L41-L60' title='Snippet source file'>snippet source</a> | <a href='#snippet-BlazorComponentTestWithTemplateInstance' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -210,7 +214,7 @@ VerifierSettings.ScrubLinesWithReplace(
 HtmlPrettyPrint.All();
 VerifierSettings.ScrubLinesContaining("<script src=\"_framework/dotnet.");
 ```
-<sup><a href='/src/Tests/ModuleInitializer.cs#L10-L29' title='Snippet source file'>snippet source</a> | <a href='#snippet-scrubbers' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/ModuleInitializer.cs#L6-L25' title='Snippet source file'>snippet source</a> | <a href='#snippet-scrubbers' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
