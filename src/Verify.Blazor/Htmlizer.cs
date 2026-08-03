@@ -8,8 +8,9 @@ static class Htmlizer
 {
     static readonly HtmlEncoder HtmlEncoder = HtmlEncoder.Default;
 
-    static readonly HashSet<string> SelfClosingElements = new(StringComparer.OrdinalIgnoreCase)
-    {
+    static readonly HashSet<string> SelfClosingElements =
+    [
+        with(StringComparer.OrdinalIgnoreCase),
         "area",
         "base",
         "br",
@@ -24,7 +25,7 @@ static class Htmlizer
         "source",
         "track",
         "wbr"
-    };
+    ];
 
     const string BLAZOR_INTERNAL_ATTR_PREFIX = "__internal_";
     const string BLAZOR_ATTR_PREFIX = "blazor:";
