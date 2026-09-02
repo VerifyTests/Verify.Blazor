@@ -40,13 +40,8 @@ class ContainerComponent :
 
     public Task RenderComponentUnderTest(Type type, ParameterView parameters) =>
         renderer.DispatchAndAssertNoSynchronousErrors(
-            () =>
-            {
-                RenderHandle.Render(builder =>
-                {
-                    Render(type, parameters, builder);
-                });
-            });
+            () => RenderHandle.Render(
+                builder => Render(type, parameters, builder)));
 
     static void Render(Type type, ParameterView parameters, RenderTreeBuilder builder)
     {

@@ -1,5 +1,6 @@
 ﻿global using System.Globalization;
 global using System.Runtime.ExceptionServices;
+global using System.Text.Encodings.Web;
 global using Microsoft.AspNetCore.Components;
 global using Microsoft.AspNetCore.Components.Rendering;
 global using Microsoft.AspNetCore.Components.RenderTree;

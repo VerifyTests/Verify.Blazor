@@ -1,6 +1,4 @@
-﻿using System.Text.Encodings.Web;
-
-/// <summary>
+﻿/// <summary>
 /// This file is based on
 /// https://github.com/egil/bUnit/blob/main/src/bunit.web/Rendering/Internal/Htmlizer.cs
 /// </summary>
