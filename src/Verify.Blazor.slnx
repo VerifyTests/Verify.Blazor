@@ -4,7 +4,6 @@
     <File Path="../readme.source.md" />
     <File Path="../.editorconfig" />
     <File Path="../.gitattributes" />
-    <File Path="appveyor.yml" />
     <File Path="build.targets" />
     <File Path="Directory.Build.props" />
     <File Path="Directory.Packages.props" />
