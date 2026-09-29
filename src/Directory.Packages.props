@@ -10,7 +10,7 @@
     <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="10.0.12" />
     <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="10.0.12" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.10.1" />
-    <PackageVersion Include="ProjectDefaults" Version="1.0.181" />
+    <PackageVersion Include="ProjectDefaults" Version="1.0.182" />
     <PackageVersion Include="Sbom" Version="0.3.1" />
     <PackageVersion Include="Verify" Version="33.1.5" />
     <PackageVersion Include="Verify.AngleSharp" Version="5.1.2" />
